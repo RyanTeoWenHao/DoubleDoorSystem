@@ -1020,16 +1020,25 @@ footer .copyright {
     color: black;
 }
 
-/* Show only the current chapter */
+/* Hide all .hidden links by default */
 .sidebar__menu li.hidden {
-    opacity: 0;
-    visibility: hidden;
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, height 0.2s;
 }
 
-/* On hover, display all chapters */
-.sidebar:hover .hidden {
-    opacity: 1;
-    visibility: visible;
+/* Show all links when sidebar is hovered */
+.sidebar:hover .sidebar__menu li {
+  opacity: 1 !important;
+  visibility: visible !important;
+  height: auto !important;
+  padding: 10px 0 !important;
+  margin-bottom: 20px !important;
+  pointer-events: auto !important;
 }
 
 .main-content {

@@ -39,7 +39,7 @@
 
 <div class="container">
   
-  <aside class="side-bar">
+  <div class="side-bar">
     <ul class="side-bar__menu">
       <li><a href="#project-title">Home</a></li>
       <li><a href="#project-overview">Overview</a></li>
@@ -52,7 +52,7 @@
       <li><a href="#future-scope">Future Scope</a></li>
       <li><a href="#documentation">Documentation</a></li>
     </ul>
-  </aside>
+  </div>
 
   <div class="main-content">
 
@@ -324,11 +324,11 @@
 
         sidebarLinks.forEach(link => {
           const sectionId = link.getAttribute('href').substring(1);
-          const correspondingSection = document.getElementById(sectionId);
+          const li = link.parentElement;
           if (currentSection !== sectionId) {
-            link.classList.add('hidden');
+            li.classList.add('hidden');
           } else {
-            link.classList.remove('hidden');
+            li.classList.remove('hidden');
           }
         });
       }
