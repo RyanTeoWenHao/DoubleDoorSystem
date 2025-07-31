@@ -64,6 +64,7 @@ body {
 /* Navbar */
 .main__nav {
   display: flex;
+  flex-direction: row;
   color: white;
   position: sticky;
   top: 0;
@@ -174,6 +175,7 @@ body {
 }
 .body__move {
   position: relative;
+  padding: 60px 20px;
 }
 
 .mobile__nav div {
@@ -826,11 +828,26 @@ body {
   text-align: center;
   font-size: 3rem;
 }
+/*main content styles*/
 
-/* footer */
 .section-p1 {
-  padding: 40px 80px;
+  margin: 60px 0px !important;
 }
+
+.section-p1 h2 {
+  padding: 40px 80px;
+  text-align: left;
+  font-size: 2.5rem;
+}
+
+.section-p1 p {
+  max-width: 900px; 
+  padding: 40px 80px;
+  font-size: 1.1rem; 
+  line-height: 1.6; 
+  text-align: left;
+}
+
 footer {
   display: flex;
   flex-wrap: wrap;
@@ -887,9 +904,6 @@ footer a:hover {
 footer .copyright {
   width: 100%;
   text-align: center;
-}
-
-@media screen and (max-width: 799px) {
 }
 
 .alert {
@@ -953,4 +967,74 @@ footer .copyright {
   margin-top: 15px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Styling for the sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100vh;
+    background: #f5f5f5;
+    padding: 30px 10px 10px 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.07);
+    overflow-y: auto;
+    z-index: 100;
+}
+
+.sidebar__menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar__menu li {
+    margin-bottom: 20px;
+}
+
+/* Make links look like aesthetic rows */
+.sidebar__menu li a {
+    display: block;
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Active chapter */
+.sidebar__menu li a.active {
+    background-color: #333;
+    color: white;
+}
+
+/* Hover effects */
+.sidebar__menu li a:hover {
+    background-color: #e0e0e0;
+    color: black;
+}
+
+/* Show only the current chapter */
+.sidebar__menu li.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* On hover, display all chapters */
+.sidebar:hover .hidden {
+    opacity: 1;
+    visibility: visible;
+}
+
+.main-content {
+  
+  margin-left: 220px; /* Same as .side-bar width */
+  padding: 30px 20px;
+  background: #fff;
 }
