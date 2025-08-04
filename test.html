@@ -7,13 +7,56 @@
     <title>Double Door Security System</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
     <link rel="icon" href="../images/icons8-galaxy-store-32.png" type="image/png" />
   </head>
 
-  <body
+<style>
+  body { margin: 0; }
+  .side-bar-cards {
+    position: fixed;
+    top: 0;
+    left: -220px;
+    width: 220px;
+    height: 100vh;
+    background: lightgray;
+    padding: 1rem;
+    overflow-y: auto;
+    z-index: 1000;
+     transition: left 0.3s ease;
+  }
+
+  .side-bar-cards:hover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100vh;
+    background: lightgray;
+    padding: 1rem;
+    overflow-y: auto;
+    z-index: 1000;
+  }
+
+  .card {
+    padding: 10px;
+  }
+
+  .card a {
+    color: inherit;
+    text-decoration: none;
+    color: black;
+  }
+
+  .main-content {
+    margin-left: 240px;
+    padding: 2rem;
+  }
+</style>
+
+<body
     data-aos-easing="ease"
     data-aos-duration="400"
     data-aos-delay="0"
@@ -29,29 +72,25 @@
       AOS.init();
     </script>
 
-    <!-- *********************æ******************* 
-*******************Main Page content********** 
-*************************************************-->
-    <section id="project-title" class="section-p1" style="padding: 100px 20px; background-color: #0a0a23; color: white; text-align: center;">
+<section id="project-title" class="section-p1" style="padding: 100px 20px; background-color: #0a0a23; color: white; text-align: center;">
       <h1 style="font-size: 3.5rem; margin-bottom: 10px;">PharmaGate</h1>
       <span style="font-size: 1.5rem; font-weight: 300; text-align: center;">Securing Controlled Drug Access in Hospitals and Labs</span>
     </section>
 
-    <nav class="side-bar-cards">
-      <div class="card"><a href="#project-overview"><h3>Overview</h3></a></div>
-      <div class="card"><a href="#how-it-works"><h3>How It Works</h3></a></div>
-      <div class="card"><a href="#technology-stack"><h3>Technology Stack</h3></a></div>
-      <div class="card"><a href="#features"><h3>Features</h3></a></div>
-      <div class="card"><a href="#challenges-solutions"><h3>Challenges & Solutions</h3></a></div>
-      <div class="card"><a href="#demo-gallery"><h3>Demo / Gallery</h3></a></div>
-      <div class="card"><a href="#team-members"><h3>Team Members</h3></a></div>
-      <div class="card"><a href="#future-scope"><h3>Future Scope</h3></a></div>
-      <div class="card"><a href="#documentation"><h3>Documentation</h3></a></div>
-    </nav>
+<div class="side-bar-cards">
+  <div class="card"><a href="#project-overview"><h3>Overview</h3></a></div>
+  <div class="card"><a href="#how-it-works"><h3>How It Works</h3></a></div>
+  <div class="card"><a href="#technology-stack"><h3>Technology Stack</h3></a></div>
+  <div class="card"><a href="#features"><h3>Features</h3></a></div>
+  <div class="card"><a href="#challenges-solutions"><h3>Challenges & Solutions</h3></a></div>
+  <div class="card"><a href="#demo-gallery"><h3>Demo / Gallery</h3></a></div>
+  <div class="card"><a href="#team-members"><h3>Team Members</h3></a></div>
+  <div class="card"><a href="#future-scope"><h3>Future Scope</h3></a></div>
+  <div class="card"><a href="#documentation"><h3>Documentation</h3></a></div>
+</div>
 
-    <main class="main-content">
-
-    <section id="project-overview" class="section-p1" data-aos="fade-up">
+<div class="main-content">
+  <section id="project-overview" class="section-p1" data-aos="fade-up">
       <h2>📌 Project Overview</h2>
       <p>
         In hospitals and pharmaceutical labs, controlled substances like opioids and research materials require secure access to prevent misuse, theft, or tampering. 
@@ -262,39 +301,10 @@
         📥 Download PDF
       </a>
     </section>
-    <!-- End of Main Page content -->
+</div>
 
-
-
-  </main>
-
-    <!-- Footer section -->
-    <footer style="background-color: #0a0a23; color: white; padding: 40px 20px; text-align: center;">
-      <div style="max-width: 800px; margin: auto;">
-        <h3 style="margin-bottom: 10px;">PharmaGate</h3>
-        <p>Developed as part of Singapore Polytechnic's IoT Security Module</p>
-        
-        <p style="margin-top: 20px;">
-          📧 <a href="mailto:pharmagate@project.com" style="color: #fff; text-decoration: underline;">pharmagate@project.com</a><br />
-          📍 Singapore Polytechnic, School of EEE
-        </p>
-
-        <div style="margin-top: 20px;">
-          <a href="https://github.com/" target="_blank" style="margin: 0 10px; color: white;"><i class="fa fa-github"></i></a>
-          <a href="https://linkedin.com/" target="_blank" style="margin: 0 10px; color: white;"><i class="fa fa-linkedin"></i></a>
-          <a href="https://youtube.com/" target="_blank" style="margin: 0 10px; color: white;"><i class="fa fa-youtube-play"></i></a>
-        </div>
-
-        <p style="margin-top: 30px; font-size: 0.9rem;">© 2025 PharmaGate Team. All rights reserved.</p>
-      </div>
-    </footer>
-
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>AOS.init();</script>
-    <script src="../js/script.js"></script>
-    <script>
-      // Get all sidebar links and sections
+<script>
+          // Get all sidebar links and sections
 const sidebarLinks = document.querySelectorAll('.side-bar-cards .card a');
 const sections = document.querySelectorAll('section');
 
@@ -337,8 +347,6 @@ sidebarLinks.forEach(link => {
 window.addEventListener('scroll', setActiveLink);
 window.addEventListener('load', setActiveLink);
 
-    </script>
+</script>
 
-    <!-- <script src="script.js"></script> -->
-  </body>
-</html>
+</body>
