@@ -2,17 +2,16 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 0;
   height: 100vh;
   font-family: Arial, sans-serif;
   overflow-x: hidden; /* Prevent horizontal scroll */
-}
-
-.body__move {
-  position: relative;
-  padding: 60px 20px;
 }
 
 .fa {
@@ -26,18 +25,15 @@ body {
 }
 
 .section-p1 {
-  margin: 60px 0px ;
+  padding: 0px 80px 40px 80px;
 }
 
 .section-p1 h2 {
-  padding: 40px 80px;
   text-align: left;
   font-size: 2.5rem;
 }
 
 .section-p1 p {
-  max-width: 900px; 
-  padding: 40px 80px;
   font-size: 1.1rem; 
   line-height: 1.6; 
   text-align: left;
@@ -65,20 +61,20 @@ footer a:hover {
   color: #088178;
 }
 
-.side-bar-cards {
-    position: fixed;
-    top: 0;
-    left: -220px;
-    width: 220px;
-    height: 100vh;
-    background: lightgray;
-    padding: 1rem;
-    overflow-y: auto;
-    z-index: 1000;
-     transition: left 0.3s ease;
-  }
+.side-bar {
+  position: fixed;
+  top: 0;
+  left: -200px;
+  width: 220px;
+  height: 100vh;
+  background: lightgray;
+  padding: 1rem;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: left 0.3s ease;
+}
 
-.side-bar-cards:hover {
+.side-bar:hover {
   position: fixed;
   top: 0;
   left: 0;
@@ -90,11 +86,11 @@ footer a:hover {
   z-index: 1000;
 }
 
-.card {
+.side-bar-item {
   padding: 10px;
 }
 
-.card a {
+.side-bar-item a {
   color: inherit;
   text-decoration: none;
   color: black;
@@ -103,6 +99,115 @@ footer a:hover {
 .main-content {
   transition: margin-left 0.3s ease; /* Smooth transition for content shift */
   padding: 30px 20px;
+  min-width: parent;
   min-height: 100vh;
   padding: 2rem;
 }
+
+.card-container {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+  justify-content: center;
+}
+
+.card{
+  position: relative;
+  list-style: none;
+  width: 220px;
+  flex: 1 1 300px;
+  border-radius: 20px;
+  box-shadow: 2px 2px 20px 10px rgba(0, 0, 0, 0.2);;
+  transition: .3s ease;
+  overflow: hidden;
+}
+
+.card::before{
+  content:"";
+  display:block;
+  padding-bottom: 150%;
+  width: 100%;
+}
+
+.card-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 20px;
+  background-size: 350px;
+  background-position: center;
+  filter: brightness(0.9) saturate(1) contrast(1);
+  transition: transform .3s ease;
+}
+
+.card-content {
+  top:65%;
+  left: 0;
+  padding: 25px;
+  position: absolute;
+  transition: top .3s ease;
+}
+
+.card-category {
+  font-size: 24px;
+  color: #000;
+  line-height: 1;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-shadow: 2px 2px 20px rgba(255, 255, 255, 1);
+}
+
+.card-heading {
+  color:#000 ;
+  font-size: 16px;
+  font-weight: 400;
+  text-shadow: 2px 2px 20px rgba(255, 255, 255, 1);
+}
+
+.card:hover .card-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 20px;
+  background-size: 350px;
+  background-position: center;
+  filter: brightness(0.9) saturate(1) contrast(1);
+  transition: transform .3s ease;
+  
+}
+.card:not(:hover) {
+  transform: scale(0.95);
+  transition: transform .3s ease;
+}
+
+.card-container:hover .card:hover {
+  transform: scale(1.05);
+}
+
+.card-container:not(:hover) > .card .card-heading {
+  font-size: 0px;
+  transition: font-size .3s ease;
+}
+
+.card-container:hover > .card:not(:hover) .card-heading {
+  font-size: 0px;
+  transition: font-size .3s ease;
+}
+
+.card-container:hover > .card:hover .card-background{
+  filter: brightness(0.8) saturate(0.5) contrast(1.2) blur(10px);
+  transition: filter .3s ease;
+}
+
+.card-container:hover > .card:hover .card-content {
+  top: 50%;
+  left: 0;
+  padding: 25px;
+  position: absolute;
+  transition: top .3s ease;
+}
+
