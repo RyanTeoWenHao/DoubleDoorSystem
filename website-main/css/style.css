@@ -136,7 +136,7 @@ footer a:hover {
   bottom: 0;
   right: 0;
   border-radius: 20px;
-  background-size: 350px;
+  background-size: cover;
   background-position: center;
   filter: brightness(0.9) saturate(1) contrast(1);
   transition: transform .3s ease;
@@ -173,7 +173,7 @@ footer a:hover {
   bottom: 0;
   right: 0;
   border-radius: 20px;
-  background-size: 350px;
+  background-size: cover;
   background-position: center;
   filter: brightness(0.9) saturate(1) contrast(1);
   transition: transform .3s ease;
