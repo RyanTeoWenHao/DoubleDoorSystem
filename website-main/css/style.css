@@ -25,7 +25,7 @@ body {
 }
 
 .section-p1 {
-  padding: 0px 80px 40px 80px;
+  padding: 20px 80px 20px 80px;
 }
 
 .section-p1 h2 {
@@ -62,38 +62,53 @@ footer a:hover {
 }
 
 .side-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: fixed;
   top: 0;
   left: -200px;
   width: 220px;
   height: 100vh;
-  background: lightgray;
-  padding: 1rem;
+  background: rgba(161, 161, 161, 0.5);
+  backdrop-filter: blur(5px);
+  padding: 5px 20px 5px 20px;
   overflow-y: auto;
   z-index: 1000;
   transition: left 0.3s ease;
 }
 
 .side-bar:hover {
-  position: fixed;
-  top: 0;
   left: 0;
-  width: 220px;
-  height: 100vh;
-  background: lightgray;
-  padding: 1rem;
-  overflow-y: auto;
-  z-index: 1000;
 }
 
 .side-bar-item {
-  padding: 10px;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid rgb(43, 43, 43);
+  box-sizing: border-box;
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+}
+
+.side-bar-item:last-child {
+  border-bottom: none;
 }
 
 .side-bar-item a {
-  color: inherit;
-  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
   color: black;
+  text-decoration: none;
+}
+
+.side-bar-item h3 {
+  margin: 0;
+  width: 100%;
 }
 
 .main-content {
