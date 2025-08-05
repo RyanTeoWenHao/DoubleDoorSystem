@@ -321,7 +321,6 @@ function setActiveLink() {
 
   // Highlight the active link and card in the sidebar
   sidebarLinks.forEach(link => {
-<<<<<<< HEAD
       const href = link.getAttribute('href').substring(1);
       const parent = link.parentElement;
 
@@ -335,18 +334,6 @@ function setActiveLink() {
     });
 }
 window.addEventListener('scroll', setActiveLink);
-=======
-    const href = link.getAttribute('href').substring(1);
-    link.classList.remove('active');
-    link.parentElement.classList.remove('active');
-
-    if (href === currentSection) {
-      link.classList.add('active');
-      link.parentElement.classList.add('active');
-    }
-  });
-}
->>>>>>> cec6431924fe399eb8184252380be98cc2647db6
     </script>
 
     <!-- <script src="script.js"></script> -->
