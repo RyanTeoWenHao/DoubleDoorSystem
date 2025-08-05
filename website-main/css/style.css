@@ -156,7 +156,7 @@ footer a:hover {
 
 .card-container {
   display: flex;
-  gap: 30px;
+  flex-wrap: wrap; 
   width: 100%;
   flex-wrap: wrap;
   justify-content: center;
