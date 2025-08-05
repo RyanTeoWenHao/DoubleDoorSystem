@@ -31,9 +31,14 @@
     <!-- *********************æ******************* 
 *******************Main Page content********** 
 *************************************************-->
-    <section id="project-title" class="section-p1" style="padding: 100px 20px; background-color: #0a0a23; color: white; text-align: center;">
+    <section id="project-title" class="section-p1" style="padding: 100px 20px; background-color: #0a0a23; color: white; text-align: center; position: relative; z-index: 20;" >
       <h1 style="font-size: 3.5rem; margin-bottom: 10px;">PharmaGate</h1>
       <span style="font-size: 1.5rem; font-weight: 300; text-align: center;">Securing Controlled Drug Access in Hospitals and Labs</span>
+      <div class="flex justify-center mt-10">
+        <div class="h-16 flex items-end pb-4 animate-bounce">
+          <i data-feather="chevron-down" class="w-6 h-6 text-gray-500"></i>
+        </div>
+      </div>
     </section>
 
     <div class="side-bar">
@@ -83,10 +88,6 @@
 
     <section id="technology-stack" class="section-p1" data-aos="fade-up">
       <h2>Technology Stack</h2>
-      <p>
-        Our system is built using a combination of embedded hardware, cloud services, and mobile interfaces to deliver a secure and responsive access control experience.
-      </p>
-
       <div style="max-width: 1000px; margin: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; text-align: center;">
         <div>
           <h4>📱 Mobile App</h4>
@@ -161,10 +162,6 @@
 
     <section id="challenges-solutions" class="section-p1" data-aos="fade-up">
       <h2>Challenges & Solutions</h2>
-      <p>
-        During the development of PharmaGate, we encountered several technical and design challenges. Here are a few key ones and how we addressed them.
-      </p>
-
       <div style="max-width: 1000px; margin: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
         <div>
           <h4>🚧 Challenge 1: Real-Time QR Verification</h4>
@@ -198,10 +195,6 @@
 
     <section id="demo-gallery" class="section-p1" data-aos="fade-up">
       <h2>Demo Video / Gallery</h2>
-      <p>
-        Watch our system in action and explore images of the key components and prototype during testing and deployment.
-      </p>
-
       <!-- 📽️ Demo Video Placeholder -->
       <div style="max-width: 800px; margin: 0 auto 40px auto; background-color: #f0f0f0; height: 450px; display: flex; align-items: center; justify-content: center; color: #888;">
         [ Insert Demo Video Here ]
@@ -302,13 +295,15 @@
       </div>
     </footer>
 
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>feather.replace();</script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>AOS.init();</script>
     <script src="../js/script.js"></script>
     <script>
       // Get all sidebar links and sections
-const sidebarLinks = document.querySelectorAll('.side-bar-cards .card a');
+const sidebarLinks = document.querySelectorAll('.side-bar-item a');
 const sections = document.querySelectorAll('section');
 
 // Function to set the active link in the sidebar
@@ -317,39 +312,28 @@ function setActiveLink() {
 
   // Determine the current section based on scroll position
   sections.forEach(section => {
-    const sectionTop = section.offsetTop - 100;
+    const sectionTop = section.offsetTop -100;
     const sectionBottom = sectionTop + section.offsetHeight;
-    if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
+    if (window.scrollY >= sectionTop  && window.scrollY < sectionBottom ) {
       currentSection = section.getAttribute('id');
     }
   });
 
   // Highlight the active link and card in the sidebar
   sidebarLinks.forEach(link => {
-    const href = link.getAttribute('href').substring(1);
-    
-    link.classList.remove('active');
+      const href = link.getAttribute('href').substring(1);
+      const parent = link.parentElement;
 
-    if (href === currentSection) {
-      link.classList.add('active');
-    }
-  });
+      if (href === currentSection) {
+        parent.classList.add('side-bar-item-current');
+        parent.classList.remove('side-bar-item');
+      } else {
+        parent.classList.remove('side-bar-item-current');
+        parent.classList.add('side-bar-item');
+      }
+    });
 }
-
-// Add click event listener for smooth scrolling
-sidebarLinks.forEach(link => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-    const sectionId = link.getAttribute('href').substring(1);
-    const section = document.getElementById(sectionId);
-    section.scrollIntoView({ behavior: 'smooth' });
-  });
-});
-
-// Detect the active section on scroll or page load
 window.addEventListener('scroll', setActiveLink);
-window.addEventListener('load', setActiveLink);
-
     </script>
 
     <!-- <script src="script.js"></script> -->
