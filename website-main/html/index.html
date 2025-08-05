@@ -327,29 +327,15 @@ function setActiveLink() {
   // Highlight the active link and card in the sidebar
   sidebarLinks.forEach(link => {
     const href = link.getAttribute('href').substring(1);
-    
     link.classList.remove('active');
+    link.parentElement.classList.remove('active');
 
     if (href === currentSection) {
       link.classList.add('active');
+      link.parentElement.classList.add('active');
     }
   });
 }
-
-// Add click event listener for smooth scrolling
-sidebarLinks.forEach(link => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-    const sectionId = link.getAttribute('href').substring(1);
-    const section = document.getElementById(sectionId);
-    section.scrollIntoView({ behavior: 'smooth' });
-  });
-});
-
-// Detect the active section on scroll or page load
-window.addEventListener('scroll', setActiveLink);
-window.addEventListener('load', setActiveLink);
-
     </script>
 
     <!-- <script src="script.js"></script> -->
