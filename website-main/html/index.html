@@ -87,35 +87,45 @@
       </div>
     </section>
 
-    <section id="technology-stack" class="section-p1" data-aos="fade-up" style="padding: 60px 20px;">
-      <h2>🧰 Technology Stack</h2>
-      <p>
+    <section id="technology-stack" style="padding: 60px 20px;">
+      <h2 class="header" style="text-align: center; font-size: 2.5rem;">🧰 Technology Stack</h2>
+      <p style="text-align: center; max-width: 800px; margin: 0 auto 40px auto; font-size: 1.1rem;">
         Our system is built using a combination of embedded hardware, cloud services, and mobile interfaces to deliver a secure and responsive access control experience.
       </p>
 
-      <div style="max-width: 1000px; margin: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; text-align: center;">
-        <div>
+      <div style="max-width: 1000px; margin: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
+        <!-- Card 1 -->
+        <div style="flex: 1 1 300px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; margin-top: 20px;">
           <h4>📱 Mobile App</h4>
           <p>QR Code generation and authentication via Firebase</p>
         </div>
-        <div>
+
+        <!-- Card 2 -->
+        <div style="flex: 1 1 300px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; margin-top: 20px;">
           <h4>🔐 Biometric Security</h4>
           <p>Face ID and fingerprint module integration</p>
         </div>
-        <div>
+
+        <!-- Card 3 -->
+        <div style="flex: 1 1 300px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; margin-top: 20px;">
           <h4>🌡️ Environmental Sensors</h4>
           <p>DHT22, LM35, PIR, IR, and ultrasonic sensors</p>
         </div>
-        <div>
+
+        <!-- Card 4 -->
+        <div style="flex: 1 1 300px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; margin-top: 20px;">
           <h4>💻 Microcontrollers</h4>
           <p>ESP32-CAM and ESP8266 for device control and cloud communication</p>
         </div>
-        <div>
+
+        <!-- Card 5 -->
+        <div style="flex: 1 1 300px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; margin-top: 20px;">
           <h4>☁️ Cloud Platform</h4>
           <p>ThingSpeak for data visualization and monitoring</p>
         </div>
       </div>
     </section>
+
 
     <section id="features" class="section-p1" data-aos="fade-up" style="padding: 60px 20px;">
       <h2>🚪 Key Features</h2>
@@ -163,42 +173,47 @@
     </section>
 
 
-    <section id="challenges-solutions" class="section-p1" data-aos="fade-up" style="padding: 60px 20px;">
-      <h2>🛠️ Challenges & Solutions</h2>
-      <p>
+    <section id="challenges-solutions" style="padding: 60px 20px;">
+      <h2 class="header" style="text-align: center; font-size: 2.5rem;">🛠️ Challenges & Solutions</h2>
+      <p style="text-align: center; max-width: 800px; margin: 0 auto 40px auto; font-size: 1.1rem;">
         During the development of PharmaGate, we encountered several technical and design challenges. Here are a few key ones and how we addressed them.
       </p>
 
-      <div style="max-width: 1000px; margin: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
-        <div>
+      <div style="max-width: 1000px; margin: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
+        <!-- Card 1 -->
+        <div style="flex: 1 1 300px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; margin-top: 20px;">
           <h4>🚧 Challenge 1: Real-Time QR Verification</h4>
           <p>Ensuring QR codes generated on the app are immediately recognized and verified by the door system.</p>
-          <h4>✅ Solution:</h4>
+          <h5>✅ Solution:</h5>
           <p>Integrated Firebase Realtime Database with asynchronous checking on ESP8266 using polling and timed validation.</p>
         </div>
 
-        <div>
+        <!-- Card 2 -->
+        <div style="flex: 1 1 300px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; margin-top: 20px;">
           <h4>🚧 Challenge 2: Sensor Fusion Accuracy</h4>
           <p>Different sensors gave inconsistent readings in crowded environments.</p>
-          <h4>✅ Solution:</h4>
+          <h5>✅ Solution:</h5>
           <p>Combined multiple sensor types (IR + Ultrasonic + PIR) to confirm occupancy and reduce false positives.</p>
         </div>
 
-        <div>
+        <!-- Card 3 -->
+        <div style="flex: 1 1 300px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; margin-top: 20px;">
           <h4>🚧 Challenge 3: Biometric Module Integration</h4>
           <p>Difficulty in matching fingerprint/face data with existing authentication flow.</p>
-          <h4>✅ Solution:</h4>
+          <h5>✅ Solution:</h5>
           <p>Developed a separate verification module with a pass-through validation signal to unify the access logic.</p>
         </div>
 
-        <div>
+        <!-- Card 4 -->
+        <div style="flex: 1 1 300px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; margin-top: 20px;">
           <h4>🚧 Challenge 4: Data Visualization & Logging</h4>
           <p>Storing and viewing user access logs securely in real-time.</p>
-          <h4>✅ Solution:</h4>
+          <h5>✅ Solution:</h5>
           <p>Used ThingSpeak with public/private API keys and time-series widgets to log, protect, and view events.</p>
         </div>
       </div>
     </section>
+
 
     <section id="demo-gallery" class="section-p1" data-aos="fade-up" style="padding: 60px 20px;">
       <h2>🎥 Demo Video / Gallery</h2>
