@@ -15,8 +15,8 @@
 
   <body
     data-aos-easing="ease"
-    data-aos-duration="400"
-    data-aos-delay="0"
+    data-aos-duration="2000"
+    data-aos-delay="2000"
     style="min-height: 100vh;"
   >
 
@@ -28,19 +28,41 @@
       AOS.init();
     </script>
 
-    <!-- *********************æ******************* 
+    <!-- *********************æ******************* S
 *******************Main Page content********** 
 *************************************************-->
-    <section id="project-title" class="section-p1" style="padding: 100px 20px; background-color: #0a0a23; color: white; text-align: center; position: relative; z-index: 20;" >
-      <h1 style="font-size: 3.5rem; margin-bottom: 10px;">PharmaGate</h1>
-      <span style="font-size: 1.5rem; font-weight: 300; text-align: center;">Securing Controlled Drug Access in Hospitals and Labs</span>
-      <div class="flex justify-center mt-10">
-        <div class="h-16 flex items-end pb-4 animate-bounce">
-          <i data-feather="chevron-down" class="w-6 h-6 text-gray-500"></i>
-        </div>
+    <section id="project-title" class="section-p1" style="padding: 0; background-color: #0a0a2344; color: white;" >
+      <div class="background" style="background-image: url(../images/homepage/0.png);">
+        <div style="z-index: 20; width: 100vw; position: absolute;top: 42.5%;left: 0; text-align: left; rotate: 9.9deg; overflow: hidden;">
+        <h1 style="
+          position:relative;
+          top:160px;
+          font-size:10rem;
+          margin: 0;
+          text-shadow: 10px 10px 20px rgb(0, 0, 0, 0.3);
+          animation:slideUp 2s ease-in-out forwards;">
+          PHARMAGATE
+        </h1>
       </div>
+      <div style="z-index: 20; width: 100vw; position: absolute;top: 59.5%;left: 0; text-align: left; rotate: 9.9deg; overflow: hidden;">
+        <p style="
+          position:relative;
+          top:-80px;
+          font-size: 3rem;
+          width: 100vw;
+          font-weight: 300; 
+          text-shadow: 5px 5px 8px rgb(0, 0, 0, 0.5);
+          margin-top: 10px;
+          overflow: hidden;
+          text-wrap: nowrap;
+          animation:slideDown 2s ease-in-out forwards;">
+          Securing Your Place With The Perfect Door
+        </p>
+      </div>
+      </div>
+      
     </section>
-
+    <div class="content">
     <div class="side-bar">
       <div class="side-bar-item"><a href="#project-overview"><h3>Overview</h3></a></div>
       <div class="side-bar-item"><a href="#how-it-works"><h3>How It Works</h3></a></div>
@@ -55,7 +77,7 @@
 
     <main class="main-content">
 
-    <section id="project-overview" class="section-p1" data-aos="fade-up">
+    <section id="project-overview" class="section-p1" data-aos="fade">
       <h2>Project Overview</h2>
       <p>
         In hospitals and pharmaceutical labs, controlled substances like opioids and research materials require secure access to prevent misuse, theft, or tampering. 
@@ -68,7 +90,7 @@
       </p>
     </section>
 
-    <section id="how-it-works" class="section-p1" data-aos="fade-up">
+    <section id="how-it-works" class="section-p1" data-aos="fade">
       <h2>How It Works</h2>
       <p>
         PharmaGate is a smart double-door access control system designed for high-security environments like hospitals and pharmaceutical labs. 
@@ -86,7 +108,7 @@
       </div>
     </section>
 
-    <section id="technology-stack" class="section-p1" data-aos="fade-up">
+    <section id="technology-stack" class="section-p1" data-aos="fade">
       <h2>Technology Stack</h2>
       <div style="max-width: 1000px; margin: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; text-align: center;">
         <div>
@@ -113,9 +135,8 @@
     </section>
 
     <section id="features" class="section-p1" data-aos="fade-up">
-      <h2>Key Features</h2>
       <div class="card-container">
-        <div class="card">
+        <div class="card" >
           <div class="card-background" style="background-image: url(../images/features/feature1.png);"></div>
           <div class="card-content">
             <div class="card-category">Dual-Door Access Control</div>
@@ -123,11 +144,11 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-background" style="background-image: url(../images/features/feature2.png);"></div>
           <div class="card-content">
             <div class="card-category">App-Based QR Login</div>
             <h3 class="card-heading">Access codes are validated securely through a mobile application.</h3>
           </div>
+          <div class="card-background" style="background-image: url(../images/features/feature2.png);"></div>
         </div>
         <div class="card">
           <div class="card-background" style="background-image: url(../images/features/feature3.png);"></div>
@@ -137,11 +158,11 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-background" style="background-image: url(../images/features/feature4.png);"></div>
           <div class="card-content">
             <div class="card-category">Tailgating Detection</div>
             <h3 class="card-heading">Ultrasonic and IR sensors detect if multiple people enter improperly.</h3>
           </div>
+          <div class="card-background" style="background-image: url(../images/features/feature4.png);"></div>
         </div>
         <div class="card">
           <div class="card-background" style="background-image: url(../images/features/feature5.png);"></div>
@@ -151,16 +172,16 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-background" style="background-image: url(../images/features/feature6.png);"></div>
           <div class="card-content">
             <div class="card-category">Cloud Dashboard (ThingSpeak)</div>
             <h3 class="card-heading">Real-time access logs and alerts visualized securely on the cloud.</h3>
           </div>
+          <div class="card-background" style="background-image: url(../images/features/feature6.png);"></div>
         </div>
       </div>
     </section>
 
-    <section id="challenges-solutions" class="section-p1" data-aos="fade-up">
+    <section id="challenges-solutions" class="section-p1" data-aos="fade">
       <h2>Challenges & Solutions</h2>
       <div style="max-width: 1000px; margin: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
         <div>
@@ -193,7 +214,7 @@
       </div>
     </section>
 
-    <section id="demo-gallery" class="section-p1" data-aos="fade-up">
+    <section id="demo-gallery" class="section-p1" data-aos="fade">
       <h2>Demo Video / Gallery</h2>
       <!-- 📽️ Demo Video Placeholder -->
       <div style="max-width: 800px; margin: 0 auto 40px auto; background-color: #f0f0f0; height: 450px; display: flex; align-items: center; justify-content: center; color: #888;">
@@ -213,7 +234,7 @@
         </div>
       </div>
     </section>
-  <section id="team-members" class="section-p1" data-aos="fade-up">
+  <section id="team-members" class="section-p1" data-aos="fade">
     <h2>Team Members</h2>
     <p>
       Meet the team behind PharmaGate. Each member contributed to different aspects of design, implementation, and integration of the system.
@@ -243,7 +264,7 @@
     </div>
   </section>
 
-  <section id="future-scope" class="section-p1" data-aos="fade-up">
+  <section id="future-scope" class="section-p1" data-aos="fade">
       <h2>Future Scope</h2>
       <p>
         The current implementation of PharmaGate establishes a solid foundation for secure access control in critical environments. 
@@ -273,6 +294,8 @@
 
 
   </main>
+  </div>
+
 
     <!-- Footer section -->
     <footer style="background-color: #0a0a23; color: white; padding: 40px 20px; text-align: center;">
@@ -295,46 +318,57 @@
       </div>
     </footer>
 
-    <script src="https://unpkg.com/feather-icons"></script>
     <script>feather.replace();</script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>AOS.init();</script>
     <script src="../js/script.js"></script>
-    <script>
-      // Get all sidebar links and sections
-const sidebarLinks = document.querySelectorAll('.side-bar-item a');
-const sections = document.querySelectorAll('section');
+    <script>  
+      const sidebarLinks = document.querySelectorAll('.side-bar-item a');
+      const sections = document.querySelectorAll('.section-p1');
 
-// Function to set the active link in the sidebar
-function setActiveLink() {
-  let currentSection = null;
+      function setActiveLink() {
+        let currentSection = null;
 
-  // Determine the current section based on scroll position
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop -100;
-    const sectionBottom = sectionTop + section.offsetHeight;
-    if (window.scrollY >= sectionTop  && window.scrollY < sectionBottom ) {
-      currentSection = section.getAttribute('id');
-    }
-  });
+        // Determine the current section based on scroll position
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop -100;
+          const sectionBottom = sectionTop + section.offsetHeight;
+          if (window.scrollY >= sectionTop  && window.scrollY < sectionBottom ) {
+            currentSection = section.getAttribute('id');
+          }
 
-  // Highlight the active link and card in the sidebar
-  sidebarLinks.forEach(link => {
-      const href = link.getAttribute('href').substring(1);
-      const parent = link.parentElement;
+        });
 
-      if (href === currentSection) {
-        parent.classList.add('side-bar-item-current');
-        parent.classList.remove('side-bar-item');
-      } else {
-        parent.classList.remove('side-bar-item-current');
-        parent.classList.add('side-bar-item');
+        // Highlight the active link and card in the sidebar
+        sidebarLinks.forEach(link => {
+          const href = link.getAttribute('href').substring(1);
+          const parent = link.parentElement;
+
+          if (href === currentSection) {
+            parent.classList.add('side-bar-item-current');
+            parent.classList.remove('side-bar-item');
+          } else {
+            parent.classList.remove('side-bar-item-current');
+            parent.classList.add('side-bar-item');
+          }
+        });
       }
-    });
-}
-window.addEventListener('scroll', setActiveLink);
+      window.addEventListener('scroll', setActiveLink);
+    
     </script>
+    <script>
+      const sidebar = document.querySelector('.side-bar');
+      const main = document.querySelector('.main-content');
+
+      sidebar.addEventListener('mouseenter', () => {
+        main.classList.add('sidebar-expanded');
+     });
+
+      sidebar.addEventListener('mouseleave', () => {
+        main.classList.remove('sidebar-expanded');
+      });
+  </script>
 
     <!-- <script src="script.js"></script> -->
   </body>

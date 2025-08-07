@@ -4,12 +4,13 @@
 
 html {
   scroll-behavior: smooth;
+  height: auto;
+  width: 100vw;
 }
 
 body {
   margin: 0;
   padding: 0;
-  height: 100vh;
   font-family: Arial, sans-serif;
   overflow-x: hidden; /* Prevent horizontal scroll */
 }
@@ -25,16 +26,21 @@ body {
 }
 
 .main-content {
-  padding: 30px 20px;
-  min-height: 100vh;
+  transition: margin-left 0.5s ease;
+}
+
+
+.sidebar-expanded {
+  margin-left: 220px;
 }
 
 .section-p1 {
-  padding: 150px 50px 150px 300px;
-  height: 100vh;
+  padding: 0px 150px 0px 150px;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  transition: all 0.3s ease;
 }
 
 .section-p1 h2 {
@@ -76,14 +82,20 @@ footer a:hover {
   position: fixed;
   top: 30%;
   bottom: 30%;
-  left: 0px;
-  width: 220px;
+  left: 30px;
+  width: 50px;
+  overflow: hidden;
   gap: 20px;
   z-index: 10;
+  transition: width 1s ease;
+}
+
+.side-bar:hover {
+  width: 220px;
+  transition: width 1s ease;
 }
 
 .side-bar-item {
-  margin-left: 30px;
   height: 30px;
   overflow: hidden;
   white-space: nowrap;
@@ -101,7 +113,6 @@ footer a:hover {
 }
 
 .side-bar-item-current {
-  margin-left: 30px;
   padding: 0px 0px 0px 5px;
   border-left: black 3px solid;
   height: 80px;
@@ -109,20 +120,29 @@ footer a:hover {
 }
 
 .side-bar-item a h3 {
+  position: relative;
+  left: -300px;
   font-size: 1.2rem;
   color: rgb(196, 196, 196);
   margin: 0;
   padding: 10px 0;
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease,  left 1s ease;
 }
 
 .side-bar-item-current a h3 {
+  position: relative;
+  left: -300px;
   font-size: 1.2rem;
   color:#000;
   transform: scale(1.1);
   margin: 0;
   padding: 10px 0;
-  transition: color 0.3s ease, transform 0.5s ease;
+  transition: color 0.3s ease, transform 0.5s ease, left 1s ease;
+}
+
+.side-bar:hover > .side-bar-item a h3, .side-bar:hover > .side-bar-item-current a h3{
+  left: 0px;
+  transition: left 1s ease, color 0.3s ease, transform 0.5s ease;
 }
 
 .side-bar-item:hover h3 {
@@ -156,50 +176,67 @@ footer a:hover {
 
 .card-container {
   display: flex;
-  flex-wrap: wrap; 
+  flex-direction: column;
   width: 100%;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .card {
-  flex: 1 1 300px; /* Adjust width to fit three cards in a row */
-  justify-content: center; 
-  gap: 30px; 
-  min-width: 300px;
-  max-height: 400px;
-  margin: auto;
   border-radius: 20px;
-  box-shadow: 2px 2px 20px 10px rgba(0, 0, 0, 0.2);
   transition: .3s ease;
-  overflow: hidden;
-}
-
-.card::before{
-  content:"";
-  display:block;
-  padding-bottom: 150%;
-  width: 100%;
+  height: 50vh;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .card-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  flex: 1 1 auto;
+  width : auto;
+  height: 100%;
   border-radius: 20px;
   background-size: cover;
   background-position: center;
-  filter: brightness(0.9) saturate(1) contrast(1);
   transition: transform .3s ease;
 }
 
-.card-content {
-  top:65%;
-  left: 0;
-  padding: 25px;
+.background {
   position: absolute;
+  top: 0;
+  right: 0; 
+  height: 1080px;
+  width: 1920px;
+  z-index: 15;
+  background-size: cover;
+  transition: transform .3s ease;
+}
+
+.title{
+  text-align:left;
+  font-size:10rem;
+  margin: 0;
+  text-shadow: 10px 10px 20px rgb(0, 0, 0, 0.3);
+  animation:slideUp 2s ease-in-out forwards;
+}
+
+.title-description{
+  position:relative;
+  top:-80px;
+  font-size: 3rem;
+  width: 100vw;
+  font-weight: 300; 
+  text-shadow: 5px 5px 8px rgb(0, 0, 0, 0.5);
+  margin-top: 10px;
+  overflow: hidden;
+  text-wrap: nowrap;
+  animation:slideDown 2s ease-in-out forwards;
+}
+
+.card-content {
+  flex: 1 1 auto;
+  padding: 25px;
+  text-align: center;
   transition: top .3s ease;
 }
 
@@ -219,48 +256,29 @@ footer a:hover {
   text-shadow: 2px 2px 20px rgba(255, 255, 255, 1);
 }
 
-.card:hover .card-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  border-radius: 20px;
-  background-size: cover;
-  background-position: center;
-  filter: brightness(0.9) saturate(1) contrast(1);
-  transition: transform .3s ease;
-  
-}
 .card:not(:hover) {
   transform: scale(0.95);
   transition: transform .3s ease;
 }
 
-.card-container:hover .card:hover {
+.card-background:hover, .card:hover {
   transform: scale(1.05);
 }
 
-.card-container:not(:hover) > .card .card-heading {
-  font-size: 0px;
-  transition: font-size .3s ease;
+@keyframes slideUp {
+    0% {
+        top: 160px;
+    }
+    100% {
+        top: 0px;
+    }
 }
 
-.card-container:hover > .card:not(:hover) .card-heading {
-  font-size: 0px;
-  transition: font-size .3s ease;
+@keyframes slideDown {
+    0% {
+        top: -80px;
+    }
+    100% {
+        top: 0px;
+    }
 }
-
-.card-container:hover > .card:hover .card-background{
-  filter: brightness(0.8) saturate(0.5) contrast(1.2) blur(10px);
-  transition: filter .3s ease;
-}
-
-.card-container:hover > .card:hover .card-content {
-  top: 50%;
-  left: 0;
-  padding: 25px;
-  position: absolute;
-  transition: top .3s ease;
-}
-
