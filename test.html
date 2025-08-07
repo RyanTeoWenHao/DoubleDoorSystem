@@ -7,16 +7,62 @@
     <title>Double Door Security System</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
     <link rel="icon" href="../images/icons8-galaxy-store-32.png" type="image/png" />
   </head>
 
-  <body
+<style>
+  body { margin: 0; }
+  .side-bar-cards {
+    position: fixed;
+    top: 0;
+    left: -220px;
+    width: 220px;
+    height: 100vh;
+    background: lightgray;
+    padding: 1rem;
+    overflow-y: auto;
+    z-index: 1000;
+     transition: left 0.3s ease;
+  }
+
+  .side-bar-cards:hover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100vh;
+    background: lightgray;
+    padding: 1rem;
+    overflow-y: auto;
+    z-index: 1000;
+  }
+
+  .card {
+    padding: 10px;
+    border-bottom: 3px ;
+    border-color: #0a0a23;
+  }
+
+  .card a {
+    color: inherit;
+    text-decoration: none;
+    color: black;
+  }
+
+  .main-content {
+    margin-left: 240px;
+    padding: 2rem;
+  }
+</style>
+
+<body
     data-aos-easing="ease"
     data-aos-duration="400"
     data-aos-delay="0"
+    class="body__move"
     style="min-height: 100vh;"
   >
 
@@ -28,35 +74,26 @@
       AOS.init();
     </script>
 
-    <!-- *********************æ******************* 
-*******************Main Page content********** 
-*************************************************-->
-    <section id="project-title" class="section-p1" style="padding: 100px 20px; background-color: #0a0a23; color: white; text-align: center; position: relative; z-index: 20;" >
+<section id="project-title" class="section-p1" style="padding: 100px 20px; background-color: #0a0a23; color: white; text-align: center;">
       <h1 style="font-size: 3.5rem; margin-bottom: 10px;">PharmaGate</h1>
       <span style="font-size: 1.5rem; font-weight: 300; text-align: center;">Securing Controlled Drug Access in Hospitals and Labs</span>
-      <div class="flex justify-center mt-10">
-        <div class="h-16 flex items-end pb-4 animate-bounce">
-          <i data-feather="chevron-down" class="w-6 h-6 text-gray-500"></i>
-        </div>
-      </div>
     </section>
 
-    <div class="side-bar">
-      <div class="side-bar-item"><a href="#project-overview"><h3>Overview</h3></a></div>
-      <div class="side-bar-item"><a href="#how-it-works"><h3>How It Works</h3></a></div>
-      <div class="side-bar-item"><a href="#technology-stack"><h3>Technology Stack</h3></a></div>
-      <div class="side-bar-item"><a href="#features"><h3>Features</h3></a></div>
-      <div class="side-bar-item"><a href="#challenges-solutions"><h3>Challenges & Solutions</h3></a></div>
-      <div class="side-bar-item"><a href="#demo-gallery"><h3>Demo / Gallery</h3></a></div>
-      <div class="side-bar-item"><a href="#team-members"><h3>Team Members</h3></a></div>
-      <div class="side-bar-item"><a href="#future-scope"><h3>Future Scope</h3></a></div>
-      <div class="side-bar-item"><a href="#documentation"><h3>Documentation</h3></a></div>
-    </div>
+<div class="side-bar-cards">
+  <div class="card"><a href="#project-overview"><h3>Overview</h3></a></div>
+  <div class="card"><a href="#how-it-works"><h3>How It Works</h3></a></div>
+  <div class="card"><a href="#technology-stack"><h3>Technology Stack</h3></a></div>
+  <div class="card"><a href="#features"><h3>Features</h3></a></div>
+  <div class="card"><a href="#challenges-solutions"><h3>Challenges & Solutions</h3></a></div>
+  <div class="card"><a href="#demo-gallery"><h3>Demo / Gallery</h3></a></div>
+  <div class="card"><a href="#team-members"><h3>Team Members</h3></a></div>
+  <div class="card"><a href="#future-scope"><h3>Future Scope</h3></a></div>
+  <div class="card"><a href="#documentation"><h3>Documentation</h3></a></div>
+</div>
 
-    <main class="main-content">
-
-    <section id="project-overview" class="section-p1" data-aos="fade-up">
-      <h2>Project Overview</h2>
+<div class="main-content">
+  <section id="project-overview" class="section-p1" data-aos="fade-up">
+      <h2>📌 Project Overview</h2>
       <p>
         In hospitals and pharmaceutical labs, controlled substances like opioids and research materials require secure access to prevent misuse, theft, or tampering. 
         <br /><br />
@@ -68,8 +105,8 @@
       </p>
     </section>
 
-    <section id="how-it-works" class="section-p1" data-aos="fade-up">
-      <h2>How It Works</h2>
+    <section id="how-it-works" class="section-p1" data-aos="fade-up" style="padding: 60px 20px;">
+      <h2>⚙️ How It Works</h2>
       <p>
         PharmaGate is a smart double-door access control system designed for high-security environments like hospitals and pharmaceutical labs. 
         The system starts with QR code verification using a mobile app, followed by biometric authentication such as face ID and fingerprint scanning.
@@ -86,53 +123,35 @@
       </div>
     </section>
 
-<<<<<<< HEAD
-    <section id="technology-stack" style="padding: 60px 20px;">
-      <h2 class="header" style="text-align: center; font-size: 2.5rem;">🧰 Technology Stack</h2>
-      <p style="text-align: center; max-width: 800px; margin: 0 auto 40px auto; font-size: 1.1rem;">
+    <section id="technology-stack" class="section-p1" data-aos="fade-up" style="padding: 60px 20px;">
+      <h2>🧰 Technology Stack</h2>
+      <p>
         Our system is built using a combination of embedded hardware, cloud services, and mobile interfaces to deliver a secure and responsive access control experience.
       </p>
 
-      <div style="max-width: 1000px; margin: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
-        <!-- Card 1 -->
-        <div style="flex: 1 1 300px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; margin-top: 20px;">
-=======
-    <section id="technology-stack" class="section-p1" data-aos="fade-up">
-      <h2>Technology Stack</h2>
       <div style="max-width: 1000px; margin: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; text-align: center;">
         <div>
->>>>>>> 92759d5fb76ee19f8ca34764bfe17bf37c8b43a3
           <h4>📱 Mobile App</h4>
           <p>QR Code generation and authentication via Firebase</p>
         </div>
-
-        <!-- Card 2 -->
-        <div style="flex: 1 1 300px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; margin-top: 20px;">
+        <div>
           <h4>🔐 Biometric Security</h4>
           <p>Face ID and fingerprint module integration</p>
         </div>
-
-        <!-- Card 3 -->
-        <div style="flex: 1 1 300px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; margin-top: 20px;">
+        <div>
           <h4>🌡️ Environmental Sensors</h4>
           <p>DHT22, LM35, PIR, IR, and ultrasonic sensors</p>
         </div>
-
-        <!-- Card 4 -->
-        <div style="flex: 1 1 300px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; margin-top: 20px;">
+        <div>
           <h4>💻 Microcontrollers</h4>
           <p>ESP32-CAM and ESP8266 for device control and cloud communication</p>
         </div>
-
-        <!-- Card 5 -->
-        <div style="flex: 1 1 300px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; margin-top: 20px;">
+        <div>
           <h4>☁️ Cloud Platform</h4>
           <p>ThingSpeak for data visualization and monitoring</p>
         </div>
       </div>
     </section>
-
-<<<<<<< HEAD
 
     <section id="features" class="section-p1" data-aos="fade-up" style="padding: 60px 20px;">
       <h2>🚪 Key Features</h2>
@@ -141,140 +160,69 @@
       </p>
 
       <div style="max-width: 1000px; margin: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
-        <!-- Card 1 -->
-        <div style="flex: 1 1 300px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+        <div style="flex: 1 1 300px;">
           <h4>✅ Dual-Door Access Control</h4>
           <p>Ensures sequential access using two separate validation stages.</p>
         </div>
-
-        <!-- Card 2 -->
-        <div style="flex: 1 1 300px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+        <div style="flex: 1 1 300px;">
           <h4>✅ App-Based QR Login</h4>
           <p>Access codes are validated securely through a mobile application.</p>
         </div>
-
-        <!-- Card 3 -->
-        <div style="flex: 1 1 300px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+        <div style="flex: 1 1 300px;">
           <h4>✅ Biometric Verification</h4>
           <p>Face ID and fingerprint verification before unlocking second door.</p>
         </div>
-
-        <!-- Card 4 -->
-        <div style="flex: 1 1 300px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+        <div style="flex: 1 1 300px;">
           <h4>✅ Tailgating Detection</h4>
           <p>Ultrasonic and IR sensors detect if multiple people enter improperly.</p>
         </div>
-
-        <!-- Card 5 -->
-        <div style="flex: 1 1 300px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+        <div style="flex: 1 1 300px;">
           <h4>✅ Fire Detection Auto-Unlock</h4>
           <p>Temperature and humidity sensors trigger emergency evacuation mode.</p>
         </div>
-
-        <!-- Card 6 -->
-        <div style="flex: 1 1 300px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+        <div style="flex: 1 1 300px;">
           <h4>✅ Cloud Dashboard (ThingSpeak)</h4>
           <p>Real-time access logs and alerts visualized securely on the cloud.</p>
-=======
-    <section id="features" class="section-p1" data-aos="fade-up">
-      <h2>Key Features</h2>
-      <div class="card-container">
-        <div class="card">
-          <div class="card-background" style="background-image: url(../images/features/feature1.png);"></div>
-          <div class="card-content">
-            <div class="card-category">Dual-Door Access Control</div>
-            <h3 class="card-heading">Ensures sequential access using two separate validation stages.</h3>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-background" style="background-image: url(../images/features/feature2.png);"></div>
-          <div class="card-content">
-            <div class="card-category">App-Based QR Login</div>
-            <h3 class="card-heading">Access codes are validated securely through a mobile application.</h3>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-background" style="background-image: url(../images/features/feature3.png);"></div>
-          <div class="card-content">
-            <div class="card-category">Biometric Verification</div>
-            <h3 class="card-heading">Face ID and fingerprint verification before unlocking second door.</h3>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-background" style="background-image: url(../images/features/feature4.png);"></div>
-          <div class="card-content">
-            <div class="card-category">Tailgating Detection</div>
-            <h3 class="card-heading">Ultrasonic and IR sensors detect if multiple people enter improperly.</h3>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-background" style="background-image: url(../images/features/feature5.png);"></div>
-          <div class="card-content">
-            <div class="card-category">Fire Detection Auto-Unlock</div>
-            <h3 class="card-heading">Temperature and humidity sensors trigger emergency evacuation mode.</h3>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-background" style="background-image: url(../images/features/feature6.png);"></div>
-          <div class="card-content">
-            <div class="card-category">Cloud Dashboard (ThingSpeak)</div>
-            <h3 class="card-heading">Real-time access logs and alerts visualized securely on the cloud.</h3>
-          </div>
->>>>>>> 92759d5fb76ee19f8ca34764bfe17bf37c8b43a3
         </div>
       </div>
     </section>
 
-<<<<<<< HEAD
-
-    <section id="challenges-solutions" style="padding: 60px 20px;">
-      <h2 class="header" style="text-align: center; font-size: 2.5rem;">🛠️ Challenges & Solutions</h2>
-      <p style="text-align: center; max-width: 800px; margin: 0 auto 40px auto; font-size: 1.1rem;">
+    <section id="challenges-solutions" class="section-p1" data-aos="fade-up" style="padding: 60px 20px;">
+      <h2>🛠️ Challenges & Solutions</h2>
+      <p>
         During the development of PharmaGate, we encountered several technical and design challenges. Here are a few key ones and how we addressed them.
       </p>
 
-      <div style="max-width: 1000px; margin: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
-        <!-- Card 1 -->
-        <div style="flex: 1 1 300px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; margin-top: 20px;">
-=======
-    <section id="challenges-solutions" class="section-p1" data-aos="fade-up">
-      <h2>Challenges & Solutions</h2>
       <div style="max-width: 1000px; margin: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
         <div>
->>>>>>> 92759d5fb76ee19f8ca34764bfe17bf37c8b43a3
           <h4>🚧 Challenge 1: Real-Time QR Verification</h4>
           <p>Ensuring QR codes generated on the app are immediately recognized and verified by the door system.</p>
-          <h5>✅ Solution:</h5>
+          <h4>✅ Solution:</h4>
           <p>Integrated Firebase Realtime Database with asynchronous checking on ESP8266 using polling and timed validation.</p>
         </div>
 
-        <!-- Card 2 -->
-        <div style="flex: 1 1 300px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; margin-top: 20px;">
+        <div>
           <h4>🚧 Challenge 2: Sensor Fusion Accuracy</h4>
           <p>Different sensors gave inconsistent readings in crowded environments.</p>
-          <h5>✅ Solution:</h5>
+          <h4>✅ Solution:</h4>
           <p>Combined multiple sensor types (IR + Ultrasonic + PIR) to confirm occupancy and reduce false positives.</p>
         </div>
 
-        <!-- Card 3 -->
-        <div style="flex: 1 1 300px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; margin-top: 20px;">
+        <div>
           <h4>🚧 Challenge 3: Biometric Module Integration</h4>
           <p>Difficulty in matching fingerprint/face data with existing authentication flow.</p>
-          <h5>✅ Solution:</h5>
+          <h4>✅ Solution:</h4>
           <p>Developed a separate verification module with a pass-through validation signal to unify the access logic.</p>
         </div>
 
-        <!-- Card 4 -->
-        <div style="flex: 1 1 300px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; margin-top: 20px;">
+        <div>
           <h4>🚧 Challenge 4: Data Visualization & Logging</h4>
           <p>Storing and viewing user access logs securely in real-time.</p>
-          <h5>✅ Solution:</h5>
+          <h4>✅ Solution:</h4>
           <p>Used ThingSpeak with public/private API keys and time-series widgets to log, protect, and view events.</p>
         </div>
       </div>
     </section>
-
-<<<<<<< HEAD
 
     <section id="demo-gallery" class="section-p1" data-aos="fade-up" style="padding: 60px 20px;">
       <h2>🎥 Demo Video / Gallery</h2>
@@ -282,10 +230,6 @@
         Watch our system in action and explore images of the key components and prototype during testing and deployment.
       </p>
 
-=======
-    <section id="demo-gallery" class="section-p1" data-aos="fade-up">
-      <h2>Demo Video / Gallery</h2>
->>>>>>> 92759d5fb76ee19f8ca34764bfe17bf37c8b43a3
       <!-- 📽️ Demo Video Placeholder -->
       <div style="max-width: 800px; margin: 0 auto 40px auto; background-color: #f0f0f0; height: 450px; display: flex; align-items: center; justify-content: center; color: #888;">
         [ Insert Demo Video Here ]
@@ -304,8 +248,8 @@
         </div>
       </div>
     </section>
-  <section id="team-members" class="section-p1" data-aos="fade-up">
-    <h2>Team Members</h2>
+  <section id="team-members" class="section-p1" data-aos="fade-up" style="padding: 60px 20px;">
+    <h2>👥 Team Members</h2>
     <p>
       Meet the team behind PharmaGate. Each member contributed to different aspects of design, implementation, and integration of the system.
     </p>
@@ -334,8 +278,8 @@
     </div>
   </section>
 
-  <section id="future-scope" class="section-p1" data-aos="fade-up">
-      <h2>Future Scope</h2>
+  <section id="future-scope" class="section-p1" data-aos="fade-up" style="padding: 60px 20px;">
+      <h2>🔮 Future Scope</h2>
       <p>
         The current implementation of PharmaGate establishes a solid foundation for secure access control in critical environments. 
         Below are some areas we envision expanding into for future iterations.
@@ -350,7 +294,7 @@
       </ul>
     </section>
 
-    <section id="documentation" class="section-p1" data-aos="fade-up">
+    <section id="documentation" class="section-p1" data-aos="fade-up" style="padding: 60px 20px;">
       <h2>📄 Documentation</h2>
       <p>
         You can download the full project report including diagrams, code, and system breakdown using the link below.
@@ -359,42 +303,11 @@
         📥 Download PDF
       </a>
     </section>
-    <!-- End of Main Page content -->
+</div>
 
-
-
-  </main>
-
-    <!-- Footer section -->
-    <footer style="background-color: #0a0a23; color: white; padding: 40px 20px; text-align: center;">
-      <div style="max-width: 800px; margin: auto;">
-        <h3 style="margin-bottom: 10px;">PharmaGate</h3>
-        <p>Developed as part of Singapore Polytechnic's IoT Security Module</p>
-        
-        <p style="margin-top: 20px;">
-          📧 <a href="mailto:pharmagate@project.com" style="color: #fff; text-decoration: underline;">pharmagate@project.com</a><br />
-          📍 Singapore Polytechnic, School of EEE
-        </p>
-
-        <div style="margin-top: 20px;">
-          <a href="https://github.com/" target="_blank" style="margin: 0 10px; color: white;"><i class="fa fa-github"></i></a>
-          <a href="https://linkedin.com/" target="_blank" style="margin: 0 10px; color: white;"><i class="fa fa-linkedin"></i></a>
-          <a href="https://youtube.com/" target="_blank" style="margin: 0 10px; color: white;"><i class="fa fa-youtube-play"></i></a>
-        </div>
-
-        <p style="margin-top: 30px; font-size: 0.9rem;">© 2025 PharmaGate Team. All rights reserved.</p>
-      </div>
-    </footer>
-
-    <script src="https://unpkg.com/feather-icons"></script>
-    <script>feather.replace();</script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>AOS.init();</script>
-    <script src="../js/script.js"></script>
-    <script>
-      // Get all sidebar links and sections
-const sidebarLinks = document.querySelectorAll('.side-bar-item a');
+<script>
+          // Get all sidebar links and sections
+const sidebarLinks = document.querySelectorAll('.side-bar-cards .card a');
 const sections = document.querySelectorAll('section');
 
 // Function to set the active link in the sidebar
@@ -403,30 +316,39 @@ function setActiveLink() {
 
   // Determine the current section based on scroll position
   sections.forEach(section => {
-    const sectionTop = section.offsetTop -100;
+    const sectionTop = section.offsetTop - 100;
     const sectionBottom = sectionTop + section.offsetHeight;
-    if (window.scrollY >= sectionTop  && window.scrollY < sectionBottom ) {
+    if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
       currentSection = section.getAttribute('id');
     }
   });
 
   // Highlight the active link and card in the sidebar
   sidebarLinks.forEach(link => {
-      const href = link.getAttribute('href').substring(1);
-      const parent = link.parentElement;
+    const href = link.getAttribute('href').substring(1);
+    
+    link.classList.remove('active');
 
-      if (href === currentSection) {
-        parent.classList.add('side-bar-item-current');
-        parent.classList.remove('side-bar-item');
-      } else {
-        parent.classList.remove('side-bar-item-current');
-        parent.classList.add('side-bar-item');
-      }
-    });
+    if (href === currentSection) {
+      link.classList.add('active');
+    }
+  });
 }
-window.addEventListener('scroll', setActiveLink);
-    </script>
 
-    <!-- <script src="script.js"></script> -->
-  </body>
-</html>
+// Add click event listener for smooth scrolling
+sidebarLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const sectionId = link.getAttribute('href').substring(1);
+    const section = document.getElementById(sectionId);
+    section.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+// Detect the active section on scroll or page load
+window.addEventListener('scroll', setActiveLink);
+window.addEventListener('load', setActiveLink);
+
+</script>
+
+</body>
