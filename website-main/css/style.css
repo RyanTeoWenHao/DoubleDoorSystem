@@ -204,13 +204,22 @@ footer a:hover {
   position: absolute;
   top: 0;
   right: 0; 
-  height: 1080px;
-  width: 1920px;
+  height: 100vh;
+  width: 100vw;
   z-index: 15;
   background-size: cover;
   transition: transform .3s ease;
 }
 
+.background::before {
+  content:"";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 100px;
+  width:100%;
+  background: linear-gradient(to top, white, transparent);
+}
 .title{
   position: relative;
   top: 0;
@@ -238,8 +247,8 @@ footer a:hover {
 
 .lcd-number{
   position: absolute;
-  right: 272px;
-  top: 338px;
+  right: 13.5vw;
+  top: 34.5vh;
   transform:rotate(12deg);
   font-size: 1.4rem;
   color: limegreen;
@@ -281,22 +290,4 @@ footer a:hover {
 
 .card-background:hover, .card:hover {
   transform: scale(1.05);
-}
-
-@keyframes slideUp {
-    0% {
-        top: 160px;
-    }
-    100% {
-        top: 0px;
-    }
-}
-
-@keyframes slideDown {
-    0% {
-        top: -80px;
-    }
-    100% {
-        top: 0px;
-    }
 }

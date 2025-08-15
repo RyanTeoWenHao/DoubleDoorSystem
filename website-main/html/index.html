@@ -34,39 +34,24 @@
 *************************************************-->
     <section id="project-title" class="section-p1" style="padding: 0; background-color: #0a0a2344; color: white;" >
       <div class="background" style="background-image: url(../images/homepage/1.png);">
-        <div style="z-index: 20; width: 1920px; position: absolute;top: 44.4%;left: 0; text-align: left; rotate: 9.9deg; overflow: hidden;">
-          <h1 style="
+        <div  style="z-index: 20; width: 100vw; position: absolute;top: 43.2%;left: 0; text-align: left; rotate: 10.5deg; overflow: hidden;">
+          <h1 id="PharmaGate" style="
             position:relative;
-            top:160px;
+            top:0;
+            left: 0;
             font-size:10rem;
             margin: 0;
-            padding-inline: 250px;
+            padding-inline: 10vw;
             text-shadow: 10px 10px 20px rgb(0, 0, 0, 0.3);
             animation:slideUp 2s ease-in-out forwards;">
             PHARMAGATE
           </h1>
         </div>
-        <div style="z-index: 20;width: 1920px; position: absolute;top: 61.4%;left: 0; text-align: left; rotate: 9.9deg; overflow: hidden;">
-          <p style="
-            position:relative;
-            top:-80px;
-            font-size: 3rem;
-            width: 100vw;
-            font-weight: 300; 
-            text-shadow: 5px 5px 8px rgb(0, 0, 0, 0.5);
-            margin-top: 10px;
-            overflow: hidden;
-            text-wrap: nowrap;
-            padding-inline: 250px;
-            animation:slideDown 2s ease-in-out forwards;">
-            Securing Your Place With The Perfect Door
-          </p>
-        </div>
-        <div style="position:sticky;top: 0; left: 0;" >
-          <div id="random-number" class="lcd-number">
+        <div style="position:sticky;top: 0; left: 0;z-index: 30;" >
+          <div id="random-number" class="lcd-number" style="z-index: 35;">
           000000
           </div>
-          <div class="background" style="background-image: url(../images/homepage/0-removebg-preview.png); position: absolute; top: 18px;"></div>
+          <div class="background" style="background-image: url(../images/homepage/0-removebg-preview.png); position: absolute; top: 18px; z-index: 30;"></div>
         </div>
         <div style="position: relative;top: 30vh;"></div>
       </div>
@@ -328,68 +313,10 @@
       </div>
     </footer>
 
-    <script>feather.replace();</script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>AOS.init();</script>
     <script src="../js/script.js"></script>
-    <script>  
-      const sidebarLinks = document.querySelectorAll('.side-bar-item a');
-      const sections = document.querySelectorAll('.section-p1');
-
-      function setActiveLink() {
-        let currentSection = null;
-
-        // Determine the current section based on scroll position
-        sections.forEach(section => {
-          const sectionTop = section.offsetTop -100;
-          const sectionBottom = sectionTop + section.offsetHeight;
-          if (window.scrollY >= sectionTop  && window.scrollY < sectionBottom ) {
-            currentSection = section.getAttribute('id');
-          }
-
-        });
-
-        // Highlight the active link and card in the sidebar
-        sidebarLinks.forEach(link => {
-          const href = link.getAttribute('href').substring(1);
-          const parent = link.parentElement;
-
-          if (href === currentSection) {
-            parent.classList.add('side-bar-item-current');
-            parent.classList.remove('side-bar-item');
-          } else {
-            parent.classList.remove('side-bar-item-current');
-            parent.classList.add('side-bar-item');
-          }
-        });
-      }
-      window.addEventListener('scroll', setActiveLink);
-    
-    </script>
-    <script>
-      const sidebar = document.querySelector('.side-bar');
-      const main = document.querySelector('.main-content');
-
-      sidebar.addEventListener('mouseenter', () => {
-        main.classList.add('sidebar-expanded');
-     });
-
-      sidebar.addEventListener('mouseleave', () => {
-        main.classList.remove('sidebar-expanded');
-      });
-  </script>
-  <script>
-    
-  function generateRandomNumber(){
-    
-    const randomNum = Math.floor ( Math.random()*1000000)
-    document.getElementById("random-number").innerHTML=randomNum;
-
-  }
-
-  window.addEventListener('scroll', generateRandomNumber)
-  </script>
 
     <!-- <script src="script.js"></script> -->
   </body>
