@@ -70,10 +70,11 @@
     <section id="how-it-works" class="section-p1" data-aos="fade-up">
       <h2>How It Works</h2>
       <p>
-        "PharmaGate is an advanced two-door security system designed for high-security areas, 
+        PharmaGate is an advanced two-door security system designed for high-security areas, 
         such as hospitals and pharmaceutical labs. The first door features user verification through 
         email and password using a mobile app connected to Firebase. The user then enters a code displayed 
-        on the LCD screen above the door. Upon entering the correct code, the door opens via a servomotor. 
+        on the LCD screen above the door. The first door also contains a PIR sensor which turns the LCD off 
+        if it does not detect anyone so as to save power. Upon entering the correct code, the door opens via a servomotor. 
         Once the user enters the first door, an IR sensor ensures there is no tailgating. If tailgating is detected, 
         a buzzer will sound, and the second door will remain locked. If no tailgating is detected, the user proceeds to the second door, 
         which requires biometric authentication, including face ID and fingerprint scanning. 
@@ -83,7 +84,7 @@
         the door opens using a servomotor. To exit, the user scans their RFID card. If authenticated through Firebase, 
         the door opens via the servomotor. In case of a fire, the temperature and humidity sensor triggers an emergency system, 
         and the user must press a button to unlock all doors. Additionally, the data from the temperature and humidity sensor, 
-        as well as the entry and exit records of users, are logged in ThingSpeak for secure visualization, traceability, and event monitoring."
+        as well as the entry and exit records of users, are logged in ThingSpeak for secure visualization, traceability, and event monitoring.
       </p>
     </section>
 
@@ -100,6 +101,11 @@
         <div>
           <h4>💻 LCD Display</h4>
           <p>Displays the entry code for the user to enter on the first door to gain access.</p>
+        </div>
+
+        <div>
+          <h4>⚡ PIR sensor</h4>
+          <p>Turns the LCD off if no one is detected.</p>
         </div>
 
         <!-- Servomotor for Door Opening -->
@@ -198,6 +204,17 @@
             <div class="card-category">LCD Code Input</div>
             <h3 class="card-heading">
               User enters a code displayed on the LCD above the door to unlock the first door.
+            </h3>
+          </div>
+        </div>
+
+        <!-- PIR sensor -->
+        <div class="card">
+          <div class="card-background" style="background-image: url(../images/features/lcd-display.jpg);"></div>
+          <div class="card-content">
+            <div class="card-category">Energy saving</div>
+            <h3 class="card-heading">
+              PIR sensor turns off LCD so as to save energy.
             </h3>
           </div>
         </div>
