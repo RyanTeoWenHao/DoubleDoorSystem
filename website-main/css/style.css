@@ -269,3 +269,12 @@ footer a:hover {
   position: absolute;
   transition: top .3s ease;
 }
+#technology-stack {
+  margin-top: 400px;
+  padding-bottom: 900px;
+}
+#features {
+  margin-top: 400px;
+  padding-bottom: 600px;
+}
+
