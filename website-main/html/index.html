@@ -43,16 +43,26 @@
 
     <div class="side-bar">
       <div class="side-bar-item"><a href="#project-overview"><h3>Overview</h3></a></div>
+      <div class="side-bar-item"><a href="#Context"><h3>Context</h3></a></div>
+
+
+      <div class="side-bar-item"><a href="#problem-statement"><h3>Problem Statement</h3></a></div>
+
       <div class="side-bar-item"><a href="#how-it-works"><h3>How It Works</h3></a></div>
       <div class="side-bar-item"><a href="#technology-stack"><h3>Technology Stack</h3></a></div>
       <div class="side-bar-item"><a href="#features"><h3>Features</h3></a></div>
-      <div class="side-bar-item"><a href="#challenges-solutions"><h3>Challenges & Solutions</h3></a></div>
+      <div class="side-bar-item"><a href="#TR64"><h3>TR64</h3></a></div>
+      <div class="side-bar-item"><a href="#security-threats-solutions"><h3>Threats and solution</h3></a></div>
+      
+
       <div class="side-bar-item"><a href="#demo-gallery"><h3>Demo / Gallery</h3></a></div>
       <div class="side-bar-item"><a href="#future-scope"><h3>Future Scope</h3></a></div>
       <div class="side-bar-item"><a href="#documentation"><h3>Documentation</h3></a></div>
     </div>
 
     <main class="main-content">
+    
+    
 
     <section id="project-overview" class="section-p1" data-aos="fade-up">
       <h2>Project Overview</h2>
@@ -65,6 +75,24 @@
         <br /><br />
         By enhancing physical and digital access control, PharmaGate improves both operational safety and regulatory compliance in sensitive medical environments.
       </p>
+    </section>
+
+    <section id="Context" class="section-p1" data-aos="fade-up">
+      <h2>Context</h2>
+      <p>
+      In hospitals and pharmaceutical labs, there are controlled environments that contain controlled drugs and important R&D development
+       which requires strict access. 
+      According to a report done by PMCID
+      “An increasing number of opioids and other controlled substances are being stolen from healthcare facilities,
+       diverting medications from their intended medical use to be used or sold illicitly.”  
+
+      This highlights the issue of the apparent lack of security among healthcare facilities.  
+      </p>
+    </section>
+
+    <section id="problem-statement" class="section-p1" data-aos="fade-up">
+      <h2>Problem Statement</h2>
+      <strong>How can we improve the security access and traceability of controlled drugs in hospitals and pharmaceutical labs? </strong> 
     </section>
 
     <section id="how-it-works" class="section-p1" data-aos="fade-up">
@@ -297,7 +325,38 @@
         </div>
       </div>
     </section>
+    
+    <section id="TR64" class="section-p1" data-aos="fade-up">
+      <h2>TR64</h2>
+      <p>
+        Using the TR64 methodology, we need to secure the IoT devices as well as the layers like communication, processing, cloud computing and user interface layer.         <br /><br />
+        Cryptographic Support: TLS/SSL for MQTT, Certificates<br /><br />
+        Identification & Authentication: Firebase, Number Codes, Biometrics<br /><br />
+        Network Protection: WiFi secured, MQTT with TLS<br /><br />
+        Secure Function Protection: Physical tamper protection<br /><br />
+        Data Protection: Firebase logs secured, no reuse of codes<br /><br />
+        Access Protection: Number Code > IR > Biometrics, locked sequence<br /><br />
+        Resiliency Support: Emergency override, alarm unlock<br /><br />
+        Security Audit: Logging of all attempts, Firebase logs<br /><br />
+        <br /><br /><br /><br />      
+        <b>STRIDE</b><br /><br />
+        <b>S</b>poofing - Rolling number codes, biometric authentication <br /><br />
+        <b>T</b>ampering - Secure physical sensors, verification loops <br /><br />
+        <b>R</b>epudiation - Firebase logs/account audit <br /><br />
+        <b>I</b>nformation Disclosure - Access only upon verification <br /><br />
+        <b>D</b>enial of Service - N/A <br /><br />
+        <b>E</b>levation of Privilege - Multi-factor authentication <br /><br />
+        <br /><br />
+        <b>Secure by Defaults:</b> Doors stay locked unless proper verification<br /><br />
+        <b>Rigour in Defence:</b> Multiple authentication factors; layered access<br /><br />
+        <b>Accountability:</b> Firebase logs; LEDs for real-time status feedback<br /><br />
+        <b>Resiliency:</b> Fire alarm triggers, emergency button is available to be pressed while alarm sounds<br /><br />
+        <h3>AAA (Authentication, Authorization, Accounting)</h3>
 
+        <img src="website-main\images\TR64\TR64table.png" alt="TR64 table" />
+    
+      </p>
+    </section>
 
 
     <section id="security-threats-solutions" class="section-p1" data-aos="fade-up">
