@@ -77,16 +77,6 @@ window.addEventListener('scroll', () => {
 
 
 
-const background = document.querySelector('.threats-card');
-
-sidebar.addEventListener('mouseenter', () => {
-    background.style.left = '-380px';
-});
-
-sidebar.addEventListener('mouseleave', () => {
-    background.style.left = '-160px';
-});
-
 
 
 

@@ -368,7 +368,7 @@
       <div class="cas-card-container">
         <div class="cas-card" onclick="this.classList.toggle('flipped')">
           <div class="front"> 
-            <h1>Security Threat 1:</h1><br><h1>Lack of ThingSpeak Certificate</h1>
+            <h1>Security Threat 1:</h1><br><h1>Lack of Authentication</h1>
           </div>
           <div class="back">
             <h3 style="color: black;">Solution:</h3><br><h3 style="color: black;">Implement ThingSpeak certificate for secure data communication</h3>
@@ -377,7 +377,7 @@
 
         <div class="cas-card" onclick="this.classList.toggle('flipped')">
           <div class="front"> 
-            <h1>Security Threat 2:</h1><br><h1>Lack of ThingSpeak Certificate</h1>
+            <h1>Security Threat 2:</h1><br><h1>Mobile App and Firebase data is not encrypted</h1>
           </div>
           <div class="back">
             <h3 style="color: black;">Solution:</h3><br><h3 style="color: black;">Ensure the use of TLS and HTTP for secure communication between the mobile app and Firebase</h3>
@@ -399,7 +399,7 @@
      </section>
 
 
-  <section id="threat" class="section-p1" data-aos="fade" style="padding-bottom: 0;">
+  <section id="threat" class="section-p1" data-aos="fade" style="padding-bottom: 0;overflow: hidden;">
     <h2>Possible Methods to Compromise Our Systems</h2>
     <p style="margin-bottom: 50px;">This section will be explaining what are the possible attacks that we will be facing.</p>
 
@@ -450,37 +450,7 @@
     <div class="threats-card">
       <div class="threats-card-background"></div>
       <div class="threats-card-header">
-        <h3>4. Brute Forcing Firebase Authentication</h3>
-      </div>
-      <p>This attack involves attempting to guess or brute-force the credentials for accessing Firebase (or any associated app).</p>
-      <div class="tools"><strong>Tools:</strong> Hydra (Brute-force password cracking tool)</div>
-      <div class="requirements">
-        <strong>Requirements:</strong><br>
-        • Weak Authentication Mechanisms<br>
-        • Access to Firebase Database<br>
-        • List of Common Credentials
-      </div>
-    </div>
-
-    <div class="threats-card">
-      <div class="threats-card-background"></div>
-      <div class="threats-card-header">
-        <h3>5. Exploit Weaknesses in HTTP/HTTPS Communication</h3>
-      </div>
-      <p>A Man-in-the-Middle (MITM) attack that intercepts unencrypted HTTP traffic or weakly encrypted HTTPS traffic between the ESP8266 and the Android app.</p>
-      <div class="tools"><strong>Tools:</strong> MITMproxy (HTTP/HTTPS interception tool)</div>
-      <div class="requirements">
-        <strong>Requirements:</strong><br>
-        • Unencrypted HTTP or Weak HTTPS<br>
-        • Proxy Setup<br>
-        • Device on the Same Network
-      </div>
-    </div>
-
-    <div class="threats-card">
-      <div class="threats-card-background"></div>
-      <div class="threats-card-header">
-        <h3>6. P2P Communication Exploitation</h3>
+        <h3>4. P2P Communication Exploitation</h3>
       </div>
       <p>This attack targets unencrypted or weakly encrypted P2P communication between devices, allowing the attacker to intercept or spoof the communication.</p>
       <div class="tools"><strong>Tools:</strong> Wireshark (Packet sniffing tool)</div>
@@ -494,7 +464,7 @@
     <div class="threats-card">
       <div class="threats-card-background"></div>
       <div class="threats-card-header">
-        <h3>7. Physical Attack (Emergency Exit Override)</h3>
+        <h3>5. Physical Attack (Emergency Exit Override)</h3>
       </div>
       <p>This involves using physical access to trigger the emergency exit (e.g., bypassing RFID or pressing a button) or tampering with the hardware.</p>
       <div class="tools"><strong>Tools:</strong> RFID Reader/Writer (To clone RFID tags)</div>
@@ -504,7 +474,6 @@
         • Valid RFID or Button Signal
       </div>
     </div>
-
   </section>
 
     <section id="future-scope" class="section-p1" data-aos="fade">
