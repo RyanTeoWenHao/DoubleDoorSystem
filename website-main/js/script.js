@@ -71,3 +71,37 @@ window.addEventListener('scroll', () => {
   let scrollY = window.scrollY;
   title.style.top = currentTop + scrollY + 'px';
 });
+
+
+
+
+
+
+const background = document.querySelector('.threats-card');
+
+// When mouse enters sidebar
+sidebar.addEventListener('mouseenter', () => {
+    background.style.left = '-380px';
+});
+
+// When mouse leaves sidebar
+sidebar.addEventListener('mouseleave', () => {
+    background.style.left = '-160px';
+});
+
+
+
+
+
+
+
+
+const cards = document.querySelectorAll('.threats-card');
+
+windows.addEventListener('scroll', () => {
+  let val = window.scrollY;
+
+  cards.forEach(element => {
+    element.style.top = val * 0.5 + 'px';    
+  });
+})
