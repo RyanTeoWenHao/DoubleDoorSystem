@@ -60,14 +60,15 @@
     <div class="content">
     <div id="side-bar" class="side-bar">
       <div class="side-bar-item"><a href="#project-overview"><h3>Overview</h3></a></div>
+      <div class="side-bar-item"><a href="#Context"><h3>Context</h3></a></div>
       <div class="side-bar-item"><a href="#how-it-works"><h3>How It Works</h3></a></div>
       <div class="side-bar-item"><a href="#technology-stack"><h3>Technology Stack</h3></a></div>
       <div class="side-bar-item"><a href="#features"><h3>Features</h3></a></div>
-      <div class="side-bar-item"><a href="#challenges-solutions"><h3>Challenges & Solutions</h3></a></div>
+      <div class="side-bar-item"><a href="#TR64"><h3>TR64</h3></a></div>
+      <div class="side-bar-item"><a href="#security-threats-solutions"><h3>Security threats & Solution</h3></a></div>
       <div class="side-bar-item"><a href="#demo-gallery"><h3>Demo / Gallery</h3></a></div>
       <div class="side-bar-item"><a href="#threat"><h3>Security Threats</h3></a></div>
       <div class="side-bar-item"><a href="#future-scope"><h3>Future Scope</h3></a></div>
-      <div class="side-bar-item"><a href="#documentation"><h3>Documentation</h3></a></div>
     </div>
 
     <main class="main-content">
@@ -265,7 +266,7 @@
 
         <!-- Biometric Authentication -->
         <div class="card">
-          <div class="card-background" style="background-image: url(../images/features/biometric-auth.jpg);"></div>
+          <div class="card-background" style="background-image: url(..images\chal&so1\bio.png);"></div>
           <div class="card-content">
             <div class="card-category">Biometric Authentication</div>
             <h3 class="card-heading">
@@ -320,7 +321,7 @@
 
         <!-- ThingSpeak Data Logging -->
         <div class="card">
-          <div class="card-background" style="background-image: url(../images/features/thingspeak.jpg);"></div>
+          <div class="card-background" style="background-image: url(../images/chal&so1/visual.png);"></div>
           <div class="card-content">
             <div class="card-category">ThingSpeak Data Logging</div>
             <h3 class="card-heading">
@@ -368,7 +369,7 @@
       <div class="cas-card-container">
         <div class="cas-card" onclick="this.classList.toggle('flipped')">
           <div class="front"> 
-            <h1>Security Threat 1:</h1><br><h1>Lack of ThingSpeak Certificate</h1>
+            <h1>Security Threat 1:</h1><br><h1>Lack of Authentication</h1>
           </div>
           <div class="back">
             <h3 style="color: black;">Solution:</h3><br><h3 style="color: black;">Implement ThingSpeak certificate for secure data communication</h3>
@@ -377,7 +378,7 @@
 
         <div class="cas-card" onclick="this.classList.toggle('flipped')">
           <div class="front"> 
-            <h1>Security Threat 2:</h1><br><h1>Lack of ThingSpeak Certificate</h1>
+            <h1>Security Threat 2:</h1><br><h1>Mobile App and Firebase data is not encrypted</h1>
           </div>
           <div class="back">
             <h3 style="color: black;">Solution:</h3><br><h3 style="color: black;">Ensure the use of TLS and HTTP for secure communication between the mobile app and Firebase</h3>
@@ -387,19 +388,33 @@
     </section>
 
     
-     <section id="demo-gallery" class="section-p1" data-aos="fade-up">
+    <section id="demo-gallery" class="section-p1" data-aos="fade-up">
       <h2>Demo Video / Gallery</h2>
       <!-- 📽️ Demo Video Placeholder -->
-      <div style="margin: 0 auto 40px auto; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #888;">
+       <div style="margin: 0 auto 40px auto; background-color: #f0f0f0; align-items: center; justify-content: center; color: #888;">
         <video width="100%" height="auto" controls>
           <source src="..\video\door assy.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
+        <p style="font-size: 0.8rem; color: #888; text-align: center;">
+        3D Prototype Animation - A demonstration of the door assembly in action.
+        
+        </p>
       </div>
-     </section>
+
+      <div style="margin: 0 auto 40px auto; background-color: #f0f0f0; align-items: center; justify-content: center; color: #888;">
+        <video width="100%" height="auto" controls>
+          <source src="..\video\iots_demovidmp4.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p style="font-size: 0.8rem; color: #888; text-align: center;">
+        First demo draft
+        </p>
+      </div>
+    </section>
 
 
-  <section id="threat" class="section-p1" data-aos="fade" style="padding-bottom: 0;">
+  <section id="threat" class="section-p1" data-aos="fade" style="padding-bottom: 0;overflow: hidden;">
     <h2>Possible Methods to Compromise Our Systems</h2>
     <p style="margin-bottom: 50px;">This section will be explaining what are the possible attacks that we will be facing.</p>
 
@@ -450,37 +465,7 @@
     <div class="threats-card">
       <div class="threats-card-background"></div>
       <div class="threats-card-header">
-        <h3>4. Brute Forcing Firebase Authentication</h3>
-      </div>
-      <p>This attack involves attempting to guess or brute-force the credentials for accessing Firebase (or any associated app).</p>
-      <div class="tools"><strong>Tools:</strong> Hydra (Brute-force password cracking tool)</div>
-      <div class="requirements">
-        <strong>Requirements:</strong><br>
-        • Weak Authentication Mechanisms<br>
-        • Access to Firebase Database<br>
-        • List of Common Credentials
-      </div>
-    </div>
-
-    <div class="threats-card">
-      <div class="threats-card-background"></div>
-      <div class="threats-card-header">
-        <h3>5. Exploit Weaknesses in HTTP/HTTPS Communication</h3>
-      </div>
-      <p>A Man-in-the-Middle (MITM) attack that intercepts unencrypted HTTP traffic or weakly encrypted HTTPS traffic between the ESP8266 and the Android app.</p>
-      <div class="tools"><strong>Tools:</strong> MITMproxy (HTTP/HTTPS interception tool)</div>
-      <div class="requirements">
-        <strong>Requirements:</strong><br>
-        • Unencrypted HTTP or Weak HTTPS<br>
-        • Proxy Setup<br>
-        • Device on the Same Network
-      </div>
-    </div>
-
-    <div class="threats-card">
-      <div class="threats-card-background"></div>
-      <div class="threats-card-header">
-        <h3>6. P2P Communication Exploitation</h3>
+        <h3>4. P2P Communication Exploitation</h3>
       </div>
       <p>This attack targets unencrypted or weakly encrypted P2P communication between devices, allowing the attacker to intercept or spoof the communication.</p>
       <div class="tools"><strong>Tools:</strong> Wireshark (Packet sniffing tool)</div>
@@ -494,7 +479,7 @@
     <div class="threats-card">
       <div class="threats-card-background"></div>
       <div class="threats-card-header">
-        <h3>7. Physical Attack (Emergency Exit Override)</h3>
+        <h3>5. Physical Attack (Emergency Exit Override)</h3>
       </div>
       <p>This involves using physical access to trigger the emergency exit (e.g., bypassing RFID or pressing a button) or tampering with the hardware.</p>
       <div class="tools"><strong>Tools:</strong> RFID Reader/Writer (To clone RFID tags)</div>
@@ -504,7 +489,6 @@
         • Valid RFID or Button Signal
       </div>
     </div>
-
   </section>
 
     <section id="future-scope" class="section-p1" data-aos="fade">
@@ -522,20 +506,6 @@
         <li>Support large-scale hospital integration with centralized dashboards.</li>
       </ul>
     </section>
-
-    <section id="documentation" class="section-p1" data-aos="fade-up">
-      <h2>📄 Documentation</h2>
-      <p>
-        You can download the full project report including diagrams, code, and system breakdown using the link below.
-      </p>
-      <a href="docs/pharmagate-documentation.pdf" download style="display: inline-block; padding: 12px 24px; background-color: #0a0a23; color: white; font-size: 1.1rem; border-radius: 5px; text-decoration: none;">
-        📥 Download PDF
-      </a>
-    </section>
-    <!-- End of Main Page content -->
-
-
-
   </main>
   </div>
 
