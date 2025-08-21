@@ -80,8 +80,8 @@ footer a:hover {
   flex-direction: column;
   justify-content: center;
   position: fixed;
-  top: 30%;
-  bottom: 30%;
+  top: 20%;
+  bottom: 20%;
   left: 30px;
   width: 50px;
   overflow: hidden;
@@ -303,7 +303,7 @@ footer a:hover {
 .technology-card{
   position: relative;
   list-style: none;
-  flex: 1 1 auto;
+  flex: 1 1 500px;
   justify-content: space-between;
   border-radius: 20px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
