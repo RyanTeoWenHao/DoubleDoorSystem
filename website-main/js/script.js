@@ -79,12 +79,10 @@ window.addEventListener('scroll', () => {
 
 const background = document.querySelector('.threats-card');
 
-// When mouse enters sidebar
 sidebar.addEventListener('mouseenter', () => {
     background.style.left = '-380px';
 });
 
-// When mouse leaves sidebar
 sidebar.addEventListener('mouseleave', () => {
     background.style.left = '-160px';
 });
