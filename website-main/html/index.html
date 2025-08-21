@@ -7,17 +7,17 @@
     <title>Double Door Security System</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&display=swap" />
     <link rel="icon" href="../images/icons8-galaxy-store-32.png" type="image/png" />
   </head>
 
   <body
     data-aos-easing="ease"
-    data-aos-duration="400"
-    data-aos-delay="0"
-    class="body__move"
+    data-aos-duration="2000"
+    data-aos-delay="2000"
     style="min-height: 100vh;"
   >
 
@@ -29,35 +29,52 @@
       AOS.init();
     </script>
 
-    <!-- *********************æ******************* 
+    <!-- *********************æ******************* S
 *******************Main Page content********** 
 *************************************************-->
-<section id="project-title" class="section-p1" style="padding: 100px 20px; background-color: #0a0a23; color: white; text-align: center;">
-    <h1 style="font-size: 3.5rem; margin-bottom: 10px;">PharmaGate</h1>
-    <span style="font-size: 1.5rem; font-weight: 300; text-align: center;">Securing Controlled Drug Access in Hospitals and Labs</span>
-</section>
+    <section id="project-title" class="section-p1" style="padding: 0; background-color: #0a0a2344; color: white;" >
+      <div class="background" style="background-image: url(../images/homepage/1.png);">
+        <div  style="z-index: 20; width: 100vw; position: absolute;top: 43.2%;left: 0; text-align: left; rotate: 10.5deg; overflow: hidden;">
+          <h1 id="PharmaGate" style="
+            position:relative;
+            top:0;
+            left: 0;
+            font-size:10rem;
+            margin: 0;
+            padding-inline: 10vw;
+            text-shadow: 10px 10px 20px rgb(0, 0, 0, 0.3);
+            animation:slideUp 2s ease-in-out forwards;">
+            PHARMAGATE
+          </h1>
+        </div>
+        <div style="position:sticky;top: 0; left: 0;z-index: 30;" >
+          <div id="random-number" class="lcd-number" style="z-index: 35;">
+          000000
+          </div>
+          <div class="background" style="background-image: url(../images/homepage/0-removebg-preview.png); position: absolute; top: 18px; z-index: 30;"></div>
+        </div>
+        <div style="position: relative;top: 30vh;"></div>
+      </div>
+      
+    </section>
+    <div class="content">
+    <div id="side-bar" class="side-bar">
+      <div class="side-bar-item"><a href="#project-overview"><h3>Overview</h3></a></div>
+      <div class="side-bar-item"><a href="#Context"><h3>Context</h3></a></div>
+      <div class="side-bar-item"><a href="#how-it-works"><h3>How It Works</h3></a></div>
+      <div class="side-bar-item"><a href="#technology-stack"><h3>Technology Stack</h3></a></div>
+      <div class="side-bar-item"><a href="#features"><h3>Features</h3></a></div>
+      <div class="side-bar-item"><a href="#TR64"><h3>TR64</h3></a></div>
+      <div class="side-bar-item"><a href="#security-threats-solutions"><h3>Security threats & Solution</h3></a></div>
+      <div class="side-bar-item"><a href="#demo-gallery"><h3>Demo / Gallery</h3></a></div>
+      <div class="side-bar-item"><a href="#threat"><h3>Security Threats</h3></a></div>
+      <div class="side-bar-item"><a href="#future-scope"><h3>Future Scope</h3></a></div>
+    </div>
 
-<div class="container">
-  
-  <aside class="side-bar">
-    <ul class="side-bar__menu">
-      <li><a href="#project-title">Home</a></li>
-      <li><a href="#project-overview">Overview</a></li>
-      <li><a href="#how-it-works">How It Works</a></li>
-      <li><a href="#technology-stack">Technology Stack</a></li>
-      <li><a href="#features">Features</a></li>
-      <li><a href="#challenges-solutions">Challenges & Solutions</a></li>
-      <li><a href="#demo-gallery">Demo / Gallery</a></li>
-      <li><a href="#team-members">Team Members</a></li>
-      <li><a href="#future-scope">Future Scope</a></li>
-      <li><a href="#documentation">Documentation</a></li>
-    </ul>
-  </aside>
+    <main class="main-content">
 
-  <div class="main-content">
-
-    <section id="project-overview" class="section-p1" data-aos="fade-up">
-      <h2>📌 Project Overview</h2>
+    <section id="project-overview" class="section-p1" data-aos="fade" style="max-width: 1100px;">
+      <h2>Project Overview</h2>
       <p>
         In hospitals and pharmaceutical labs, controlled substances like opioids and research materials require secure access to prevent misuse, theft, or tampering. 
         <br /><br />
@@ -69,181 +86,411 @@
       </p>
     </section>
 
-    <section id="how-it-works" class="section-p1" data-aos="fade-up" style="padding: 60px 20px;">
-      <h2>⚙️ How It Works</h2>
+     <section id="Context" class="section-p1" data-aos="fade-up">
+      <h2>Context</h2>
       <p>
-        PharmaGate is a smart double-door access control system designed for high-security environments like hospitals and pharmaceutical labs. 
-        The system starts with QR code verification using a mobile app, followed by biometric authentication such as face ID and fingerprint scanning.
-        Environmental sensors like IR, PIR, and ultrasonic are used to detect presence and prevent tailgating. 
-        In the event of a fire, the system triggers emergency unlocks based on real-time temperature and humidity readings. 
-        All access logs and alerts are pushed to the ThingSpeak cloud platform for secure visualization and traceability.
-      </p>
+      In hospitals and pharmaceutical labs, there are controlled environments that contain controlled drugs and important R&D development
+       which requires strict access. 
+      According to a report done by PMCID
+      “An increasing number of opioids and other controlled substances are being stolen from healthcare facilities,
+       diverting medications from their intended medical use to be used or sold illicitly.”  
 
-      <!-- 📽️ Placeholder for video/image -->
-      <div style="max-width: 900px; margin: 40px auto; text-align: center;">
-        <div style="width: 100%; height: 400px; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #888; font-size: 1.2rem;">
-          [ Video or Image Placeholder ]
+      This highlights the issue of the apparent lack of security among healthcare facilities.  
+      </p>
+      <h1 style="margin-top:100px; position: center; text-align: center;">"How can we improve the security access and traceability of controlled drugs in hospitals and pharmaceutical labs?"</h1> 
+    </section>
+
+
+    <section id="how-it-works" class="section-p1" data-aos="fade-up">
+      <h2>How It Works</h2>
+      <p>
+        PharmaGate is an advanced two-door security system designed for high-security areas, 
+        such as hospitals and pharmaceutical labs. The first door features user verification through 
+        email and password using a mobile app connected to Firebase. The user then enters a code displayed 
+        on the LCD screen above the door. The first door also contains a PIR sensor which turns the LCD off 
+        if it does not detect anyone so as to save power. Upon entering the correct code, the door opens via a servomotor. 
+        Once the user enters the first door, an IR sensor ensures there is no tailgating. If tailgating is detected, 
+        a buzzer will sound, and the second door will remain locked. If no tailgating is detected, the user proceeds to the second door, 
+        which requires biometric authentication, including face ID and fingerprint scanning. 
+        An ultrasonic sensor detects the distance between the user and the face recognition camera. 
+        A LED indicator lights up red if the user is too close or too far from the camera, 
+        and turns green when the user is at the correct distance. If both biometric sensors confirm the user's identity, 
+        the door opens using a servomotor. To exit, the user scans their RFID card. If authenticated through Firebase, 
+        the door opens via the servomotor. In case of a fire, the temperature and humidity sensor triggers an emergency system, 
+        and the user must press a button to unlock all doors. Additionally, the data from the temperature and humidity sensor, 
+        as well as the entry and exit records of users, are logged in ThingSpeak for secure visualization, traceability, and event monitoring.
+      </p>
+    </section>
+
+    <section id="technology-stack" class="section-p1" data-aos="fade">
+      <h2>Technology Stack</h2>
+      <div class="technology-card-container">
+        <div class="technology-card">
+          <div class="technology-card-content">
+            <div class="technology-card-heading">Mobile App</div>
+            <div class="technology-card-description">User verification through email and password using a mobile app connected to Firebase</div>
+          </div>
+        </div>
+        <div class="technology-card">
+          <div class="technology-card-content">
+            <div class="technology-card-heading">LCD Display</div>
+            <div class="technology-card-description">Displays the entry code for the user to enter on the first door to gain access</div>
+          </div>
+        </div>
+        <div class="technology-card">
+          <div class="technology-card-content">
+            <div class="technology-card-heading">PIR sensor</div>
+            <div class="technology-card-description">Turns the LCD off if no one is detected</div>
+          </div>
+        </div>
+        <div class="technology-card">
+          <div class="technology-card-content">
+            <div class="technology-card-heading">Servomotor</div>
+            <div class="technology-card-description">Controls the opening and closing of both doors upon successful verification and biometric authentication</div>
+          </div>
+        </div>
+        <div class="technology-card">
+          <div class="technology-card-content">
+            <div class="technology-card-heading">IR Sensor</div>
+            <div class="technology-card-description">Detects tailgating at the first door, ensuring only one person enters at a time</div>
+          </div>
+        </div>
+        <div class="technology-card">
+          <div class="technology-card-content">
+            <div class="technology-card-heading">Buzzer</div>
+            <div class="technology-card-description">Alerts the user with a sound when tailgating is detected at the first door</div>
+          </div>
+        </div>
+        <div class="technology-card">
+          <div class="technology-card-content">
+            <div class="technology-card-heading">Biometric Authentication</div>
+            <div class="technology-card-description">Face ID and fingerprint scanning for secure second-door entry</div>
+          </div>
+        </div>
+        <div class="technology-card">
+          <div class="technology-card-content">
+            <div class="technology-card-heading">Ultrasonic Sensor</div>
+            <div class="technology-card-description">Measures the distance between the user and the face recognition camera to ensure proper positioning</div>
+          </div>
+        </div>
+        <div class="technology-card">
+          <div class="technology-card-content">
+            <div class="technology-card-heading">LED Indicator</div>
+            <div class="technology-card-description">Indicates whether the user is too close, too far, or at the correct distance from the camera using red and green lights</div>
+          </div>
+        </div>
+        <div class="technology-card">
+          <div class="technology-card-content">
+            <div class="technology-card-heading">RFID</div>
+            <div class="technology-card-description">Used for user exit authentication via RFID and Firebase integration</div>
+          </div>
+        </div>
+        <div class="technology-card">
+          <div class="technology-card-content">
+            <div class="technology-card-heading">Temperature & Humidity Sensor</div>
+            <div class="technology-card-description">Monitors temperature and humidity for fire detection. In case of a fire, it triggers an emergency unlock for all doors</div>
+          </div>
+        </div>
+        <div class="technology-card">
+          <div class="technology-card-content">
+            <div class="technology-card-heading">Emergency Unlock Button</div>
+            <div class="technology-card-description">In case of fire, the user presses the button to unlock all doors and allow evacuation</div>
+          </div>
+        </div>
+        <div class="technology-card">
+          <div class="technology-card-content">
+            <div class="technology-card-heading">ThingSpeak</div>
+            <div class="technology-card-description">Real-time data from the temperature, humidity, and user entry/exit events are logged and visualized on ThingSpeak for secure monitoring and traceability</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="technology-stack" class="section-p1" data-aos="fade-up" style="padding: 60px 20px;">
-      <h2>🧰 Technology Stack</h2>
-      <p>
-        Our system is built using a combination of embedded hardware, cloud services, and mobile interfaces to deliver a secure and responsive access control experience.
-      </p>
+    <section id="features" class="section-p1" data-aos="fade-up" style="margin-bottom: 60px;">
+      <h2>Key Features</h2>
+      <div class="card-container">
+        <!-- Dual-Door Access Control -->
+        <div class="card">
+          <div class="card-background" style="background-image: url(../images/features/door-control.jpg);"></div>
+          <div class="card-content">
+            <div class="card-category">Dual-Door Access Control</div>
+            <h3 class="card-heading">
+              Two-step access process with user verification, LCD code entry, and biometric authentication.
+            </h3>
+          </div>
+        </div>
 
-      <div style="max-width: 1000px; margin: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; text-align: center;">
-        <div>
-          <h4>📱 Mobile App</h4>
-          <p>QR Code generation and authentication via Firebase</p>
+        <!-- App-Based Login -->
+        <div class="card">
+          <div class="card-background" style="background-image: url(../images/features/app-login.jpg);"></div>
+          <div class="card-content">
+            <div class="card-category">App-Based Login</div>
+            <h3 class="card-heading">
+              User authentication via email, password, and mobile app connected to Firebase for entry.
+            </h3>
+          </div>
         </div>
-        <div>
-          <h4>🔐 Biometric Security</h4>
-          <p>Face ID and fingerprint module integration</p>
+
+        <!-- LCD Display for Code Input -->
+        <div class="card">
+          <div class="card-background" style="background-image: url(../images/features/lcd-display.jpg);"></div>
+          <div class="card-content">
+            <div class="card-category">LCD Code Input</div>
+            <h3 class="card-heading">
+              User enters a code displayed on the LCD above the door to unlock the first door.
+            </h3>
+          </div>
         </div>
-        <div>
-          <h4>🌡️ Environmental Sensors</h4>
-          <p>DHT22, LM35, PIR, IR, and ultrasonic sensors</p>
+
+        <!-- PIR sensor -->
+        <div class="card">
+          <div class="card-background" style="background-image: url(../images/features/lcd-display.jpg);"></div>
+          <div class="card-content">
+            <div class="card-category">Energy saving</div>
+            <h3 class="card-heading">
+              PIR sensor turns off LCD so as to save energy.
+            </h3>
+          </div>
         </div>
-        <div>
-          <h4>💻 Microcontrollers</h4>
-          <p>ESP32-CAM and ESP8266 for device control and cloud communication</p>
+
+        <!-- Tailgating Detection -->
+        <div class="card">
+          <div class="card-background" style="background-image: url(../images/features/tailgating.jpg);"></div>
+          <div class="card-content">
+            <div class="card-category">Tailgating Detection</div>
+            <h3 class="card-heading">
+              IR sensor ensures no tailgating. If detected, a buzzer sounds and the second door remains locked.
+            </h3>
+          </div>
         </div>
-        <div>
-          <h4>☁️ Cloud Platform</h4>
-          <p>ThingSpeak for data visualization and monitoring</p>
+
+        <!-- Biometric Authentication -->
+        <div class="card">
+          <div class="card-background" style="background-image: url(..images\chal&so1\bio.png);"></div>
+          <div class="card-content">
+            <div class="card-category">Biometric Authentication</div>
+            <h3 class="card-heading">
+              Face ID and fingerprint scanning used for secure access to the second door.
+            </h3>
+          </div>
+        </div>
+
+        <!-- Ultrasonic Sensor for Distance Measurement -->
+        <div class="card">
+          <div class="card-background" style="background-image: url(../images/features/ultrasonic-sensor.jpg);"></div>
+          <div class="card-content">
+            <div class="card-category">Ultrasonic Sensor</div>
+            <h3 class="card-heading">
+              Measures the distance between the user and the face recognition camera to ensure proper positioning.
+            </h3>
+          </div>
+        </div>
+
+        <!-- LED Indicator for Distance -->
+        <div class="card">
+          <div class="card-background" style="background-image: url(../images/features/led-indicator.jpg);"></div>
+          <div class="card-content">
+            <div class="card-category">LED Indicator</div>
+            <h3 class="card-heading">
+              LED lights up red if the user is too close or too far from the camera, and green when at the correct distance.
+            </h3>
+          </div>
+        </div>
+
+        <!-- RFID for Exit -->
+        <div class="card">
+          <div class="card-background" style="background-image: url(../images/features/rfid-exit.jpg);"></div>
+          <div class="card-content">
+            <div class="card-category">RFID Exit Authentication</div>
+            <h3 class="card-heading">
+              User scans their RFID card to exit, with Firebase authentication for secure exit.
+            </h3>
+          </div>
+        </div>
+
+        <!-- Fire Detection & Emergency Unlock -->
+        <div class="card">
+          <div class="card-background" style="background-image: url(../images/features/fire-detection.jpg);"></div>
+          <div class="card-content">
+            <div class="card-category">Fire Detection & Emergency Unlock</div>
+            <h3 class="card-heading">
+              Temperature and humidity sensor detects fire and triggers an emergency unlock for all doors.
+            </h3>
+          </div>
+        </div>
+
+        <!-- ThingSpeak Data Logging -->
+        <div class="card">
+          <div class="card-background" style="background-image: url(../images/chal&so1/visual.png);"></div>
+          <div class="card-content">
+            <div class="card-category">ThingSpeak Data Logging</div>
+            <h3 class="card-heading">
+              Logs data from temperature, humidity, and user entry/exit records for real-time visualization and traceability.
+            </h3>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="features" class="section-p1" data-aos="fade-up" style="padding: 60px 20px;">
-      <h2>🚪 Key Features</h2>
+    <section id="TR64" class="section-p1" data-aos="fade-up">
+      <h2>TR64</h2>
       <p>
-        PharmaGate offers a multi-layered security approach with real-time monitoring and automated safety protocols. Below are its standout features:
+        Using the TR64 methodology, we need to secure the IoT devices as well as the layers like communication, processing, cloud computing and user interface layer.         <br /><br />
+        Cryptographic Support: TLS/SSL for MQTT, Certificates<br /><br />
+        Identification & Authentication: Firebase, Number Codes, Biometrics<br /><br />
+        Network Protection: WiFi secured, MQTT with TLS<br /><br />
+        Secure Function Protection: Physical tamper protection<br /><br />
+        Data Protection: Firebase logs secured, no reuse of codes<br /><br />
+        Access Protection: Number Code > IR > Biometrics, locked sequence<br /><br />
+        Resiliency Support: Emergency override, alarm unlock<br /><br />
+        Security Audit: Logging of all attempts, Firebase logs<br /><br />
+        <br /><br /><br /><br />      
+        <b>STRIDE</b><br /><br />
+        <b>S</b>poofing - Rolling number codes, biometric authentication <br /><br />
+        <b>T</b>ampering - Secure physical sensors, verification loops <br /><br />
+        <b>R</b>epudiation - Firebase logs/account audit <br /><br />
+        <b>I</b>nformation Disclosure - Access only upon verification <br /><br />
+        <b>D</b>enial of Service - N/A <br /><br />
+        <b>E</b>levation of Privilege - Multi-factor authentication <br /><br />
+        <br /><br />
+        <b>Secure by Defaults:</b> Doors stay locked unless proper verification<br /><br />
+        <b>Rigour in Defence:</b> Multiple authentication factors; layered access<br /><br />
+        <b>Accountability:</b> Firebase logs; LEDs for real-time status feedback<br /><br />
+        <b>Resiliency:</b> Fire alarm triggers, emergency button is available to be pressed while alarm sounds<br /><br />
+        <img src="..\images\TR64\TR64table.png" alt="TR64 table" />
+    
       </p>
+    </section>
 
-      <div style="max-width: 1000px; margin: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
-        <div style="flex: 1 1 300px;">
-          <h4>✅ Dual-Door Access Control</h4>
-          <p>Ensures sequential access using two separate validation stages.</p>
+    <section id="security-threats-solutions" class="section-p1" data-aos="fade-up">
+      <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 40px;">Security Threats & Solutions</h2>
+      <div class="cas-card-container">
+        <div class="cas-card" onclick="this.classList.toggle('flipped')">
+          <div class="front"> 
+            <h1>Security Threat 1:</h1><br><h1>Lack of Authentication</h1>
+          </div>
+          <div class="back">
+            <h3 style="color: black;">Solution:</h3><br><h3 style="color: black;">Implement ThingSpeak certificate for secure data communication</h3>
+          </div>
         </div>
-        <div style="flex: 1 1 300px;">
-          <h4>✅ App-Based QR Login</h4>
-          <p>Access codes are validated securely through a mobile application.</p>
-        </div>
-        <div style="flex: 1 1 300px;">
-          <h4>✅ Biometric Verification</h4>
-          <p>Face ID and fingerprint verification before unlocking second door.</p>
-        </div>
-        <div style="flex: 1 1 300px;">
-          <h4>✅ Tailgating Detection</h4>
-          <p>Ultrasonic and IR sensors detect if multiple people enter improperly.</p>
-        </div>
-        <div style="flex: 1 1 300px;">
-          <h4>✅ Fire Detection Auto-Unlock</h4>
-          <p>Temperature and humidity sensors trigger emergency evacuation mode.</p>
-        </div>
-        <div style="flex: 1 1 300px;">
-          <h4>✅ Cloud Dashboard (ThingSpeak)</h4>
-          <p>Real-time access logs and alerts visualized securely on the cloud.</p>
+
+        <div class="cas-card" onclick="this.classList.toggle('flipped')">
+          <div class="front"> 
+            <h1>Security Threat 2:</h1><br><h1>Mobile App and Firebase data is not encrypted</h1>
+          </div>
+          <div class="back">
+            <h3 style="color: black;">Solution:</h3><br><h3 style="color: black;">Ensure the use of TLS and HTTP for secure communication between the mobile app and Firebase</h3>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="challenges-solutions" class="section-p1" data-aos="fade-up" style="padding: 60px 20px;">
-      <h2>🛠️ Challenges & Solutions</h2>
-      <p>
-        During the development of PharmaGate, we encountered several technical and design challenges. Here are a few key ones and how we addressed them.
-      </p>
-
-      <div style="max-width: 1000px; margin: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
-        <div>
-          <h4>🚧 Challenge 1: Real-Time QR Verification</h4>
-          <p>Ensuring QR codes generated on the app are immediately recognized and verified by the door system.</p>
-          <h4>✅ Solution:</h4>
-          <p>Integrated Firebase Realtime Database with asynchronous checking on ESP8266 using polling and timed validation.</p>
-        </div>
-
-        <div>
-          <h4>🚧 Challenge 2: Sensor Fusion Accuracy</h4>
-          <p>Different sensors gave inconsistent readings in crowded environments.</p>
-          <h4>✅ Solution:</h4>
-          <p>Combined multiple sensor types (IR + Ultrasonic + PIR) to confirm occupancy and reduce false positives.</p>
-        </div>
-
-        <div>
-          <h4>🚧 Challenge 3: Biometric Module Integration</h4>
-          <p>Difficulty in matching fingerprint/face data with existing authentication flow.</p>
-          <h4>✅ Solution:</h4>
-          <p>Developed a separate verification module with a pass-through validation signal to unify the access logic.</p>
-        </div>
-
-        <div>
-          <h4>🚧 Challenge 4: Data Visualization & Logging</h4>
-          <p>Storing and viewing user access logs securely in real-time.</p>
-          <h4>✅ Solution:</h4>
-          <p>Used ThingSpeak with public/private API keys and time-series widgets to log, protect, and view events.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="demo-gallery" class="section-p1" data-aos="fade-up" style="padding: 60px 20px;">
-      <h2>🎥 Demo Video / Gallery</h2>
-      <p>
-        Watch our system in action and explore images of the key components and prototype during testing and deployment.
-      </p>
-
+    
+    <section id="demo-gallery" class="section-p1" data-aos="fade-up">
+      <h2>Demo Video / Gallery</h2>
       <!-- 📽️ Demo Video Placeholder -->
-      <div style="max-width: 800px; margin: 0 auto 40px auto; background-color: #f0f0f0; height: 450px; display: flex; align-items: center; justify-content: center; color: #888;">
-        [ Insert Demo Video Here ]
+       <div style="margin: 0 auto 40px auto; background-color: #f0f0f0; align-items: center; justify-content: center; color: #888;">
+        <video width="100%" height="auto" controls>
+          <source src="..\video\door assy.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p style="font-size: 0.8rem; color: #888; text-align: center;">
+        3D Prototype Animation - A demonstration of the door assembly in action.
+        
+        </p>
       </div>
 
-      <!-- 🖼️ Image Gallery Placeholder -->
-      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 1000px; margin: auto;">
-        <div style="width: 300px; height: 200px; background-color: #f2f2f2; display: flex; align-items: center; justify-content: center; color: #999;">
-          [ Image 1 ]
-        </div>
-        <div style="width: 300px; height: 200px; background-color: #f2f2f2; display: flex; align-items: center; justify-content: center; color: #999;">
-          [ Image 2 ]
-        </div>
-        <div style="width: 300px; height: 200px; background-color: #f2f2f2; display: flex; align-items: center; justify-content: center; color: #999;">
-          [ Image 3 ]
-        </div>
+      <div style="margin: 0 auto 40px auto; background-color: #f0f0f0; align-items: center; justify-content: center; color: #888;">
+        <video width="100%" height="auto" controls>
+          <source src="..\video\iots_demovidmp4.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p style="font-size: 0.8rem; color: #888; text-align: center;">
+        First demo draft
+        </p>
       </div>
     </section>
-  <section id="team-members" class="section-p1" data-aos="fade-up" style="padding: 60px 20px;">
-    <h2>👥 Team Members</h2>
-    <p>
-      Meet the team behind PharmaGate. Each member contributed to different aspects of design, implementation, and integration of the system.
-    </p>
 
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1000px; margin: auto;">
-      <div style="flex: 1 1 250px; padding: 20px; background-color: #f9f9f9; border-radius: 8px;">
-        <h4 style="text-align: center;">Member 1</h4>
-        <p style="text-align: center; color: #666;">[ Contribution ]</p>
+
+  <section id="threat" class="section-p1" data-aos="fade" style="padding-bottom: 0;overflow: hidden;">
+    <h2>Possible Methods to Compromise Our Systems</h2>
+    <p style="margin-bottom: 50px;">This section will be explaining what are the possible attacks that we will be facing.</p>
+
+    <div class="threats-card" >
+      <div class="threats-card-background" style="border-top-left-radius: 60px; border-top-right-radius: 60px;"></div>
+      <div class="threats-card-header">
+        <h3>1. Network Scanning</h3>
       </div>
-      <div style="flex: 1 1 250px; padding: 20px; background-color: #f9f9f9; border-radius: 8px;">
-        <h4 style="text-align: center;">Member 2</h4>
-        <p style="text-align: center; color: #666;">[ Contribution ]</p>
+      <p>Discover devices on the same network as the target. It helps identify the ESP8266 (Door A) and any other devices connected to the network.</p>
+      <div class="tools"><strong>Tools:</strong> Nmap (Command-line network scanner: <code>nmap -sn XXX.XXX.XXX.XXX/XXX</code>)</div>
+      <div class="requirements">
+        <strong>Requirements:</strong><br>
+        • Access to the Same Local Network<br>
+        • No Network Segmentation<br>
+        • Device Active on Network
       </div>
-      <div style="flex: 1 1 250px; padding: 20px; background-color: #f9f9f9; border-radius: 8px;">
-        <h4 style="text-align: center;">Member 3</h4>
-        <p style="text-align: center; color: #666;">[ Contribution ]</p>
+    </div>
+
+    <div class="threats-card">
+      <div class="threats-card-background"></div>
+      <div class="threats-card-header">
+        <h3>2. Wi-Fi Sniffing</h3>
       </div>
-      <div style="flex: 1 1 250px; padding: 20px; background-color: #f9f9f9; border-radius: 8px;">
-        <h4 style="text-align: center;">Member 4</h4>
-        <p style="text-align: center; color: #666;">[ Contribution ]</p>
+      <p>Captures Wi-Fi traffic to identify the ESP8266's IP address and other details, provided the network uses weak encryption or no encryption at all.</p>
+      <div class="tools"><strong>Tools:</strong> Wireshark (Network protocol analyzer)</div>
+      <div class="requirements">
+        <strong>Requirements:</strong><br>
+        • Open or Weakly Encrypted Wi-Fi Network<br>
+        • Wi-Fi Sniffing Tools<br>
+        • Access to Network
       </div>
-      <div style="flex: 1 1 250px; padding: 20px; background-color: #f9f9f9; border-radius: 8px;">
-        <h4 style="text-align: center;">Member 5</h4>
-        <p style="text-align: center; color: #666;">[ Contribution ]</p>
+    </div>
+
+    <div class="threats-card">
+      <div class="threats-card-background"></div>
+      <div class="threats-card-header">
+        <h3>3. Social Engineering</h3>
+      </div>
+      <p>This method involves manipulating people within the organization to gain information or physical access to the system.</p>
+      <div class="tools"><strong>Tools:</strong> Phishing (Fake login pages or emails)</div>
+      <div class="requirements">
+        <strong>Requirements:</strong><br>
+        • Physical Access<br>
+        • Tricking Personnel
+      </div>
+    </div>
+
+    <div class="threats-card">
+      <div class="threats-card-background"></div>
+      <div class="threats-card-header">
+        <h3>4. P2P Communication Exploitation</h3>
+      </div>
+      <p>This attack targets unencrypted or weakly encrypted P2P communication between devices, allowing the attacker to intercept or spoof the communication.</p>
+      <div class="tools"><strong>Tools:</strong> Wireshark (Packet sniffing tool)</div>
+      <div class="requirements">
+        <strong>Requirements:</strong><br>
+        • Unencrypted P2P Communication<br>
+        • Network Access
+      </div>
+    </div>
+
+    <div class="threats-card">
+      <div class="threats-card-background"></div>
+      <div class="threats-card-header">
+        <h3>5. Physical Attack (Emergency Exit Override)</h3>
+      </div>
+      <p>This involves using physical access to trigger the emergency exit (e.g., bypassing RFID or pressing a button) or tampering with the hardware.</p>
+      <div class="tools"><strong>Tools:</strong> RFID Reader/Writer (To clone RFID tags)</div>
+      <div class="requirements">
+        <strong>Requirements:</strong><br>
+        • Physical Access<br>
+        • Valid RFID or Button Signal
       </div>
     </div>
   </section>
 
-  <section id="future-scope" class="section-p1" data-aos="fade-up" style="padding: 60px 20px;">
-      <h2>🔮 Future Scope</h2>
+    <section id="future-scope" class="section-p1" data-aos="fade">
+      <h2>Future Scope</h2>
       <p>
         The current implementation of PharmaGate establishes a solid foundation for secure access control in critical environments. 
         Below are some areas we envision expanding into for future iterations.
@@ -257,22 +504,9 @@
         <li>Support large-scale hospital integration with centralized dashboards.</li>
       </ul>
     </section>
-
-    <section id="documentation" class="section-p1" data-aos="fade-up" style="padding: 60px 20px;">
-      <h2>📄 Documentation</h2>
-      <p>
-        You can download the full project report including diagrams, code, and system breakdown using the link below.
-      </p>
-      <a href="docs/pharmagate-documentation.pdf" download style="display: inline-block; padding: 12px 24px; background-color: #0a0a23; color: white; font-size: 1.1rem; border-radius: 5px; text-decoration: none;">
-        📥 Download PDF
-      </a>
-    </section>
-    <!-- End of Main Page content -->
-
-
-
+  </main>
   </div>
-</div>
+
 
     <!-- Footer section -->
     <footer style="background-color: #0a0a23; color: white; padding: 40px 20px; text-align: center;">
@@ -299,52 +533,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>AOS.init();</script>
     <script src="../js/script.js"></script>
-    <script>
-      const sidebarLinks = document.querySelectorAll('.sidebar a');
-      const sections = document.querySelectorAll('section');
 
-      function setActiveLink() {
-        let currentSection = null;
-
-        sections.forEach(section => {
-          const sectionTop = section.offsetTop - 100;
-          const sectionBottom = sectionTop + section.offsetHeight;
-
-          if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
-            currentSection = section.getAttribute('id');
-          }
-        });
-
-        sidebarLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href').substring(1) === currentSection) {
-            link.classList.add('active');
-          }
-        });
-
-        sidebarLinks.forEach(link => {
-          const sectionId = link.getAttribute('href').substring(1);
-          const correspondingSection = document.getElementById(sectionId);
-          if (currentSection !== sectionId) {
-            link.classList.add('hidden');
-          } else {
-            link.classList.remove('hidden');
-          }
-        });
-      }
-
-      sidebarLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-          const sectionId = link.getAttribute('href').substring(1);
-          const section = document.getElementById(sectionId);
-          section.scrollIntoView({ behavior: 'smooth' });
-        });
-      });
-
-      window.addEventListener('scroll', setActiveLink);
-
-    </script>
     <!-- <script src="script.js"></script> -->
   </body>
 </html>
