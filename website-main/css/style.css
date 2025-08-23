@@ -498,3 +498,13 @@ footer a:hover {
     z-index: -1;
     transition: left 1s ease ;
 }
+
+.checkbox-checked {
+  color: green;
+  font-size: 1.5rem;
+}
+
+.checkbox-unchecked {
+  color: red;
+  font-size: 1.5rem;
+}
