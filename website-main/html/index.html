@@ -778,7 +778,8 @@
     <tbody>
       <tr>
         <td style="padding:14px; vertical-align:top;">13</td>
-        <td style="padding:14px; vertical-align:top;">Training model for facial recognition, Testing sample code of all sensors and outputs, Creating mobile application and random code generation, Research for context, documentation and existing applications</td>
+        <td style="padding:14px; vertical-align:top;"> Training model for facial recognition, Testing sample code of all sensors and outputs, Creating mobile application and random code generation, Research for context, documentation and existing applications
+</td>
         <td style="padding:14px; vertical-align:top;">Conducting testing on fire detection system and biometric authentication modules.</td>
         <td style="padding:14px; vertical-align:top;">Begin system-wide testing on dual-door control features.</td>
       </tr>
@@ -813,17 +814,1354 @@
 
 
     <section id="code-base" class="section-p1" data-aos="fade">
-      <h2>Code Base</h2>
-      <p>
-        The code base for the PharmaGate project. It includes the mobile app, Arduino code for the ESP8266, ESP32 Cam and the Firebase configuration files.
-      </p>
-    </section>
+  <h2>Code Base</h2>
+  <p>
+    The code base for the PharmaGate project. It includes the mobile app, Arduino code for the ESP8266, ESP32 Cam, and the Firebase configuration files.
+  </p>
+  <h2 style="text-align: center;">Mobile Application</h2>
+    <div class="code-card">
+    <div class="card-header">
+      <h4>Code Preview: Login Page</h4>
+      <span class="expand-icon" onclick="toggleCode('codeContent1', 'codeDescription1', 'expandIcon1')">&#x21B5; click to expand</span> <!-- Expand Icon -->
+    </div>
+    <div class="code-content" id="codeContent1">
+      <pre>
+package com.example.iot_app
+
+import android.content.Intent
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
+
+import androidx.appcompat.app.AppCompatActivity
+
+import com.google.firebase.auth.FirebaseAuth
+
+class MainActivity : AppCompatActivity() {
+    private lateinit var auth : FirebaseAuth
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        auth = FirebaseAuth.getInstance()
+
+        val emailField = findViewById&lt;EditText&gt;(R.id.email)
+        val passwordField = findViewById&lt;EditText&gt;(R.id.password)
+        val loginButton = findViewById&lt;Button&gt;(R.id.login_button)
+        val forgotpass = findViewById&lt;TextView&gt;(R.id.forgotpass)
+
+        loginButton.setOnClickListener {
+            val email = emailField.text.toString()
+            val password = passwordField.text.toString()
+
+            auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        startActivity(Intent(this, CodeInputActivity::class.java))
+                        finish()
+                    } else {
+                        Toast.makeText(this, "Login Failed", Toast.LENGTH_SHORT).show()
+                    }
+                }
+        }
+
+        forgotpass.setOnClickListener {
+            val intent = Intent(this, ForgotPassword::class.java)
+            startActivity(intent)
+        }
+
+
+    }
+
+}
+
+      </pre>
+    </div>
+    <div class="card-description">
+      <p>This code shows how the Login Page works with Authentication Service in FireBase</p>
+    </div>
+  </div>
+
+   <div class="code-card">
+    <div class="card-header">
+      <h4>Code Preview: Code Input</h4>
+      <span class="expand-icon" onclick="toggleCode('codeContent2', 'codeDescription2', 'expandIcon2')">&#x21B5; click to expand</span> <!-- Expand Icon -->
+    </div>
+    <div class="code-content" id="codeContent2">
+      <pre>
+package com.example.iot_app
+
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+import com.google.android.material.snackbar.Snackbar
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
+import com.example.iot_app.databinding.ActivityCodeInputBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+
+class CodeInputActivity : AppCompatActivity() {
+    private lateinit var dbRef: DatabaseReference
+    private lateinit var auth: FirebaseAuth
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_code_input)
+
+        auth = FirebaseAuth.getInstance()
+        val userId = auth.currentUser?.uid
+        dbRef = FirebaseDatabase.getInstance().reference.child("users").child(userId!!)
+
+        val codeField = findViewById&lt;EditText&gt;(R.id.code_input)
+        val submitButton = findViewById&lt;Button&gt;(R.id.submit_button)
+
+        submitButton.setOnClickListener {
+            val userCode = codeField.text.toString()
+
+            // First, read the generated code for this user
+            dbRef.child("generatedCode").get().addOnSuccessListener { snapshot ->
+                val generatedCode = snapshot.getValue(String::class.java)
+
+                // Only proceed if the entered code matches
+                if (userCode == generatedCode) {
+                    dbRef.child("inputCode").setValue(userCode)
+                        .addOnSuccessListener {
+                            Toast.makeText(this, "Code Submitted", Toast.LENGTH_SHORT).show()
+
+                            // Log only correct code
+                            val timestamp = java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(java.util.Date())
+                            val globalLogRef = FirebaseDatabase.getInstance().reference.child("log").child(timestamp)
+                            globalLogRef.setValue(mapOf(
+                                "user" to auth.currentUser?.uid,
+                                "code" to userCode
+                            ))
+                        }
+                        .addOnFailureListener {
+                            Toast.makeText(this, "Failed to Submit", Toast.LENGTH_SHORT).show()
+                        }
+                } else {
+                    // Optional: just notify user, but do not log
+                    Toast.makeText(this, "Incorrect Code", Toast.LENGTH_SHORT).show()
+                }
+
+            }.addOnFailureListener {
+                Toast.makeText(this, "Failed to read generated code", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+
+    }
+}
+
+      </pre>
+    </div>
+    <div class="card-description">
+      <p>This code shows how Mobile App fetches the code generated from the ESP8266 from Firebase and compares to user input and determines if it is correct to unlock the door as well as logs entry in the Firebase database</p>
+    </div>
+  </div>
+
+  <h2 style="text-align: center;">1st Door code</h2>
+<div class="code-card">
+    <div class="card-header">
+      <h4>Code Preview: ESP8266 Door Control, LCD display, IR sensor Anti-Tailgating and PIR for showing LCD code when someone is nearby</h4>
+      <span class="expand-icon" onclick="toggleCode('codeContent5', 'codeDescription5', 'expandIcon5')">&#x21B5; click to expand</span> <!-- Expand Icon -->
+    </div>
+    <div class="code-content" id="codeContent5">
+      <pre>
+       #include &lt;ESP8266WiFi.h&gt;
+#include &lt;WiFiClient.h&gt;
+#include &lt;FirebaseESP8266.h&gt;
+#include &lt;Servo.h&gt;
+#include &lt;Wire.h&gt;
+#include &lt;lcd_i2c.h&gt;  // Include the LCD library for I2C display
+
+// WiFi credentials
+#define WIFI_SSID "Jarren’s iphone"
+#define WIFI_PASSWORD "idonthaveapassword"
+
+// Firebase credentials
+#define FIREBASE_HOST "iots-31a7f-default-rtdb.firebaseio.com"
+#define FIREBASE_AUTH "guymQlP8DYzj92PmopMzF3h93ctKjioOao3svMuv"
+//#define buzzer 2
+
+FirebaseData fbdo;
+FirebaseAuth auth;
+FirebaseConfig config;
+
+// LCD configuration
+lcd_i2c lcd(0x3E, 16, 2);  // Address 0x3E, 16 columns, 2 rows
+
+// Servo configuration
+Servo myservo;
+int servoPin = D7;  // Pin connected to the servo
+
+// PIR sensor and IR sensor configuration
+const int PIR = D6;       // PIR sensor pin
+const int IRSensor = D0;  // IR sensor pin for tailgating detection
+
+// Variables
+unsigned long PrevMotion = 0;
+const unsigned long five_min = 5 * 60 * 1000; // 5 minutes in milliseconds
+String generatedCode;  
+String userID1 = "afszjUnCS2UNAEoD2RIHlvE6Drm2";  
+String userID2 = "t1J88HWxe8cDtnzhf3KIg9DFjVr1";  
+bool tailgatingDetected = false;  
+String fireStatus; 
+String rfidStatus;
+String servoStatus;
+
+// Tailgating detection state
+bool irFirstHigh = false;
+bool irLowAfterHigh = false;
+unsigned long irFirstHighTime = 0;
+const unsigned long tailgateWindow = 5000; // 5 seconds
+
+// Variable to store the external trigger status as a string
+String externalTriggerStatus = "false"; // "false" or the trigger type like "fire", "rfid", "servo"
+
+// Declare the function prototype for handleDoorUnlock
+void handleDoorUnlock(String userID);
+int tonecount=0;
+
+void setup() {
+  Serial.begin(115200);
+
+  // PIR sensor and IR sensor setup
+  pinMode(PIR, INPUT);
+  pinMode(IRSensor, INPUT);
+ // pinMode(buzzer,OUTPUT); 
+
+  // WiFi connection
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+  Serial.print("Connecting to WiFi...");
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("\nWiFi connected");
+
+  // Firebase setup
+  config.database_url = FIREBASE_HOST;
+  config.signer.tokens.legacy_token = FIREBASE_AUTH;
+  Firebase.begin(&config, &auth);
+
+  // Generate one random 4-digit code and upload to both users
+  generatedCode = String(random(1000, 9999));
+  Firebase.setString(fbdo, "/users/" + userID1 + "/generatedCode", generatedCode);
+  Firebase.setString(fbdo, "/users/" + userID2 + "/generatedCode", generatedCode);
+  Firebase.setBool(fbdo, "/users/" + userID1 + "/doorUnlocked", false);
+  Firebase.setBool(fbdo, "/users/" + userID2 + "/doorUnlocked", false);
+
+  Serial.print("Generated Code: ");
+  Serial.println(generatedCode);
+
+  // Initialize LCD
+  lcd.begin();
+  lcd.setCursor(0, 0);
+  lcd.print("Generated Code:");
+  lcd.setCursor(0, 1);
+  lcd.print(generatedCode.c_str());
+
+  // Servo setup
+  myservo.attach(servoPin);
+  myservo.write(90); // Neutral position (locked)
+}
+
+void loop() {
+
+  int motionState = digitalRead(PIR);
+  int irState = digitalRead(IRSensor);
+
+  // --- PIR Motion detection ---
+  if (motionState == HIGH) {
+    Serial.println("Motion detected!");
+    PrevMotion = millis();
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("Generated Code:");
+    lcd.setCursor(0, 1);
+    lcd.print(generatedCode.c_str());
+    handleDoorUnlock(userID1);
+    handleDoorUnlock(userID2);
+  } else {
+    if (millis() - PrevMotion > five_min) {
+      Serial
+      lcd.clear();
+    }
+  }
+
+ // --- IR Tailgating detection logic ---
+if (irState == LOW) {
+    unsigned long now = millis();
+
+    if (!irFirstHigh) {
+        // First HIGH detected
+        irFirstHigh = true;
+        irFirstHighTime = now;
+        Serial.println("IR: First HIGH detected");
+    } else {
+        // Second LOW detected within 5 seconds (transition from HIGH -> LOW -> HIGH)
+        if (irFirstHigh && (now - irFirstHighTime <= 5000)) {
+            Serial.println("Tailgating detected (HIGH -> LOW -> HIGH)!");
+
+    if (Firebase.getString(fbdo,"/buzzer")){
+    String buzzer = fbdo.stringData();
+    if (buzzer=="false"){
+      Firebase.setString(fbdo,"/buzzer",true);
+      Serial.print("buzzer"); 
+    }
+   }
+
+
+            // Lock door immediately
+            myservo.write(90);  // Lock the door
+            Firebase.setBool(fbdo, "/users/" + userID1 + "/doorUnlocked", false);
+            Firebase.setBool(fbdo, "/users/" + userID2 + "/doorUnlocked", false);
+
+            lcd.clear();
+            lcd.setCursor(0, 0);
+          //  lcd.print("Tailgating Detected!");
+
+            // Tone for notification
+          
+               
+              
+        
+
+            delay(2000);
+        }
+        // Reset first HIGH time for next detection
+        irFirstHighTime = now;
+    }
+}
+
+// Reset if more than 5 seconds passed without detecting LOW state after first HIGH
+if (irFirstHigh && millis() - irFirstHighTime > 5000) {
+    irFirstHigh = false;  // Reset to await the next HIGH -> LOW -> HIGH pattern
+}
+
+
+  // --- Check for Servo, RFID, or Fire triggers ---
+  checkExternalTriggers();
+
+  delay(100);
+}
+
+// Function to check for external triggers (servo, rfid, fire)
+// Function to check for external triggers (servo, rfid, fire)
+void checkExternalTriggers() {
+   if (Firebase.getString(fbdo,"/fire")){
+    String fire = fbdo.stringData();
+    if (fire=="true"){
+      myservo.write(180);
+      delay(5000);
+      myservo.write(90);
+      Firebase.setString(fbdo,"/fire",false);
+      Serial.print("fire"); 
+    }
+   }
+   if (Firebase.getString(fbdo,"/rfid")){
+    String rfid = fbdo.stringData();
+    if (rfid=="true"){
+      myservo.write(180);
+      delay(5000);
+      myservo.write(90);
+      Firebase.setString(fbdo,"/rfid",false);
+      Serial.print("rfid"); 
+    }
+   }
+    if (Firebase.getString(fbdo,"/servo")){
+    String servo = fbdo.stringData();
+    if (servo=="true"){
+      myservo.write(180);
+      delay(5000);
+      myservo.write(90);
+      Firebase.setString(fbdo,"/servo",false);
+      Serial.print("servo"); 
+    }
+   }
+   
+}
+
+// Function to handle door unlock
+void handleDoorUnlock(String userID) {
+  bool doorAlreadyUnlocked = false;
+
+  // Check if the door is already unlocked for the user
+  if (Firebase.getBool(fbdo, "/users/" + userID + "/doorUnlocked")) {
+    doorAlreadyUnlocked = fbdo.boolData();
+  }
+
+  if (doorAlreadyUnlocked) {
+    return;  // Exit if door is already unlocked
+  }
+
+  // Check if the input code matches the generated code
+  if (Firebase.getString(fbdo, "/users/" + userID + "/inputCode")) {
+    String inputCode = fbdo.stringData();
+    Serial.print("Received inputCode for " + userID + ": ");
+    Serial.println(inputCode);
+
+    if (inputCode == generatedCode) {
+      Serial.println("Code matched for " + userID + ". Unlocking door.");
+
+      // Unlock the door using the servo
+      myservo.write(180);  // Servo to unlock
+      delay(5000);         // Keep the door unlocked for 5 seconds
+      myservo.write(90);   // Lock the door again
+
+       // Update /face to true (this is the correct path now)
+      if (Firebase.getString(fbdo,"/face")){
+    String face = fbdo.stringData();
+    if (face=="false"){
+      Firebase.setString(fbdo,"/face",true);
+      Serial.print("done");
+    }
+   }
+
+    // Generate one random 4-digit code and upload to both users
+  generatedCode = String(random(1000, 9999));
+  Firebase.setString(fbdo, "/users/" + userID1 + "/generatedCode", generatedCode);
+  Firebase.setString(fbdo, "/users/" + userID2 + "/generatedCode", generatedCode);
+  Firebase.setBool(fbdo, "/users/" + userID1 + "/doorUnlocked", false);
+  Firebase.setBool(fbdo, "/users/" + userID2 + "/doorUnlocked", false);
+
+  Serial.print("Generated Code: ");
+  Serial.println(generatedCode);
+
+  // Initialize LCD
+ // lcd.begin();
+  lcd.setCursor(0, 0);
+  lcd.print("Generated Code:");
+  lcd.clear();
+  lcd.setCursor(0, 1);
+  lcd.print(generatedCode.c_str());
+
+
+     
+
+      // Update Firebase to reflect door status
+      Firebase.setBool(fbdo, "/users/" + userID + "/doorUnlocked", true);
+
+      // Reset the input code in Firebase
+      Firebase.setString(fbdo, "/users/" + userID + "/inputCode", "0");
+
+      // Set the door back to locked status after the code is processed
+      Firebase.setBool(fbdo, "/users/" + userID + "/doorUnlocked", false);
+
+      // Display the result on the LCD
+      lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print("Door Unlocked!");
+      delay(2000);
+
+      lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print("Generated Code:");
+      lcd.setCursor(0, 1);
+      lcd.print(generatedCode.c_str());
+    }
+  }
+}
+
+      </pre>
+    </div>
+    <div class="card-description">
+      <p>his code shows how the esp8266 fetches data from the firebase and depending on different states, will turn the servo motor 
+        to unlock or lock the door as well as use IR sensor to detect tailgating and PIR sensor to detect motion for displaying the LCD screen
+        and also use firebase to check if there is a fire alert to unlock the door and incorporate buzzer for tailgating detection and communicates with other ESPs via firebase to unlock the door
+      </p></p>
+    </div>
+  </div>
+
+
+
+  <h2 style="text-align: center;">2nd Door code</h2>
+
+  <!-- First Code Preview Card -->
+  <div class="code-card">
+    <div class="card-header">
+      <h4>Code Preview: ESP8266 LED indicator code</h4>
+      <span class="expand-icon" onclick="toggleCode('codeContent3', 'codeDescription3', 'expandIcon3')">&#x21B5; click to expand</span> <!-- Expand Icon -->
+    </div>
+    <div class="code-content" id="codeContent3">
+      <pre>
+        #include &lt;ESP8266WiFi.h&gt;
+        #include &lt;FirebaseESP8266.h&gt;
+
+        int RED = 15;
+        int GREEN = 13;
+        int BLUE = 12;
+
+        WiFiClient client;
+        #define WIFI_SSID "Doodles"
+        #define WIFI_PASSWORD "115811ah"
+
+        // Firebase credentials
+        #define FIREBASE_HOST "iots-31a7f-default-rtdb.firebaseio.com"
+        #define FIREBASE_AUTH "guymQlP8DYzj92PmopMzF3h93ctKjioOao3svMuv"
+
+        FirebaseData fbdo;
+        FirebaseAuth auth;
+        FirebaseConfig config;
+
+        void FirebaseConnection(){
+            Serial.begin(115200);
+            WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+            Serial.print("Connecting to WiFi...");
+            while (WiFi.status() != WL_CONNECTED) {
+              delay(500);
+              Serial.print(".");
+            }
+            Serial.println("\nWiFi connected");
+            delay(100);
+
+            config.database_url = FIREBASE_HOST;
+            config.signer.tokens.legacy_token = FIREBASE_AUTH;
+            Firebase.begin(&config, &auth);
+        }
+
+        void setup() {
+          Serial.begin(115200);
+          FirebaseConnection();
+          pinMode(RED, OUTPUT);
+          pinMode(GREEN, OUTPUT);
+          pinMode(BLUE, OUTPUT);
+        }
+
+        void loop() {
+          if (Firebase.getString(fbdo, "/led")) {
+            String ledValue = fbdo.stringData();
+            Serial.println("LED Value from Firebase: " + ledValue);
+            if (ledValue == "true") {
+              digitalWrite(RED, HIGH);
+              digitalWrite(GREEN, LOW);
+              digitalWrite(BLUE, LOW);
+              Serial.println("LED is GREEN");
+            } else if (ledValue == "false") {
+              digitalWrite(RED, LOW);
+              digitalWrite(GREEN, HIGH);
+              digitalWrite(BLUE, LOW);
+              Serial.println("LED is RED");
+            } else {
+              digitalWrite(RED, LOW);
+              digitalWrite(GREEN, LOW);
+              digitalWrite(BLUE, LOW);
+              Serial.println("LED is OFF");
+            }
+          } else {
+            Serial.println("Error retrieving 'led' value from Firebase: " + fbdo.errorReason());
+          }
+          delay(1000);
+        }
+      </pre>
+    </div>
+    <div class="card-description">
+      <p>This code shows how the esp8266 fetches data from the firebase and depending on different states, will show different colours on the RGB LED</p>
+    </div>
+  </div>
+
+  <!-- Second Code Preview Card -->
+  <div class="code-card">
+    <div class="card-header">
+      <h4>Code Preview: ESP32 CAM with Fingerprint,ultrasonic senosr and ThingsSpeak record</h4>
+      <span class="expand-icon" onclick="toggleCode('codeContent4', 'codeDescription4', 'expandIcon4')">&#x21B5; click to expand</span> <!-- Expand Icon -->
+    </div>
+    <div class="code-content" id="codeContent4">
+      <pre>
+       // Orange to IO14
+  // White to IO15
+  //Trig to IO12
+  //Echo to IO13
+  //R to 13
+  //G to 12
+  //B to 14
+
+  #include &lt;SPI.h&gt;
+  #include &lt;Wire.h&gt;
+  #include &lt;WiFi.h&gt;
+  #include &lt;ThingSpeak.h&gt;
+  #include &lt;esp_now.h&gt;
+  #include &lt;FirebaseESP32.h&gt;
+  #include &lt;Adafruit_Fingerprint.h&gt;  //https://github.com/adafruit/Adafruit-Fingerprint-Sensor-Library
+  #include &lt;esp_camera.h&gt;
+  #include &lt;String&gt;
+
+  // WiFi credentials
+  //#define WIFI_SSID "SINGTEL-1520"
+  //#define WIFI_PASSWORD "zvLsesXLzs9P"
+  WiFiClient client;
+  #define WIFI_SSID "Doodles"
+  #define WIFI_PASSWORD "115811ah"
+
+  // ********** ThingSpeak Credentials **********
+  unsigned long channelID = 3036540; // Your ThingSpeak channel ID
+  const char* apiKey = "QJF66R42QYX54DGO"; // Your WriteAPIKey for the channel
+
+  int message = 0;
+  
+  //************************************************************************
+  // Fingerprint scanner Pins
+  #define Finger_Rx 14 // GPIO 16 (RX pin for fingerprint sensor)
+  #define Finger_Tx 15 // GPIO 17 (TX pin for fingerprint sensor)
+  //************************************************************************
+  // Updated Pins for ultrasonic sensor
+  const int trigPin = 12;  
+  const int echoPin = 13;  
+
+  #define SOUND_SPEED 0.034
+  #define CM_TO_INCH 0.393701
+
+  long duration;
+  float distanceCm;
+
+  String nameFinger = "";  // Use String for easier manipulation
+  String nameFace = "";  // Use String for easier manipulation
+
+  HardwareSerial mySerial(1); // Use hardware serial (Serial1) for ESP32
+  Adafruit_Fingerprint finger = Adafruit_Fingerprint(&mySerial);
+
+  int FingerID = 0;     // The Fingerprint ID from the scanner 
+  uint8_t id;
+
+  // Firebase credentials
+  #define FIREBASE_HOST "iots-31a7f-default-rtdb.firebaseio.com"
+  //#define FIREBASE_HOST "iots-bed43-default-rtdb.asia-southeast1.firebasedatabase.app"
+  #define FIREBASE_AUTH "guymQlP8DYzj92PmopMzF3h93ctKjioOao3svMuv"
+  //#define FIREBASE_AUTH "d9mLYmLy4iJEwrDNO8eDiDgZWtvRtTGq1JNu1V1j"
+
+  FirebaseData fbdo;
+  FirebaseAuth auth;
+  FirebaseConfig config;
+
+  // Flag to indicate that fingerprint detection has already been done
+  bool fingerprintDetected = false; 
+  bool lockFingerprintDetection = false;  // Lock fingerprint detection after a valid scan
+  bool cameraInitialized = false;
+
+  bool checkFirebaseSignal() {
+  String signalValue = "";
+  String fireValue = "";
+  
+  // Retrieve the signal value from Firebase
+    if (Firebase.getString(fbdo, "/face")) {
+      signalValue = fbdo.stringData();  // Get the data returned from Firebase
+      Serial.println("Signal from Firebase: " + signalValue);
+
+      if (signalValue == "true") {
+        // If the signal is "start", return true to start the process
+        return true;
+      }
+    } else {
+      Serial.println("Error getting signal from Firebase: " + fbdo.errorReason());
+    }
+
+    return false; // If signal is not "start", return false
+  }
+
+  void FirebaseConnection(){
+    Serial.begin(115200);
+    WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+    Serial.print("Connecting to WiFi...");
+    while (WiFi.status() != WL_CONNECTED) {
+      delay(500);
+      Serial.print(".");
+    }
+    Serial.println("\nWiFi connected");
+    delay(100);
+    
+    config.database_url = FIREBASE_HOST;
+    config.signer.tokens.legacy_token = FIREBASE_AUTH;
+    Firebase.begin(&config, &auth);
+
+    
+  }
+ 
+  void setup() {
+    Serial.begin(115200);
+
+    FirebaseConnection();
+ 
+    // set the data rate for the sensor serial port
+    mySerial.begin(57600, SERIAL_8N1, Finger_Rx, Finger_Tx);  // Use hardware serial (Serial1)
+    Serial.println("\n\nAdafruit finger detect test");
+
+    if (finger.verifyPassword()) {
+      Serial.println("Found fingerprint sensor!");
+    } else {
+      Serial.println("Did not find fingerprint sensor :(");
+      while (1) { delay(1); }
+    }
+
+    //---------------------------------------------
+    finger.getTemplateCount();
+    Serial.print("Sensor contains "); 
+    Serial.print(finger.templateCount); 
+    Serial.println(" templates");
+    Serial.println("Waiting for valid finger...");
+
+    // Enroll multiple fingerprints by calling the function with different IDs
+    enrollFingerprint(1); // Enroll first fingerprint with ID 1
+
+    pinMode(trigPin, OUTPUT); 
+    pinMode(echoPin, INPUT); 
+  }
+
+  void loop() {
+  // First, check the fire value from Firebase
+  if (Firebase.getString(fbdo, "/fire")) {
+    String fireValue = fbdo.stringData();
+    Serial.println("Fire Value: " + fireValue);
+
+    // If fire is detected, wait for 2 seconds before continuing
+    if (fireValue == "true") {
+      Serial.println("Fire detected! Waiting for 2 seconds...");
+      delay(2000);  // Wait for 2 seconds before checking for the signal
+      return;
+    } else {
+      Serial.println("No fire detected.");
+    }
+  } else {
+    Serial.println("Error retrieving 'fire' value from Firebase.");
+  }
+
+  // Now, check for the signal to proceed with fingerprint scanning and other actions
+  if (checkFirebaseSignal()) {
+    // Proceed with the fingerprint scanning and other actions if the signal is "start"
+    Serial.println("Signal received! Starting process...");
+    
+    // Check if fingerprint has been detected and locked
+    if (!fingerprintDetected && !lockFingerprintDetection) {
+      // Get the Fingerprint ID
+      FingerID = getFingerprintID();  // Get the Fingerprint ID from the Scanner
+      nameFinger = String(FingerID);  // Convert FingerID to String
+      if (FingerID > 0) {
+        Serial.println("Correct fingerprint detected.");
+
+        // Set the fingerprintDetected flag to true to prevent further fingerprint scanning
+        fingerprintDetected = true;
+        lockFingerprintDetection = true;  // Lock fingerprint detection
+
+        // Initialize camera after detecting a valid fingerprint (only once)
+        if (!cameraInitialized) {
+          Serial.println("Initializing camera...");
+          setupCamera();  // Initialize camera after detecting valid fingerprint
+
+          // Wait until the camera is fully initialized
+          while (!cameraInitialized) {
+            delay(100);  // Small delay to allow time for camera to initialize
+          }
+
+          Serial.println("Camera initialized successfully");
+        }
+
+        // Start facial recognition after fingerprint detection
+        startFacialRecognition();  // Start facial recognition process
+      }
+    }
+  } else {
+    Serial.println("Waiting for the signal...");
+  }
+
+  delay(1000);  // Poll Firebase every second or adjust the timing as needed
+  }
+
+
+  // Modify getFingerprintID to return early if fingerprintDetected is true
+  int getFingerprintID() {
+    if (fingerprintDetected) {
+      // If fingerprint has already been detected, skip the scanning process
+      return FingerID;
+    }
+
+    uint8_t p = finger.getImage();
+    switch (p) {
+      case FINGERPRINT_OK:
+        Serial.println("Image taken");
+        break;
+      case FINGERPRINT_NOFINGER:
+        Serial.println("No finger detected");
+        return 0;
+      case FINGERPRINT_PACKETRECIEVEERR:
+        Serial.println("Communication error");
+        return -2;
+      case FINGERPRINT_IMAGEFAIL:
+        Serial.println("Imaging error");
+        return -2;
+      default:
+        Serial.println("Unknown error");
+        return -2;
+    }
+
+    // OK success!
+    p = finger.image2Tz();
+    switch (p) {
+      case FINGERPRINT_OK:
+        Serial.println("Image converted");
+        break;
+      case FINGERPRINT_IMAGEMESS:
+        Serial.println("Image too messy");
+        return -1;
+      case FINGERPRINT_PACKETRECIEVEERR:
+        Serial.println("Communication error");
+        return -2;
+      case FINGERPRINT_FEATUREFAIL:
+        Serial.println("Could not find fingerprint features");
+        return -2;
+      case FINGERPRINT_INVALIDIMAGE:
+        Serial.println("Could not find fingerprint features");
+        return -2;
+      default:
+        Serial.println("Unknown error");
+        return -2;
+    }
+
+    // OK converted!
+    p = finger.fingerFastSearch();
+    if (p == FINGERPRINT_OK) {
+      Serial.println("Found a print match!");
+      Serial.print("Found ID #"); 
+      Serial.print(finger.fingerID); // Corrected here, no parentheses
+      Serial.print(" with confidence of "); 
+      Serial.println(finger.confidence); 
+      // Set the FingerID for later use
+      FingerID = finger.fingerID;
+    } else if (p == FINGERPRINT_PACKETRECIEVEERR) {
+      Serial.println("Communication error");
+      return -2;
+    } else if (p == FINGERPRINT_NOTFOUND) {
+      Serial.println("Did not find a match");
+      return -1;
+    } else {
+      Serial.println("Unknown error");
+      return -2;
+    }
+
+    return finger.fingerID;
+  }
+
+  // Add a function to reset fingerprint detection flag after facial recognition is done
+  void resetFingerprintDetection() {
+    fingerprintDetected = false;
+    lockFingerprintDetection = false;  // Unlock fingerprint detection again
+  }
+
+  //* Enroll Fingerprint *****************
+  void enrollFingerprint(uint8_t id) {
+    int p = -1;
+    Serial.print("Enrolling ID #"); 
+    Serial.println(id);
+    
+    // Capture the first image
+    while (p != FINGERPRINT_OK) {
+      Serial.println("Place finger on sensor...");
+      p = finger.getImage();
+      if (p == FINGERPRINT_NOFINGER) {
+        delay(100);
+      } else if (p != FINGERPRINT_OK) {
+        Serial.println("Error capturing first image.");
+      }
+    }
+
+    p = finger.image2Tz(1);
+    if (p != FINGERPRINT_OK) {
+      Serial.println("Image conversion failed.");
+      return;
+    }
+
+    Serial.println("Remove finger...");
+    delay(5000);  // Add delay (5 seconds) to ensure the user removes their finger
+    
+    // Wait until the first finger is removed
+    while (p != FINGERPRINT_NOFINGER) {
+      p = finger.getImage();
+      delay(100);
+    }
+
+    Serial.println("Place same finger again...");
+    p = -1;
+    // Capture the second image
+    while (p != FINGERPRINT_OK) {
+      p = finger.getImage();
+      if (p == FINGERPRINT_NOFINGER) {
+        delay(100);
+      } else if (p != FINGERPRINT_OK) {
+        Serial.println("Error capturing second image.");
+      }
+    }
+
+    p = finger.image2Tz(2);
+    if (p != FINGERPRINT_OK) {
+      Serial.println("Second image conversion failed.");
+      return;
+    }
+
+    p = finger.createModel();
+    if (p != FINGERPRINT_OK) {
+      Serial.println("Failed to create fingerprint model.");
+      return;
+    }
+
+    p = finger.storeModel(id);
+    if (p == FINGERPRINT_OK) {
+      Serial.println("Fingerprint successfully enrolled!");
+    } else {
+      Serial.println("Failed to store fingerprint.");
+    }
+  }
+
+  //Facial Recognition
+  #include <Doodles-project-1_inferencing.h>
+  #include "edge-impulse-sdk/dsp/image/image.hpp"
+  #include "esp_camera.h"
+
+  // Camera configuration (AI Thinker)
+  #define CAMERA_MODEL_AI_THINKER // Has PSRAM
+  
+  #if defined(CAMERA_MODEL_ESP_EYE)
+  #define PWDN_GPIO_NUM    -1
+  #define RESET_GPIO_NUM   -1
+  #define XCLK_GPIO_NUM    4
+  #define SIOD_GPIO_NUM    18
+  #define SIOC_GPIO_NUM    23
+  #define Y9_GPIO_NUM      36
+  #define Y8_GPIO_NUM      37
+  #define Y7_GPIO_NUM      38
+  #define Y6_GPIO_NUM      39
+  #define Y5_GPIO_NUM      35
+  #define Y4_GPIO_NUM      14
+  #define Y3_GPIO_NUM      13
+  #define Y2_GPIO_NUM      34
+  #define VSYNC_GPIO_NUM   5
+  #define HREF_GPIO_NUM    27
+  #define PCLK_GPIO_NUM    25
+
+  #elif defined(CAMERA_MODEL_AI_THINKER)
+  #define PWDN_GPIO_NUM     32
+  #define RESET_GPIO_NUM    -1
+  #define XCLK_GPIO_NUM      0
+  #define SIOD_GPIO_NUM     26
+  #define SIOC_GPIO_NUM     27
+  #define Y9_GPIO_NUM       35
+  #define Y8_GPIO_NUM       34
+  #define Y7_GPIO_NUM       39
+  #define Y6_GPIO_NUM       36
+  #define Y5_GPIO_NUM       21
+  #define Y4_GPIO_NUM       19
+  #define Y3_GPIO_NUM       18
+  #define Y2_GPIO_NUM        5
+  #define VSYNC_GPIO_NUM    25
+  #define HREF_GPIO_NUM     23
+  #define PCLK_GPIO_NUM     22
+
+  #else
+  #error "Camera model not selected"
+  #endif
+
+  #define EI_CAMERA_RAW_FRAME_BUFFER_COLS           320
+  #define EI_CAMERA_RAW_FRAME_BUFFER_ROWS           240
+  #define EI_CAMERA_FRAME_BYTE_SIZE                 3
+
+  static camera_config_t camera_config = {
+      .pin_pwdn = PWDN_GPIO_NUM,
+      .pin_reset = RESET_GPIO_NUM,
+      .pin_xclk = XCLK_GPIO_NUM,
+      .pin_sscb_sda = SIOD_GPIO_NUM,
+      .pin_sscb_scl = SIOC_GPIO_NUM,
+      .pin_d7 = Y9_GPIO_NUM,
+      .pin_d6 = Y8_GPIO_NUM,
+      .pin_d5 = Y7_GPIO_NUM,
+      .pin_d4 = Y6_GPIO_NUM,
+      .pin_d3 = Y5_GPIO_NUM,
+      .pin_d2 = Y4_GPIO_NUM,
+      .pin_d1 = Y3_GPIO_NUM,
+      .pin_d0 = Y2_GPIO_NUM,
+      .pin_vsync = VSYNC_GPIO_NUM,
+      .pin_href = HREF_GPIO_NUM,
+      .pin_pclk = PCLK_GPIO_NUM,
+      .xclk_freq_hz = 20000000,
+      .ledc_timer = LEDC_TIMER_0,
+      .ledc_channel = LEDC_CHANNEL_0,
+      .pixel_format = PIXFORMAT_JPEG,
+      .frame_size = FRAMESIZE_QVGA,
+      .jpeg_quality = 12,
+      .fb_count = 1,
+      .fb_location = CAMERA_FB_IN_PSRAM,
+      .grab_mode = CAMERA_GRAB_WHEN_EMPTY,
+  };
+
+  static bool debug_nn = false;
+  static bool is_initialised = false;
+  uint8_t *snapshot_buf;
+
+  // Function to initialize the camera for facial recognition
+  void setupCamera() {
+      Serial.println("Edge Impulse Inferencing Demo");
+
+      if (ei_camera_init() == false) {
+          ei_printf("Failed to initialize Camera!\r\n");
+          cameraInitialized = false;  // Make sure it's marked as false if initialization fails
+      } else {
+          ei_printf("Camera initialized\r\n");
+          cameraInitialized = true;  // Set to true after a successful initialization
+      }
+
+      ei_printf("\nStarting continuous inference in 2 seconds...\n");
+      ei_sleep(2000);  // Wait for camera to be ready
+  }
+  // Facial Recognition
+  void startFacialRecognition() {
+    bool objectDetected = false;
+
+    Serial.println("Starting Facial Recognition...");
+
+    while (!objectDetected) {
+      if (Firebase.getString(fbdo, "/fire")) {
+        String fireValue = fbdo.stringData();
+        Serial.println("Fire Value: " + fireValue);
+          // If fire is detected, wait for 2 seconds before proceeding
+        if (fireValue == "true") {
+            Serial.println("Fire detected! Waiting for 2 seconds...");
+            delay(2000);  // Wait for 2 seconds
+            Serial.println("Continuing fingerprint scan after waiting for fire...");
+            Firebase.setString(fbdo,"/face","false");
+            resetFingerprintDetection();
+            return;
+        } else {
+            Serial.println("No fire detected.");
+        }
+      } else {
+          Serial.println("Error retrieving 'fire' value from Firebase.");
+      }
+    
+        // Ultrasonic distance measurement
+        digitalWrite(trigPin, LOW);
+        delayMicroseconds(2);
+        digitalWrite(trigPin, HIGH);
+        delayMicroseconds(10);
+        digitalWrite(trigPin, LOW);
+        
+        duration = pulseIn(echoPin, HIGH);
+        
+        distanceCm = duration * SOUND_SPEED / 2;
+
+        Serial.print("Distance (cm): ");
+        Serial.println(distanceCm);
+
+        // Check if the person is too far or too close
+        if (distanceCm < 30) {
+            Serial.println("Too Close!\n");
+            Firebase.setString(fbdo, "/led", "false"); 
+        } else if (distanceCm > 60) {
+            Serial.println("Too Far!\n");
+            Firebase.setString(fbdo, "/led", "false");   
+        } else {
+            Serial.println("Remain Still & Look at the Camera.\n");
+            Firebase.setString(fbdo, "/led", "true");  
+        }
+        
+        // Simulate sleep to allow time for recognition (replace with actual sleep function if needed)
+        delay(5);  // Use a delay instead of ei_sleep() if you are not using Edge Impulse
+
+        // Capture the image for facial recognition
+        snapshot_buf = (uint8_t*)malloc(EI_CAMERA_RAW_FRAME_BUFFER_COLS * EI_CAMERA_RAW_FRAME_BUFFER_ROWS * EI_CAMERA_FRAME_BYTE_SIZE);
+
+        if(snapshot_buf == nullptr) {
+            Serial.println("ERR: Failed to allocate snapshot buffer!");
+            return;
+        }
+
+        ei::signal_t signal;
+        signal.total_length = EI_CLASSIFIER_INPUT_WIDTH * EI_CLASSIFIER_INPUT_HEIGHT;
+        signal.get_data = &ei_camera_get_data;
+
+        if (ei_camera_capture((size_t)EI_CLASSIFIER_INPUT_WIDTH, (size_t)EI_CLASSIFIER_INPUT_HEIGHT, snapshot_buf) == false) {
+            Serial.println("Failed to capture image");
+            free(snapshot_buf);
+            return;
+        }
+
+        ei_impulse_result_t result = { 0 };
+        EI_IMPULSE_ERROR err = run_classifier(&signal, &result, debug_nn);
+        if (err != EI_IMPULSE_OK) {
+            Serial.printf("ERR: Failed to run classifier (%d)\n", err);
+            free(snapshot_buf);
+            return;
+        }
+
+        Serial.printf("Predictions (DSP: %d ms., Classification: %d ms., Anomaly: %d ms.): \n", result.timing.dsp, result.timing.classification, result.timing.anomaly);
+
+        #if EI_CLASSIFIER_OBJECT_DETECTION == 1
+            Serial.println("Object detection bounding boxes:");
+            bool bb_found = false;  // Set to true if any bounding box is detected
+            for (uint32_t i = 0; i < result.bounding_boxes_count; i++) {
+                ei_impulse_result_bounding_box_t bb = result.bounding_boxes[i];
+                if (bb.value == 0) {
+                    continue;
+                }
+                Serial.printf("  %s (%f) [ x: %u, y: %u, width: %u, height: %u ]\r\n", bb.label, bb.value, bb.x, bb.y, bb.width, bb.height);
+
+                // Update bb_found if any bounding box with value > 0 is found
+                bb_found = true;
+
+                // Check for specific faces and set objectDetected flag
+                if (strcmp(bb.label, "Kaden") == 0) {
+                    Serial.printf("Detected: Kaden - %d%%\n", int(bb.value * 100));
+                    objectDetected = true;
+                    nameFace = 1;
+                    break;  // Exit once Kaden is detected
+                } else if (strcmp(bb.label, "Ervin") == 0) {
+                    Serial.printf("Detected: Ervin - %d%%\n", int(bb.value * 100));
+                    objectDetected = true;
+                    nameFace = 2;
+                    break;  // Exit once Ervin is detected
+                } else if (strcmp(bb.label, "robert downey jr") == 0) {
+                    Serial.printf("Detected: RDj - %d%%\n", int(bb.value * 100));
+                    objectDetected = true;
+                    break;  // Exit once RDj is detected
+                }
+            }
+
+            if (!bb_found) {
+                Serial.println("No objects found");
+                Serial.println("Detected: No object detected\n");
+            }
+        #else
+            Serial.println("Predictions:");
+            for (uint16_t i = 0; i < EI_CLASSIFIER_LABEL_COUNT; i++) {
+                Serial.printf("  %s: %.5f\r\n", ei_classifier_inferencing_categories[i], result.classification[i].value);
+            }
+        #endif
+
+        #if EI_CLASSIFIER_HAS_ANOMALY
+            Serial.printf("Anomaly prediction: %.3f\r\n", result.anomaly);
+        #endif
+
+        #if EI_CLASSIFIER_HAS_VISUAL_ANOMALY
+            Serial.println("Visual anomalies:");
+            for (uint32_t i = 0; i < result.visual_ad_count; i++) {
+                ei_impulse_result_bounding_box_t bb = result.visual_ad_grid_cells[i];
+                if (bb.value == 0) {
+                    continue;
+                }
+                Serial.printf("  %s (%f) [ x: %u, y: %u, width: %u, height: %u ]\r\n", bb.label, bb.value, bb.x, bb.y, bb.width, bb.height);
+            }
+        #endif
+
+        // Clean up the buffer
+        free(snapshot_buf);
+    }
+
+    Serial.println("Face Recognized! Facial recognition complete.");
+
+    Firebase.setString(fbdo,"/servo","true");
+    Firebase.setString(fbdo,"/face","false");
+    delay(100);
+
+    //Initialize ThingSpeak
+    ThingSpeak.begin(client); 
+    ThingSpeak.setField(1, String(nameFinger));
+    ThingSpeak.setField(2, String(nameFace));
+
+    int x = ThingSpeak.writeFields(channelID, apiKey);
+    if (x == 200) {
+    Serial.println("Channel update successful. ");
+    }
+    else {
+    Serial.println("Problem updating channel. HTTP error code " + String(x));
+    }
+    delay(2000);
+
+    resetFingerprintDetection();
+  }
+  
+
+  // Function to initialize the camera for Edge Impulse
+  bool ei_camera_init(void) {
+      if (is_initialised) return true;
+
+      esp_err_t err = esp_camera_init(&camera_config);
+      if (err != ESP_OK) {
+        Serial.printf("Camera init failed with error 0x%x\n", err);
+        return false;
+      }
+
+      sensor_t * s = esp_camera_sensor_get();
+      if (s->id.PID == OV3660_PID) {
+        s->set_vflip(s, 1);
+        s->set_brightness(s, 1);
+        s->set_saturation(s, 0);
+      }
+
+      is_initialised = true;
+      return true;
+  }
+
+  // Function to deinitialize the camera
+  void ei_camera_deinit(void) {
+      esp_err_t err = esp_camera_deinit();
+      if (err != ESP_OK) {
+          ei_printf("Camera deinit failed\n");
+          return;
+      }
+      is_initialised = false;
+      return;
+  }
+
+  // Function to capture an image for Edge Impulse
+  bool ei_camera_capture(uint32_t img_width, uint32_t img_height, uint8_t *out_buf) {
+      bool do_resize = false;
+
+      if (!is_initialised) {
+          ei_printf("ERR: Camera is not initialized\r\n");
+          return false;
+      }
+
+      camera_fb_t *fb = esp_camera_fb_get();
+      if (!fb) {
+          ei_printf("Camera capture failed\n");
+          return false;
+      }
+
+      bool converted = fmt2rgb888(fb->buf, fb->len, PIXFORMAT_JPEG, snapshot_buf);
+      esp_camera_fb_return(fb);
+
+      if(!converted){
+          ei_printf("Conversion failed\n");
+          return false;
+      }
+
+      if ((img_width != EI_CAMERA_RAW_FRAME_BUFFER_COLS)
+          || (img_height != EI_CAMERA_RAW_FRAME_BUFFER_ROWS)) {
+          do_resize = true;
+      }
+
+      if (do_resize) {
+          ei::image::processing::crop_and_interpolate_rgb888(
+              out_buf,
+              EI_CAMERA_RAW_FRAME_BUFFER_COLS,
+              EI_CAMERA_RAW_FRAME_BUFFER_ROWS,
+              out_buf,
+              img_width,
+              img_height);
+      }
+
+      return true;
+  }
+
+  // Function to get image data for Edge Impulse
+  static int ei_camera_get_data(size_t offset, size_t length, float *out_ptr) {
+      size_t pixel_ix = offset * 3;
+      size_t pixels_left = length;
+      size_t out_ptr_ix = 0;
+
+      while (pixels_left != 0) {
+          out_ptr[out_ptr_ix] = (snapshot_buf[pixel_ix + 2] << 16) + (snapshot_buf[pixel_ix + 1] << 8) + snapshot_buf[pixel_ix];
+          out_ptr_ix++;
+          pixel_ix += 3;
+          pixels_left--;
+      }
+      return 0;
+  }
+      </pre>
+    </div>
+    <div class="card-description">
+      <p>This code shows how we are able to connect ESP32 CAM to edge impulse for face recognition as well as incorporate ultrasonic sensor to determine optimal distance for face detection and send it over to firebase for RGB led. As well as registering and checking of fingerprint and recording data to ThingSpeak for visualisation</p>
+    </div>
+  </div>
+</section>
+
+
+<section id="code_base_images" class="section-p1" data-aos="fade">
+  <h2 style="text-align: center;">Code Base Images</h2>
+  <p style="text-align: center;">
+    Below are some images that work together with our code base to make necessary features
+  </p>
+ <img src="../images/edge_impulse.jpg" alt="Code Image 1" style="max-width: 70%; height: auto; border-radius: 20px; margin-bottom: 30px; display: block; margin-left: auto; margin-right: auto;">
+
+  <p style="text-align: center;">Edge Impulse Studio for model training and deployment</p>
+  <!-- <img src="../images/code2.png" alt="Code Image 2" style="max-width: 70%; height: auto; border-radius: 20px; margin-bottom: 30px;">
+  <img src="../images/code3.png" alt="Code Image 3" style="max-width: 70%; height: auto; border-radius: 20px; margin-bottom: 50px;"> -->
+
+<!-- Styles -->
+<style>
+  .code-card {
+    background-color: #f1f1f1;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .expand-icon {
+    cursor: pointer;
+    font-size: 20px;
+    color: #007bff;
+  }
+
+  .code-content {
+    display: none; /* Initially hidden */
+    margin-bottom: 10px;
+  }
+
+  .code-content pre {
+    background-color: #2e2e2e;
+    color: #f8f8f2;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .card-description p {
+    font-size: 16px;
+    color: #333;
+  }
+</style>
+
+<!-- JavaScript -->
+<script>
+  // Toggle function for expanding and collapsing the code
+function toggleCode(codeContentId, expandIconId) {
+    const codeContent = document.getElementById(codeContentId);
+    const icon = document.getElementById(expandIconId);
+
+    // Toggle only the code content visibility
+    if (codeContent.style.display === "none" || codeContent.style.display === "") {
+        codeContent.style.display = "block";
+        icon.innerHTML = "&#x2193;"; // Down Arrow
+    } else {
+        codeContent.style.display = "none";
+        icon.innerHTML = "&#x21B5;"; // Up Arrow
+    }
+}
+
+</script>
+
+
     <section id="ganttchart" class="section-p1" data-aos="fade">
       <h2>Gantt Chart</h2>
       <p>
         The Gantt chart below outlines the project timeline, including key milestones and tasks.
       </p>
-      <img src="../images/gantt-chart.png" alt="Gantt Chart" style="max-width: 70%; height: auto; border-radius: 20px; margin-bottom: 50px;">
+     <img src="../images/gantt-chart.png" alt="Gantt Chart" style="max-width: 120%; height: auto; border-radius: 20px; margin-bottom: 30px; display: block; margin-left: auto; margin-right: auto;">
+
       </section> 
 
       <section id="contribution" class="section-p1" data-aos="fade">
