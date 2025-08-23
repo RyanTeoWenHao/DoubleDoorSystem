@@ -170,26 +170,118 @@
     </section>
 
 
-    <section id="how-it-works" class="section-p1" data-aos="fade-up">
-      <h2>How It Works</h2>
-      <p>
-        PharmaGate is an advanced two-door security system designed for high-security areas, 
-        such as hospitals and pharmaceutical labs. The first door features user verification through 
-        email and password using a mobile app connected to Firebase. The user then enters a code displayed 
-        on the LCD screen above the door. The first door also contains a PIR sensor which turns the LCD off 
-        if it does not detect anyone so as to save power. Upon entering the correct code, the door opens via a servomotor. 
-        Once the user enters the first door, an IR sensor ensures there is no tailgating. If tailgating is detected, 
-        a buzzer will sound, and the second door will remain locked. If no tailgating is detected, the user proceeds to the second door, 
-        which requires biometric authentication, including face ID and fingerprint scanning. 
-        An ultrasonic sensor detects the distance between the user and the face recognition camera. 
-        A LED indicator lights up red if the user is too close or too far from the camera, 
-        and turns green when the user is at the correct distance. If both biometric sensors confirm the user's identity, 
-        the door opens using a servomotor. To exit, the user scans their RFID card. If authenticated through Firebase, 
-        the door opens via the servomotor. In case of a fire, the temperature and humidity sensor triggers an emergency system, 
-        and the user must press a button to unlock all doors. Additionally, the data from the temperature and humidity sensor, 
-        as well as the entry and exit records of users, are logged in ThingSpeak for secure visualization, traceability, and event monitoring.
-      </p>
-    </section>
+<section id="how-it-works" class="section-p1" data-aos="fade-up">
+  <h2>How It Works</h2>
+  <div class="flow-container">
+    <!-- First Row: Left to Right -->
+    <div class="flow-row">
+      <div class="flow-card">
+        <h4>User Verification</h4>
+        <p>
+          User verification is done via email and password using a mobile app connected to Firebase.
+        </p>
+      </div>
+      <div class="arrow">→</div>
+
+      <div class="flow-card">
+        <h4>Enter Code</h4>
+        <p>
+          User enters a code displayed on the LCD screen above the first door.
+        </p>
+      </div>
+    </div>
+
+    <!-- Down Arrow in the Middle -->
+    <div  style="margin-left: 400px;" ="arrow-down">↓</div>
+
+    <!-- Second Row: Left to Right -->
+    <div class="flow-row">
+      <div class="flow-card">
+         <h4>Biometric Authentication</h4>
+        <p>
+          Biometric verification is performed using face ID and fingerprint scanning.
+        </p>
+      </div>
+      <div class="arrow">←</div>
+
+      <div class="flow-card">
+         <h3>Tailgating Check</h3>
+        <p>
+          If no tailgating is detected, the user proceeds; if detected, a buzzer sounds, and the second door remains locked.
+        </p>
+      </div>
+      
+    </div>
+
+    <!-- Down Arrow in the Middle -->
+     <div  style="margin-right: 400px;" ="arrow-down">↓</div>
+
+
+    <!-- Third Row: Left to Right -->
+    <div class="flow-row">
+      <div class="flow-card">
+        <h4>RFID Scanning for Exit</h4>
+        <p>
+          The user scans their RFID card for exit authentication through Firebase.
+        </p>
+      </div>
+      <div class="arrow">→</div>
+
+      <div class="flow-card">
+        <h4>Emergency System</h4>
+        <p>
+          In case of a fire, a temperature and humidity sensor triggers the emergency system and unlocks all doors.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Styles -->
+<style>
+  .flow-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .flow-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .flow-card {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .flow-card h4 {
+    margin-bottom: 15px;
+  }
+
+  .arrow {
+    font-size: 24px;
+    margin: 20px;
+  }
+
+  .arrow-down {
+    font-size: 36px;
+    margin: 20px 0;
+    position: relative;
+    top: -15px; /* Adjust to vertically center the down arrow */
+  }
+</style>
+
+
+
 
     <section id="technology-stack" class="section-p1" data-aos="fade">
       <h2>Technology Stack</h2>
@@ -333,42 +425,156 @@
   </table>
 </section>
 
-    <section id="TR64" class="section-p1" data-aos="fade-up">
-      <h2>TR64</h2>
-      <p>
-        Using the TR64 methodology, we need to secure the IoT devices as well as the layers like communication, processing, cloud computing and user interface layer.         <br /><br />
-        Cryptographic Support: TLS/SSL for MQTT, Certificates<br /><br />
-        Identification & Authentication: Firebase, Number Codes, Biometrics<br /><br />
-        Network Protection: WiFi secured, MQTT with TLS<br /><br />
-        Secure Function Protection: Physical tamper protection<br /><br />
-        Data Protection: Firebase logs secured, no reuse of codes<br /><br />
-        Access Protection: Number Code > IR > Biometrics, locked sequence<br /><br />
-        Resiliency Support: Emergency override, alarm unlock<br /><br />
-        Security Audit: Logging of all attempts, Firebase logs<br /><br />
-        <br /><br /><br /><br />      
-        <b>STRIDE</b><br /><br />
-        <b>S</b>poofing - Rolling number codes, biometric authentication <br /><br />
-        <b>T</b>ampering - Secure physical sensors, verification loops <br /><br />
-        <b>R</b>epudiation - Firebase logs/account audit <br /><br />
-        <b>I</b>nformation Disclosure - Access only upon verification <br /><br />
-        <b>D</b>enial of Service - N/A <br /><br />
-        <b>E</b>levation of Privilege - Multi-factor authentication <br /><br />
-        <br /><br />
-        <b>Secure by Defaults:</b> Doors stay locked unless proper verification<br /><br />
-        <b>Rigour in Defence:</b> Multiple authentication factors; layered access<br /><br />
-        <b>Accountability:</b> Firebase logs; LEDs for real-time status feedback<br /><br />
-        <b>Resiliency:</b> Fire alarm triggers, emergency button is available to be pressed while alarm sounds<br /><br />
-        <img src="..\images\TR64\TR64table.png" alt="TR64 table" />
-    
-      </p>
-    </section>
+<section id="TR64" class="section-p1" data-aos="fade-up">
+  <h2>TR64</h2>
+  <p>
+    Using the TR64 methodology, we need to secure the IoT devices as well as the layers like communication, processing, cloud computing, and user interface layer. <br /><br />
+    <b>Cryptographic Support:</b> TLS/SSL for MQTT, Certificates <br /><br />
+    <b>Identification & Authentication:</b> Firebase, Number Codes, Biometrics <br /><br />
+    <b>Network Protection:</b> WiFi secured, MQTT with TLS <br /><br />
+    <b>Secure Function Protection:</b> Physical tamper protection <br /><br />
+    <b>Data Protection:</b> Firebase logs secured, no reuse of codes <br /><br />
+    <b>Access Protection:</b> Number Code > IR > Biometrics, locked sequence <br /><br />
+    <b>Resiliency Support:</b> Emergency override, alarm unlock <br /><br />
+    <b>Security Audit:</b> Logging of all attempts, Firebase logs <br /><br />
+
+    <h3>Vendor Disclosure Checklist</h3>
+
+    <!-- Cryptographic Support Section -->
+    <h2>1. Cryptographic Support</h2>
+    <table border="1" cellpadding="10" cellspacing="0" style="width:100%; text-align:left; border-collapse: collapse;">
+      <thead>
+        <tr style="background-color: #f2f2f2;">
+          <th>ID</th>
+          <th>Vendor Disclosure Checklist</th>
+          <th>Y</th>
+          <th>N</th>
+          <th>NA</th>
+          <th>Please Elaborate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>CK-CS-01</td>
+          <td>Do your devices and system employ current and industry accepted cryptographic techniques and best practices? (Examples of best practices include: use of approved algorithms, sufficient key length, approved random number generators, recommended crypto-period.)</td>
+          <td><input type="checkbox"></td>
+          <td><input type="checkbox"></td>
+          <td><input type="checkbox" checked></td>
+          <td>ihseighseighsighighsgshgisdhigsdhgkjsdhgjksdgjkdshgkjsdh</td>
+        </tr>
+        <tr>
+          <td>CK-CS-02</td>
+          <td>Do you employ proper key management (generation, exchange, storage, destruction, replacement, etc.) techniques?</td>
+          <td><input type="checkbox" checked></td>
+          <td><input type="checkbox"></td>
+          <td><input type="checkbox"></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Identification and Authentication Section -->
+    <h4>2. Identification and Authentication</h4>
+    <table border="1" cellpadding="10" cellspacing="0" style="width:100%; text-align:left; border-collapse: collapse;">
+      <thead>
+        <tr style="background-color: #f2f2f2;">
+          <th>ID</th>
+          <th>Vendor Disclosure Checklist</th>
+          <th>Y</th>
+          <th>N</th>
+          <th>NA</th>
+          <th>Please Elaborate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>CK-IA-01</td>
+          <td>Do you employ unique, non-modifiable and verifiable identities for clients (user, device, gateway, application) and servers?</td>
+          <td><input type="checkbox"></td>
+          <td><input type="checkbox" checked></td>
+          <td><input type="checkbox"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>CK-IA-02</td>
+          <td>Do you employ mutual authentication? For example, before establishing connections and after pre-defined intervals.</td>
+          <td><input type="checkbox" checked></td>
+          <td><input type="checkbox"></td>
+          <td><input type="checkbox"></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Network Protection Section -->
+    <h4>3. Network Protection</h4>
+    <table border="1" cellpadding="10" cellspacing="0" style="width:100%; text-align:left; border-collapse: collapse;">
+      <thead>
+        <tr style="background-color: #f2f2f2;">
+          <th>ID</th>
+          <th>Vendor Disclosure Checklist</th>
+          <th>Y</th>
+          <th>N</th>
+          <th>NA</th>
+          <th>Please Elaborate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>CK-NP-01</td>
+          <td>Do you enforce network access control? For example, ensure explicit authorization to join a new network and/or allow remote access.</td>
+          <td><input type="checkbox"></td>
+          <td><input type="checkbox" checked></td>
+          <td><input type="checkbox"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>CK-NP-02</td>
+          <td>Do you employ proven transport protocols with security controls properly activated?</td>
+          <td><input type="checkbox"></td>
+          <td><input type="checkbox" checked></td>
+          <td><input type="checkbox"></td>
+          <td>Examples include: Use of TLS for TCP payloads, use of DTLS for UDP payloads.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Industry Best Practices Section -->
+    <h4>4. Industry Best Practices for Secure Connectivity</h4>
+    <table border="1" cellpadding="10" cellspacing="0" style="width:100%; text-align:left; border-collapse: collapse;">
+      <thead>
+        <tr style="background-color: #f2f2f2;">
+          <th>ID</th>
+          <th>Vendor Disclosure Checklist</th>
+          <th>Y</th>
+          <th>N</th>
+          <th>NA</th>
+          <th>Please Elaborate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>CK-NP-03</td>
+          <td>Do you employ industry best practices for secure connectivity?</td>
+          <td><input type="checkbox" checked></td>
+          <td><input type="checkbox"></td>
+          <td><input type="checkbox"></td>
+          <td>Examples of industry best practices: Use of VPN or leased lines, use of private mobile APNs from telecommunication operators, use of DNS pinning to prevent DNS spoofing, employ TLS when using MQTT.</td>
+        </tr>
+      </tbody>
+    </table>
+  </p>
+</section>
+
+
+
 
     <section id="security-threats-solutions" class="section-p1" data-aos="fade-up">
       <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 40px;">Security Threats & Solutions (click to flip)</h2>
       <div class="cas-card-container">
         <div class="cas-card" onclick="this.classList.toggle('flipped')">
           <div class="front"> 
-            <h1>Security Threat 1:</h1><br><h1>Lack of Authentication</h1>
+            <h1 style="color: #000;">Security Threat 1:</h1><br><h1 style="color: #000;">Lack of Authentication</h1>
           </div>
           <div class="back">
             <h3 style="color: black;">Solution:</h3><br><h3 style="color: black;">Implement ThingSpeak certificate for secure data communication</h3>
@@ -377,7 +583,7 @@
 
         <div class="cas-card" onclick="this.classList.toggle('flipped')">
           <div class="front"> 
-            <h1>Security Threat 2:</h1><br><h1>Mobile App and Firebase data is not encrypted</h1>
+            <h1 style="color: #000;">Security Threat 2:</h1><br><h1 style="color: #000;">Mobile App and Firebase data is not encrypted</h1>
           </div>
           <div class="back">
             <h3 style="color: black;">Solution:</h3><br><h3 style="color: black;">Ensure the use of TLS and HTTP for secure communication between the mobile app and Firebase</h3>
@@ -463,7 +669,7 @@
 
 
   <section id="threat" class="section-p1" data-aos="fade" style="padding-bottom: 0;overflow: hidden; margin: 100px;">
-    <h2>Possible Methods to Compromise Our Systems</h2>
+    <h2>Hacking Methodologies</h2>
     <p style="margin-bottom: 50px;">This section will be explaining what are the possible attacks that we will be facing.</p>
 
     <div class="threats-card" >
