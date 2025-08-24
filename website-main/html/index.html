@@ -441,7 +441,7 @@
     <h3>Vendor Disclosure Checklist</h3>
 
     <!-- Cryptographic Support Section -->
-    <h2>1. Cryptographic Support</h2>
+    <h4>1. Cryptographic Support</h4>
     <table border="1" cellpadding="10" cellspacing="0" style="width:100%; text-align:left; border-collapse: collapse;">
   <thead>
     <tr style="background-color: #f2f2f2;">
@@ -475,7 +475,7 @@
   </tbody>
 </table>
 
-<h2>2. Security function protection </h2>
+<h4>2. Security function protection </h4>
     <table border="1" cellpadding="10" cellspacing="0" style="width:100%; text-align:left; border-collapse: collapse;">
   <thead>
     <tr style="background-color: #f2f2f2;">
@@ -491,17 +491,17 @@
     <tr>
       <td>CK-FP-01</td>
       <td>Do you establish hardware Root-of-Trust?</td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
       <td><span class="checkbox-checked">&#10004;</span></td> 
-      <td><span class="checkbox-unchecked">&#10008;</span></td> 
-      <td><span class="checkbox-checked">&#10004;</span></td> 
+      <td><span class="checkbox-checked">&#10004;</span></td>   
       <td>ihseighseighsighighsgshgisdhigsdhgkjsdhgjksdgjkdshgkjsdh</td>
     </tr>
     <tr>
       <td>CK-FP-02 </td>
       <td>Do you employ secure boot? </td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
       <td><span class="checkbox-checked">&#10004;</span></td> 
-      <td><span class="checkbox-unchecked">&#10008;</span></td> 
-      <td><span class="checkbox-unchecked">&#10008;</span></td> 
+      <td><span class="checkbox-checked">&#10004;</span></td> 
       <td></td>
     </tr>
   </tbody>
@@ -524,17 +524,17 @@
         <tr>
           <td>CK-IA-01</td>
           <td>Do you employ unique, non-modifiable and verifiable identities for clients (user, device, gateway, application) and servers?</td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox"></td>
+          <td><span class="checkbox-checked">&#10004;</span></td>
+          <td><span class="checkbox-checked">&#10004;</span></td>
+          <td><span class="checkbox-checked">&#10004;</span></td>
           <td></td>
         </tr>
         <tr>
           <td>CK-IA-02</td>
           <td>Do you employ mutual authentication? For example, before establishing connections and after pre-defined intervals.</td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
+          <td><span class="checkbox-checked">&#10004;</span></td>
+          <td><span class="checkbox-checked">&#10004;</span></td>
+          <td><span class="checkbox-checked">&#10004;</span></td>
           <td></td>
         </tr>
       </tbody>
@@ -557,35 +557,36 @@
         <tr>
           <td>CK-NP-01</td>
           <td>Do you enforce network access control? For example, ensure explicit authorization to join a new network and/or allow remote access.</td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox"></td>
+          <td><span class="checkbox-checked">&#10004;</span></td>
+          <td><span class="checkbox-checked">&#10004;</span></td>
+          <td><span class="checkbox-checked">&#10004;</span></td>
           <td></td>
         </tr>
         <tr>
           <td>CK-NP-02</td>
-          <td>Do you employ proven transport protocols with security controls properly activated?</td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox"></td>
+          <td>Do you employ proven transport protocols with security controls properly activated? Examples include: Use of TLS for TCP payloads, Use of DTLS for UDP payloads. 
+</td>
+          <td><span class="checkbox-checked">&#10004;</span></td>
+          <td><span class="checkbox-checked">&#10004;</span></td>
+          <td><span class="checkbox-checked">&#10004;</span></td>
           <td>Examples include: Use of TLS for TCP payloads, use of DTLS for UDP payloads.</td>
         </tr>
          <tr>
           <td>CK-NP-03 </td>
           <td>Do you employ industry best practices for secure connectivity? Examples of industry best practices:Use of VPN or leased lines, Use of private mobile APNs from telecommunication operators when using a public mobile carrier network, Use of DNS pinning to prevent DNS spoofing, Use of traffic filtering based on type, port and destination, Use of certificate pinning, Employ TLS when using MQTT, Scan for open network ports, Use whitelisting to establish or deny connections from nontrusted sources.</td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox"></td>
+          <td><span class="checkbox-checked">&#10004;</span></td>
+          <td><span class="checkbox-checked">&#10004;</span></td>
+          <td><span class="checkbox-checked">&#10004;</span></td>
           <td></td>
         </tr>
         <tr>
           <td>CK-NP-04</td>
           <td>Do you segregate communication channels for trusted end points
-from non-trusted ones? xamples include: Use of VLAN, Use of firewalls for DMZ, Use of unidirectional security gateway, Physical isolation. 
+from non-trusted ones? Examples include: Use of VLAN, Use of firewalls for DMZ, Use of unidirectional security gateway, Physical isolation. 
  </td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox"></td>
+          <td><span class="checkbox-checked">&#10004;</span></td>
+          <td><span class="checkbox-checked">&#10004;</span></td>
+          <td><span class="checkbox-checked">&#10004;</span></td>
           <td></td>
         </tr>
       </tbody>
@@ -608,33 +609,33 @@ from non-trusted ones? xamples include: Use of VLAN, Use of firewalls for DMZ, U
           <td>CK-DP-01</td>
           <td>Do you protect the confidentiality and integrity of your sensitive
 data? in transit, in use, at rest </td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
+          <td><span class="checkbox-checked">&#10004;</span></td>
+          <td><span class="checkbox-checked">&#10004;</span></td>
+          <td><span class="checkbox-checked">&#10004;</span></td>
           <td></td>
         </tr>
         <tr>
       <td>CK-DP-02</td>
       <td>Do you protect the authenticity and integrity of your codes and firmware? in transit, in use, at rest</td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
+        <td><span class="checkbox-checked">&#10004;</span></td>
+        <td><span class="checkbox-checked">&#10004;</span></td>
+        <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
     </tr>
     <tr style="background:#f5f5f5;">
       <td>CK-DP-03</td>
       <td>Do you ensure the authenticity and integrity of your data (e.g., inputs, commands and sensing data)? in transit, in use, at rest. Examples include: Validate incoming content-types, Validate response types, Validate HTTP methods against authorization credentials, Whitelist allowable HTTP methods, Define acceptable character set, Validate that input characters are acceptable, Encode/escape input and output.</td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
     </tr>
     <tr>
       <td>CK-DP-04</td>
       <td>Do you enforce access control to detect and prevent unauthorized data access and exfiltration, and filter your outputs?</td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
     </tr>
       </tbody>
@@ -655,41 +656,41 @@ data? in transit, in use, at rest </td>
     <tr>
       <td>CK-AP-01</td>
       <td>Do you employ mechanisms to manage and secure local and/or remote access? Example mechanisms include: auto logoff, screen lock, lock-out for repeated unauthorised attempts, forced re-authorisation.</td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
     </tr>
     <tr style="background:#f5f5f5;">
       <td>CK-AP-02</td>
       <td>Do you send out-of-band notifications on impactful operations and/or alerts (e.g., credential reset, security update failures)?</td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
     </tr>
     <tr>
       <td>CK-AP-03</td>
       <td>Do you enforce access control to prevent unauthorised access to system interfaces, system files and removable media?</td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
     </tr>
     <tr style="background:#f5f5f5;">
       <td>CK-AP-04</td>
       <td>Do you employ anti-tamper mechanisms for resistance, evidence, detection and/or response?</td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
     </tr>
     <tr>
       <td>CK-AP-05</td>
       <td>Do you support multi-factor authentication for impactful operations (e.g., credential reset)?</td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
     </tr>
   </tbody>
@@ -711,33 +712,33 @@ data? in transit, in use, at rest </td>
     <tr>
       <td>CK-MT-01</td>
       <td>Do you employ proper user and password management? Examples include: Enforce strong password policy, enforce no default passwords, ensure password recovery and reset mechanism are secure.</td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
     </tr>
     <tr style="background:#f5f5f5;">
       <td>CK-MT-02</td>
       <td>Do you enforce proper access control to management functions? Examples include: Enforce least privilege, implement dual control for key management protection, use ABAC or RBAC, separation of duties for administrators.</td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
     </tr>
     <tr>
       <td>CK-MT-03</td>
       <td>Do you employ malware mitigation mechanisms? Examples include: Ensure file integrity using cryptographic hash, baseline normal behavior, detect unauthorized software, prohibit insecure bootloaders.</td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
     </tr>
     <tr style="background:#f5f5f5;">
       <td>CK-MT-04</td>
       <td>Do you secure remote management of devices, including sensor gateways? Examples include: Secure OTA updates, cryptographically secure software/firmware updates, platform integrity verification, restrict remote management to secure networks.</td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
     </tr>
   </tbody>
@@ -759,33 +760,34 @@ data? in transit, in use, at rest </td>
     <tr>
       <td>CK-RS-01</td>
       <td>Does your device support integrity self-test, error detection and correction for critical functions and return to a safe state?</td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
     </tr>
     <tr style="background:#f5f5f5;">
       <td>CK-RS-02</td>
       <td>Do you safeguard against a compromised device from compromising the system? Examples include: Use of Perfect Forward Secrecy (PFS) for secure communication, Use of distinct secret keys for individual devices.</td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
     </tr>
     <tr>
       <td>CK-RS-03</td>
-      <td>Do you employ mechanisms against failures from resource exhaustion and/or malicious attacks such as DDoS? Examples include: Monitor to ensure that cloud resources are sufficient to sustain services, Detect resource exhaustion for early preventive or corrective actions.</td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
+      <td>Do you employ mechanisms against failures from resource exhaustion and/or malicious attacks such as DDoS? Examples include: Monitor to ensure that cloud resources are sufficient to sustain services, Detect resource exhaustion for early preventive or corrective actions, Control the execution of resource-intensive software, Enforce power thresholds, Limit the number of concurrent sessions, Operate with excess capacity. 
+</td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
     </tr>
     <tr style="background:#f5f5f5;">
       <td>CK-RS-04</td>
       <td>Do you conduct regular backups of system data (including settings)?</td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
     </tr>
   </tbody>
@@ -806,23 +808,24 @@ data? in transit, in use, at rest </td>
   <tbody>
     <tr>
       <td>CK-AU-01</td>
-      <td>Do your devices and system record enough information (e.g., who does what and when) in audit logs and flag significant events?</td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
+      <td>Do your devices and system record enough information (e.g., who does what and when) in audit logs and flag significant events? Example of events include: user logins, logouts, and unsuccessful authentication attempts; connection, disconnection, and unsuccessful connection attempts; unsuccessful authorization attempts; access to sensitive data; import and export of data from removable media; any change in access privileges; creation, modification, or deletion of data by users; impactful and remote operations; security update failures; and physical or emergency access attempts where possible.</td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
     </tr>
+
     <tr style="background:#f5f5f5;">
       <td>CK-AU-02</td>
       <td>Are your audit logs protected from modification, deletion, physical tampering, and sensitive data disclosure?</td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
     </tr>
   </tbody>
 </table>
-<!---
+
 <h4>10. Lifecycle Protection</h4>
 <table border="1" cellpadding="10" cellspacing="0" style="width:100%; text-align:left; border-collapse: collapse;">
   <thead>
@@ -839,34 +842,34 @@ data? in transit, in use, at rest </td>
     <tr>
       <td>CK-LP-01</td>
       <td>Have you conducted threat modeling to identify, analyze and mitigate threats to the system?</td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
     </tr>
     <tr style="background:#f5f5f5;">
       <td>CK-LP-02</td>
       <td>Did you design and develop the system using a secure systems engineering approach?</td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
     </tr>
     <tr>
       <td>CK-LP-03</td>
       <td>Do you implement and maintain the system with components from a secure supply chain, with no known vulnerabilities?</td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
       </tr>
 
       <tr>
       <td>CK-LP-05</td>
       <td>Do you ensure that the system is hardened before the "Operational" lifecycle phase? Examples of system hardening include: Remove all backdoors, remove all debug codes from the released version, change default configuration and disable unnecessary services, remove or tamper-covered JTAG, unneeded serial and ports before deployment, harden VM host properly, including disabling memory sharing between VM, remove default and hardcoded passwords.</td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
     </tr>
 
@@ -874,55 +877,51 @@ data? in transit, in use, at rest </td>
     <tr style="background:#f5f5f5;">
       <td>CK-LP-06</td>
       <td>Do you maintain an inventory of connected devices, software and firmware versions, applied patches and updates throughout the “Operational” lifecycle stage?</td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
     </tr>
 
-    
     <tr>
       <td>CK-LP-07</td>
       <td>Do you conduct penetration testing and/or vulnerability assessment periodically, and before each major release?</td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
     </tr>
-
 
     <tr style="background:#f5f5f5;">
       <td>CK-LP-08</td>
       <td>Do you establish proper vulnerability disclosure and management? Examples include: Ensure the supply chain's capability to provide upgrades and patches, provide vulnerability disclosure and processes to track and respond promptly, provide firmware and software patches/updates for vulnerabilities discovered, employ proper change management processes to manage security patches or updates, notify and/or allow user to approve/reject updates, patches and changes to user settings, disclose minimum support period.</td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
     </tr>
 
-    
     <tr>
       <td>CK-LP-09</td>
       <td>Do you ensure that identities, certificates and secrets are secured throughout the lifecycle (e.g., creation, provisioning, renewal and revocation)?</td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
     </tr>
 
     <tr style="background:#f5f5f5;">
       <td>CK-LP-10</td>
       <td>Do you sanitize devices and systems of security data and sensitive user data, before the "Reuse or Dispose" lifecycle stages?</td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
-      <td><input type="checkbox"></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
-    </tr>-->
+    </tr>
+  </tbody>
+  </table>  
   </p>
 </section>
-
-
-
 
     <section id="security-threats-solutions" class="section-p1" data-aos="fade-up">
       <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 40px;">Security Threats & Solutions (click to flip)</h2>
