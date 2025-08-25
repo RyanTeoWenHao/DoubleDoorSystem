@@ -176,6 +176,7 @@
     <!-- First Row: Left to Right -->
     <div class="flow-row">
       <div class="flow-card">
+        <img src="../images/how-it-works/1.jpg" sizes="(max-width: 600px) 100vw, 600px" alt="User Verification" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
         <h4>User Verification</h4>
         <p>
           User verification is done via email and password using a mobile app connected to Firebase.
@@ -184,6 +185,7 @@
       <div class="arrow">→</div>
 
       <div class="flow-card">
+        <img src="../images/how-it-works/2.jpg" sizes="(max-width: 600px) 100vw, 600px" alt="User Verification" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
         <h4>Enter Code</h4>
         <p>
           User enters a code displayed on the LCD screen above the first door.
@@ -197,7 +199,8 @@
     <!-- Second Row: Left to Right -->
     <div class="flow-row">
       <div class="flow-card">
-         <h4>Biometric Authentication</h4>
+        <img src="../images/how-it-works/4.jpg" sizes="(max-width: 600px) 100vw, 600px" alt="User Verification" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
+        <h4>Biometric Authentication</h4>
         <p>
           Biometric verification is performed using face ID and fingerprint scanning.
         </p>
@@ -205,7 +208,8 @@
       <div class="arrow">←</div>
 
       <div class="flow-card">
-         <h3>Tailgating Check</h3>
+        <img src="../images/how-it-works/3.jpg" sizes="(max-width: 600px) 100vw, 600px" alt="User Verification" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
+        <h3>Tailgating Check</h3>
         <p>
           If no tailgating is detected, the user proceeds; if detected, a buzzer sounds, and the second door remains locked.
         </p>
@@ -220,6 +224,7 @@
     <!-- Third Row: Left to Right -->
     <div class="flow-row">
       <div class="flow-card">
+        <img src="../images/how-it-works/5.jpg" sizes="(max-width: 600px) 100vw, 600px" alt="User Verification" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
         <h4>RFID Scanning for Exit</h4>
         <p>
           The user scans their RFID card for exit authentication through Firebase.
@@ -228,6 +233,7 @@
       <div class="arrow">→</div>
 
       <div class="flow-card">
+        <img src="../images/how-it-works/6.jpg" sizes="(max-width: 600px) 100vw, 600px" alt="User Verification" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
         <h4>Emergency System</h4>
         <p>
           In case of a fire, a temperature and humidity sensor triggers the emergency system and unlocks all doors.
@@ -250,11 +256,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex: 1 1 auto;
   }
 
   .flow-card {
-    background-color: #007bff;
-    color: white;
+    flex: 1 1 auto;
+    background-color: #bebebe;
+    color: rgb(0, 0, 0);
     padding: 20px;
     margin: 15px;
     border-radius: 8px;
