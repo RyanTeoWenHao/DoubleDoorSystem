@@ -176,6 +176,7 @@
     <!-- First Row: Left to Right -->
     <div class="flow-row">
       <div class="flow-card">
+        <img src="../images/how-it-works/1.jpg" sizes="(max-width: 600px) 100vw, 600px" alt="User Verification" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
         <h4>User Verification</h4>
         <p>
           User verification is done via email and password using a mobile app connected to Firebase.
@@ -184,6 +185,7 @@
       <div class="arrow">→</div>
 
       <div class="flow-card">
+        <img src="../images/how-it-works/2.jpg" sizes="(max-width: 600px) 100vw, 600px" alt="User Verification" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
         <h4>Enter Code</h4>
         <p>
           User enters a code displayed on the LCD screen above the first door.
@@ -197,7 +199,8 @@
     <!-- Second Row: Left to Right -->
     <div class="flow-row">
       <div class="flow-card">
-         <h4>Biometric Authentication</h4>
+        <img src="../images/how-it-works/4.jpg" sizes="(max-width: 600px) 100vw, 600px" alt="User Verification" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
+        <h4>Biometric Authentication</h4>
         <p>
           Biometric verification is performed using face ID and fingerprint scanning.
         </p>
@@ -205,7 +208,8 @@
       <div class="arrow">←</div>
 
       <div class="flow-card">
-         <h3>Tailgating Check</h3>
+        <img src="../images/how-it-works/3.jpg" sizes="(max-width: 600px) 100vw, 600px" alt="User Verification" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
+        <h3>Tailgating Check</h3>
         <p>
           If no tailgating is detected, the user proceeds; if detected, a buzzer sounds, and the second door remains locked.
         </p>
@@ -220,6 +224,7 @@
     <!-- Third Row: Left to Right -->
     <div class="flow-row">
       <div class="flow-card">
+        <img src="../images/how-it-works/5.jpg" sizes="(max-width: 600px) 100vw, 600px" alt="User Verification" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
         <h4>RFID Scanning for Exit</h4>
         <p>
           The user scans their RFID card for exit authentication through Firebase.
@@ -228,6 +233,7 @@
       <div class="arrow">→</div>
 
       <div class="flow-card">
+        <img src="../images/how-it-works/6.jpg" sizes="(max-width: 600px) 100vw, 600px" alt="User Verification" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
         <h4>Emergency System</h4>
         <p>
           In case of a fire, a temperature and humidity sensor triggers the emergency system and unlocks all doors.
@@ -250,11 +256,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex: 1 1 auto;
   }
 
   .flow-card {
-    background-color: #007bff;
-    color: white;
+    flex: 1 1 auto;
+    background-color: #bebebe;
+    color: rgb(0, 0, 0);
     padding: 20px;
     margin: 15px;
     border-radius: 8px;
@@ -713,33 +721,33 @@ data? in transit, in use, at rest </td>
       <td>CK-MT-01</td>
       <td>Do you employ proper user and password management? Examples include: Enforce strong password policy, enforce no default passwords, ensure password recovery and reset mechanism are secure.</td>
       <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td></td>
+      <td>Usage of email and password for app login as well as password recovery if user were to forget.</td>
     </tr>
     <tr style="background:#f5f5f5;">
       <td>CK-MT-02</td>
       <td>Do you enforce proper access control to management functions? Examples include: Enforce least privilege, implement dual control for key management protection, use ABAC or RBAC, separation of duties for administrators.</td>
       <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td></td>
+      <td>Use of firebase rules and authentication to manage users.</td>
     </tr>
     <tr>
       <td>CK-MT-03</td>
       <td>Do you employ malware mitigation mechanisms? Examples include: Ensure file integrity using cryptographic hash, baseline normal behavior, detect unauthorized software, prohibit insecure bootloaders.</td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td></td>
       <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td>No mention of secure boot, firmware signing, or malware detection. Devices could run unauthorized code if compromised</td>
     </tr>
     <tr style="background:#f5f5f5;">
       <td>CK-MT-04</td>
       <td>Do you secure remote management of devices, including sensor gateways? Examples include: Secure OTA updates, cryptographically secure software/firmware updates, platform integrity verification, restrict remote management to secure networks.</td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td></td>
       <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td>No description for OTA update security or remote management protections. TLS/MQTT helps communications, but update signing and remote access restrictions are missing.</td>
     </tr>
   </tbody>
 </table>
@@ -760,35 +768,34 @@ data? in transit, in use, at rest </td>
     <tr>
       <td>CK-RS-01</td>
       <td>Does your device support integrity self-test, error detection and correction for critical functions and return to a safe state?</td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td></td>
       <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td>Description includes tamper protection and emergency override, but no mention of device self-test, ECC (error correction), or automatic recovery to a safe state.</td>
     </tr>
     <tr style="background:#f5f5f5;">
       <td>CK-RS-02</td>
       <td>Do you safeguard against a compromised device from compromising the system? Examples include: Use of Perfect Forward Secrecy (PFS) for secure communication, Use of distinct secret keys for individual devices.</td>
       <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td></td>
+      <td>TLS for MQTT + certificates + unique device authentication cover this. Each device can have its own cert/key pair.</td>
     </tr>
     <tr>
       <td>CK-RS-03</td>
-      <td>Do you employ mechanisms against failures from resource exhaustion and/or malicious attacks such as DDoS? Examples include: Monitor to ensure that cloud resources are sufficient to sustain services, Detect resource exhaustion for early preventive or corrective actions, Control the execution of resource-intensive software, Enforce power thresholds, Limit the number of concurrent sessions, Operate with excess capacity. 
-</td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td>Do you employ mechanisms against failures from resource exhaustion and/or malicious attacks such as DDoS? Examples include: Monitor to ensure that cloud resources are sufficient to sustain services, Detect resource exhaustion for early preventive or corrective actions.</td>
+      <td></td>
       <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td>Nothing described about rate limiting, session caps, cloud resource monitoring, or power thresholds.</td>
     </tr>
     <tr style="background:#f5f5f5;">
       <td>CK-RS-04</td>
       <td>Do you conduct regular backups of system data (including settings)?</td>
       <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td></td>
+      <td>Firebase offers auto-backups for databases while ThingSpeak needs to be regularly backed up.</td>
     </tr>
   </tbody>
 </table>
@@ -808,20 +815,20 @@ data? in transit, in use, at rest </td>
   <tbody>
     <tr>
       <td>CK-AU-01</td>
-      <td>Do your devices and system record enough information (e.g., who does what and when) in audit logs and flag significant events? Example of events include: user logins, logouts, and unsuccessful authentication attempts; connection, disconnection, and unsuccessful connection attempts; unsuccessful authorization attempts; access to sensitive data; import and export of data from removable media; any change in access privileges; creation, modification, or deletion of data by users; impactful and remote operations; security update failures; and physical or emergency access attempts where possible.</td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td>Do your devices and system record enough information (e.g., who does what and when) in audit logs and flag significant events?</td>
       <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td></td>
+      <td>Logged all access attempts (number code, IR, biometrics), and Firebase/ThingSpeak capture events in real time. Logs include both successes and failures, covering “who, what, when.” Emergency override + alarm unlock events can also be logged.</td>
     </tr>
 
     <tr style="background:#f5f5f5;">
       <td>CK-AU-02</td>
       <td>Are your audit logs protected from modification, deletion, physical tampering, and sensitive data disclosure?</td>
       <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td></td>
+      <td>API Keys for controlled access, and Firebase rules + read-only keys to prevent modifications. Firebase and ThingSpeak regular backups to prevent data loss. As well as mentions of tamper protection.</td>
     </tr>
   </tbody>
 </table>
@@ -842,35 +849,35 @@ data? in transit, in use, at rest </td>
     <tr>
       <td>CK-LP-01</td>
       <td>Have you conducted threat modeling to identify, analyze and mitigate threats to the system?</td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td></td>
       <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td>Address risks but no formal threat modelling exercise documented (e.g. STRIDE)</td>
     </tr>
     <tr style="background:#f5f5f5;">
       <td>CK-LP-02</td>
       <td>Did you design and develop the system using a secure systems engineering approach?</td>
       <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td></td>
+      <td>Multi-layered design (crypto, network security, auth, tamper protection, resiliency) shows structured secure engineering.</td>
     </tr>
     <tr>
       <td>CK-LP-03</td>
       <td>Do you implement and maintain the system with components from a secure supply chain, with no known vulnerabilities?</td>
       <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td></td>
+      <td>Source components from verified vendors and scanned libraries, SDKs before integration</td>
       </tr>
 
       <tr>
       <td>CK-LP-05</td>
       <td>Do you ensure that the system is hardened before the "Operational" lifecycle phase? Examples of system hardening include: Remove all backdoors, remove all debug codes from the released version, change default configuration and disable unnecessary services, remove or tamper-covered JTAG, unneeded serial and ports before deployment, harden VM host properly, including disabling memory sharing between VM, remove default and hardcoded passwords.</td>
       <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td></td>
+      <td>No code reuse, secure WiFi, TLS for MQTT, removal of default codes, tamper protection</td>
     </tr>
 
     
@@ -878,49 +885,48 @@ data? in transit, in use, at rest </td>
       <td>CK-LP-06</td>
       <td>Do you maintain an inventory of connected devices, software and firmware versions, applied patches and updates throughout the “Operational” lifecycle stage?</td>
       <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td></td>
+      <td>Log events (Firebase, ThingSpeak) but no mention of patch tracking or device/firmware inventory</td>
     </tr>
 
     <tr>
       <td>CK-LP-07</td>
       <td>Do you conduct penetration testing and/or vulnerability assessment periodically, and before each major release?</td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td></td>
       <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td>Not covered. No testing process mentioned</td>
     </tr>
 
     <tr style="background:#f5f5f5;">
       <td>CK-LP-08</td>
       <td>Do you establish proper vulnerability disclosure and management? Examples include: Ensure the supply chain's capability to provide upgrades and patches, provide vulnerability disclosure and processes to track and respond promptly, provide firmware and software patches/updates for vulnerabilities discovered, employ proper change management processes to manage security patches or updates, notify and/or allow user to approve/reject updates, patches and changes to user settings, disclose minimum support period.</td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td></td>
       <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td>No disclosure/patch management process defined</td>
     </tr>
 
     <tr>
       <td>CK-LP-09</td>
       <td>Do you ensure that identities, certificates and secrets are secured throughout the lifecycle (e.g., creation, provisioning, renewal and revocation)?</td>
       <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td></td>
+      <td>TLS certs, Firebase authentication, secure number codes, biometrics</td>
     </tr>
 
     <tr style="background:#f5f5f5;">
       <td>CK-LP-10</td>
       <td>Do you sanitize devices and systems of security data and sensitive user data, before the "Reuse or Dispose" lifecycle stages?</td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td></td>
       <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td>Sanitization before reuse/disposal not addressed. No wipe or crypto-erase procedure described</td>
     </tr>
-  </tbody>
-  </table>  
   </p>
+</table>
 </section>
 
     <section id="security-threats-solutions" class="section-p1" data-aos="fade-up">
