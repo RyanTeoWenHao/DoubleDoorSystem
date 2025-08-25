@@ -148,7 +148,7 @@
         In hospitals and pharmaceutical labs, controlled substances like opioids and research materials require secure access to prevent misuse, theft, or tampering. 
         <br /><br />
         <strong>PharmaGate</strong> is a smart double-door security system that introduces multi-layer authentication and environmental awareness for high-security zones. 
-        The system combines QR-based app authentication, biometric verification (face and fingerprint), tailgating prevention, and fire-response mechanisms. 
+       The system combines app authentication, random code generation,, biometric verification (face and fingerprint), tailgating prevention, and fire-response mechanisms. 
         It also includes real-time data monitoring and visualization using ThingSpeak, ensuring security logs are transparent and auditable.
         <br /><br />
         By enhancing physical and digital access control, PharmaGate improves both operational safety and regulatory compliance in sensitive medical environments.
@@ -176,6 +176,7 @@
     <!-- First Row: Left to Right -->
     <div class="flow-row">
       <div class="flow-card">
+        <img src="../images/how-it-works/1.jpg" sizes="(max-width: 600px) 100vw, 600px" alt="User Verification" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
         <h4>User Verification</h4>
         <p>
           User verification is done via email and password using a mobile app connected to Firebase.
@@ -184,6 +185,7 @@
       <div class="arrow">→</div>
 
       <div class="flow-card">
+        <img src="../images/how-it-works/2.jpg" sizes="(max-width: 600px) 100vw, 600px" alt="User Verification" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
         <h4>Enter Code</h4>
         <p>
           User enters a code displayed on the LCD screen above the first door.
@@ -197,7 +199,8 @@
     <!-- Second Row: Left to Right -->
     <div class="flow-row">
       <div class="flow-card">
-         <h4>Biometric Authentication</h4>
+        <img src="../images/how-it-works/4.jpg" sizes="(max-width: 600px) 100vw, 600px" alt="User Verification" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
+        <h4>Biometric Authentication</h4>
         <p>
           Biometric verification is performed using face ID and fingerprint scanning.
         </p>
@@ -205,7 +208,8 @@
       <div class="arrow">←</div>
 
       <div class="flow-card">
-         <h3>Tailgating Check</h3>
+        <img src="../images/how-it-works/3.jpg" sizes="(max-width: 600px) 100vw, 600px" alt="User Verification" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
+        <h3>Tailgating Check</h3>
         <p>
           If no tailgating is detected, the user proceeds; if detected, a buzzer sounds, and the second door remains locked.
         </p>
@@ -220,6 +224,7 @@
     <!-- Third Row: Left to Right -->
     <div class="flow-row">
       <div class="flow-card">
+        <img src="../images/how-it-works/5.jpg" sizes="(max-width: 600px) 100vw, 600px" alt="User Verification" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
         <h4>RFID Scanning for Exit</h4>
         <p>
           The user scans their RFID card for exit authentication through Firebase.
@@ -228,6 +233,7 @@
       <div class="arrow">→</div>
 
       <div class="flow-card">
+        <img src="../images/how-it-works/6.jpg" sizes="(max-width: 600px) 100vw, 600px" alt="User Verification" style="width:100%; border-radius: 8px; margin-bottom: 15px;">
         <h4>Emergency System</h4>
         <p>
           In case of a fire, a temperature and humidity sensor triggers the emergency system and unlocks all doors.
@@ -235,6 +241,10 @@
       </div>
     </div>
   </div>
+
+
+  
+    
 </section>
 
 <!-- Styles -->
@@ -250,11 +260,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex: 1 1 auto;
   }
 
   .flow-card {
-    background-color: #007bff;
-    color: white;
+    flex: 1 1 auto;
+    background-color: #bebebe;
+    color: rgb(0, 0, 0);
     padding: 20px;
     margin: 15px;
     border-radius: 8px;
@@ -387,7 +399,12 @@
       </tr>
       <tr>
         <td style="padding:14px; vertical-align:top;"><strong>LCD Code Input</strong></td>
-        <td style="padding:14px; vertical-align:top;">User enters a code displayed on the LCD above the door to unlock the first door.</td>
+        <td style="padding:14px; vertical-align:top;">
+          <div style="text-align: left;">
+          User enters a code displayed on the LCD above the door to unlock the first door.
+          </div>
+          <img src="../images/app_input.png" style="display:block; margin:10px auto; max-width:100%; height:auto;">
+        </td>
       </tr>
       <tr style="background:#f5f5f5;">
         <td style="padding:14px; vertical-align:top;"><strong>Energy Saving</strong></td>
@@ -395,7 +412,13 @@
       </tr>
       <tr>
         <td style="padding:14px; vertical-align:top;"><strong>Tailgating Detection</strong></td>
-        <td style="padding:14px; vertical-align:top;">IR sensor ensures no tailgating. If detected, a buzzer sounds and the second door remains locked.</td>
+       <td style="padding:14px; vertical-align:top; text-align:center;">
+  <div style="text-align:left;">
+    IR sensor ensures no tailgating. If detected, a buzzer sounds and the second door remains locked.
+  </div>
+  <img src="../images/tailgate.jpg" style="display:block; margin:10px auto; max-width:100%; height:auto;">
+</td>
+
       </tr>
       <tr style="background:#f5f5f5;">
         <td style="padding:14px; vertical-align:top;"><strong>Biometric Authentication</strong></td>
@@ -407,7 +430,12 @@
       </tr>
       <tr style="background:#f5f5f5;">
         <td style="padding:14px; vertical-align:top;"><strong>LED Indicator</strong></td>
-        <td style="padding:14px; vertical-align:top;">LED lights up red if the user is too close or too far from the camera, and green when at the correct distance.</td>
+        <td style="padding:14px; vertical-align:top;">
+         <div style="text-align:left;">
+    LED lights up red if the user is too close or too far from the camera, and green when at the correct distance.
+  </div>
+  <img src="../images/tailgate.jpg" style="display:block; margin:10px auto; max-width:100%; height:auto;">
+        </td> 
       </tr>
       <tr>
         <td style="padding:14px; vertical-align:top;"><strong>RFID Exit Authentication</strong></td>
@@ -441,7 +469,7 @@
     <h3>Vendor Disclosure Checklist</h3>
 
     <!-- Cryptographic Support Section -->
-    <h4>1. Cryptographic Support</h4>
+    <h2>1. Cryptographic Support</h2>
     <table border="1" cellpadding="10" cellspacing="0" style="width:100%; text-align:left; border-collapse: collapse;">
   <thead>
     <tr style="background-color: #f2f2f2;">
@@ -460,22 +488,22 @@
         (Examples of best practices include: use of approved algorithms, sufficient key length, approved random number generators, 
         recommended crypto-period.)</td>
       <td><span class="checkbox-checked">&#10004;</span></td> 
-      <td><span class="checkbox-unchecked">&#10008;</span></td> 
-      <td><span class="checkbox-checked">&#10004;</span></td> 
-      <td>ihseighseighsighighsgshgisdhigsdhgkjsdhgjksdgjkdshgkjsdh</td>
+      <td></td>
+      <td></td>
+      <td>use TLS/SSL for MQTT and certificates.</td>
     </tr>
     <tr>
       <td>CK-CS-02</td>
       <td>Do you employ proper key management (generation, exchange, storage, destruction, replacement, etc.) techniques?</td>
+      <td></td>
       <td><span class="checkbox-checked">&#10004;</span></td> 
-      <td><span class="checkbox-unchecked">&#10008;</span></td> 
-      <td><span class="checkbox-unchecked">&#10008;</span></td> 
+      <td></td>
       <td></td>
     </tr>
   </tbody>
 </table>
 
-<h4>2. Security function protection </h4>
+<h2>2. Security function protection </h2>
     <table border="1" cellpadding="10" cellspacing="0" style="width:100%; text-align:left; border-collapse: collapse;">
   <thead>
     <tr style="background-color: #f2f2f2;">
@@ -491,16 +519,16 @@
     <tr>
       <td>CK-FP-01</td>
       <td>Do you establish hardware Root-of-Trust?</td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td></td>
+      <td></td>
       <td><span class="checkbox-checked">&#10004;</span></td> 
-      <td><span class="checkbox-checked">&#10004;</span></td>   
-      <td>ihseighseighsighighsgshgisdhigsdhgkjsdhgjksdgjkdshgkjsdh</td>
+      <td></td>
     </tr>
     <tr>
       <td>CK-FP-02 </td>
       <td>Do you employ secure boot? </td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td> 
+      <td></td>
+      <td></td>
       <td><span class="checkbox-checked">&#10004;</span></td> 
       <td></td>
     </tr>
@@ -524,18 +552,18 @@
         <tr>
           <td>CK-IA-01</td>
           <td>Do you employ unique, non-modifiable and verifiable identities for clients (user, device, gateway, application) and servers?</td>
-          <td><span class="checkbox-checked">&#10004;</span></td>
-          <td><span class="checkbox-checked">&#10004;</span></td>
-          <td><span class="checkbox-checked">&#10004;</span></td>
+          <td><span class="checkbox-checked">&#10004;</span></td> 
           <td></td>
+          <td></td>
+          <td>Strong user identity (QR, biometrics, number codes) and device (App Login based on user credentials). However, server identity also not confirmed beyond TLS.</td>
         </tr>
         <tr>
           <td>CK-IA-02</td>
           <td>Do you employ mutual authentication? For example, before establishing connections and after pre-defined intervals.</td>
-          <td><span class="checkbox-checked">&#10004;</span></td>
-          <td><span class="checkbox-checked">&#10004;</span></td>
-          <td><span class="checkbox-checked">&#10004;</span></td>
           <td></td>
+          <td><span class="checkbox-checked">&#10004;</span></td> 
+          <td></td>
+          <td>Use TLS for MQTT, which authenticates the server, but no mention of mutual TLS (mTLS) or device certs for client.</td>
         </tr>
       </tbody>
     </table>
@@ -557,36 +585,33 @@
         <tr>
           <td>CK-NP-01</td>
           <td>Do you enforce network access control? For example, ensure explicit authorization to join a new network and/or allow remote access.</td>
-          <td><span class="checkbox-checked">&#10004;</span></td>
-          <td><span class="checkbox-checked">&#10004;</span></td>
-          <td><span class="checkbox-checked">&#10004;</span></td>
+          <td></td>
+          <td><span class="checkbox-checked">&#10004;</span></td> 
+          <td></td>
           <td></td>
         </tr>
         <tr>
           <td>CK-NP-02</td>
-          <td>Do you employ proven transport protocols with security controls properly activated? Examples include: Use of TLS for TCP payloads, Use of DTLS for UDP payloads. 
-</td>
-          <td><span class="checkbox-checked">&#10004;</span></td>
-          <td><span class="checkbox-checked">&#10004;</span></td>
-          <td><span class="checkbox-checked">&#10004;</span></td>
-          <td>Examples include: Use of TLS for TCP payloads, use of DTLS for UDP payloads.</td>
+          <td>Do you employ proven transport protocols with security controls properly activated?</td>
+          <td><span class="checkbox-checked">&#10004;</span></td> 
+          <td></td>
+          <td></td>
+          <td>Use of TLS/SSL for MQTT which fully covers secure transport for TCP payloads.</td>
         </tr>
          <tr>
           <td>CK-NP-03 </td>
           <td>Do you employ industry best practices for secure connectivity? Examples of industry best practices:Use of VPN or leased lines, Use of private mobile APNs from telecommunication operators when using a public mobile carrier network, Use of DNS pinning to prevent DNS spoofing, Use of traffic filtering based on type, port and destination, Use of certificate pinning, Employ TLS when using MQTT, Scan for open network ports, Use whitelisting to establish or deny connections from nontrusted sources.</td>
-          <td><span class="checkbox-checked">&#10004;</span></td>
-          <td><span class="checkbox-checked">&#10004;</span></td>
-          <td><span class="checkbox-checked">&#10004;</span></td>
+          <td></td>
+          <td><span class="checkbox-checked">&#10004;</span></td> 
+          <td></td>
           <td></td>
         </tr>
         <tr>
           <td>CK-NP-04</td>
-          <td>Do you segregate communication channels for trusted end points
-from non-trusted ones? Examples include: Use of VLAN, Use of firewalls for DMZ, Use of unidirectional security gateway, Physical isolation. 
- </td>
-          <td><span class="checkbox-checked">&#10004;</span></td>
-          <td><span class="checkbox-checked">&#10004;</span></td>
-          <td><span class="checkbox-checked">&#10004;</span></td>
+          <td>Do you segregate communication channels for trusted end points from non-trusted ones? xamples include: Use of VLAN, Use of firewalls for DMZ, Use of unidirectional security gateway, Physical isolation. </td>
+          <td></td>
+          <td><span class="checkbox-checked">&#10004;</span></td> 
+          <td></td>
           <td></td>
         </tr>
       </tbody>
@@ -607,40 +632,39 @@ from non-trusted ones? Examples include: Use of VLAN, Use of firewalls for DMZ, 
       <tbody>
         <tr>
           <td>CK-DP-01</td>
-          <td>Do you protect the confidentiality and integrity of your sensitive
-data? in transit, in use, at rest </td>
-          <td><span class="checkbox-checked">&#10004;</span></td>
-          <td><span class="checkbox-checked">&#10004;</span></td>
-          <td><span class="checkbox-checked">&#10004;</span></td>
+          <td>Do you protect the confidentiality and integrity of your sensitive data? in transit, in use, at rest </td>
+          <td><span class="checkbox-checked">&#10004;</span></td> 
           <td></td>
+          <td></td>
+          <td>TLS/SSL for MQTT + Firebase (encrypted at rest & in transit). Biometrics secured. No reuse of number codes.</td>
         </tr>
         <tr>
       <td>CK-DP-02</td>
-      <td>Do you protect the authenticity and integrity of your codes and firmware? in transit, in use, at rest</td>
-        <td><span class="checkbox-checked">&#10004;</span></td>
-        <td><span class="checkbox-checked">&#10004;</span></td>
-        <td><span class="checkbox-checked">&#10004;</span></td>
-      <td></td>
-    </tr>
-    <tr style="background:#f5f5f5;">
-      <td>CK-DP-03</td>
-      <td>Do you ensure the authenticity and integrity of your data (e.g., inputs, commands and sensing data)? in transit, in use, at rest. Examples include: Validate incoming content-types, Validate response types, Validate HTTP methods against authorization credentials, Whitelist allowable HTTP methods, Define acceptable character set, Validate that input characters are acceptable, Encode/escape input and output.</td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>CK-DP-04</td>
-      <td>Do you enforce access control to detect and prevent unauthorized data access and exfiltration, and filter your outputs?</td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td></td>
-    </tr>
-      </tbody>
-    </table>
-    <h4>6. Access Protection</h4>
+        <td>Do you protect the authenticity and integrity of your codes and firmware? in transit, in use, at rest</td>
+        <td></td>
+        <td><span class="checkbox-checked">&#10004;</span></td> 
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="background:#f5f5f5;">
+        <td>CK-DP-03</td>
+        <td>Do you ensure the authenticity and integrity of your data (e.g., inputs, commands and sensing data)? in transit, in use, at rest. Examples include: Validate incoming content-types, Validate response types, Validate HTTP methods against authorization credentials, Whitelist allowable HTTP methods, Define acceptable character set, Validate that input characters are acceptable, Encode/escape input and output.</td>
+        <td></td>
+        <td><span class="checkbox-checked">&#10004;</span></td> 
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>CK-DP-04</td>
+        <td>Do you enforce access control to detect and prevent unauthorized data access and exfiltration, and filter your outputs?</td>
+        <td><span class="checkbox-checked">&#10004;</span></td> 
+        <td></td>
+        <td></td>
+        <td>Access sequence enforced (code → IR → biometrics). Firebase access controlled. TLS prevents interception. Logs monitored.</td>
+      </tr>
+    </tbody>
+  </table>
+  <h4>6. Access Protection</h4>
 <table border="1" cellpadding="10" cellspacing="0" style="width:100%; text-align:left; border-collapse: collapse;">
   <thead>
     <tr style="background-color: #f2f2f2;">
@@ -656,42 +680,42 @@ data? in transit, in use, at rest </td>
     <tr>
       <td>CK-AP-01</td>
       <td>Do you employ mechanisms to manage and secure local and/or remote access? Example mechanisms include: auto logoff, screen lock, lock-out for repeated unauthorised attempts, forced re-authorisation.</td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td></td>
+      <td><span class="checkbox-checked">&#10004;</span></td> 
+      <td></td>
       <td></td>
     </tr>
     <tr style="background:#f5f5f5;">
       <td>CK-AP-02</td>
       <td>Do you send out-of-band notifications on impactful operations and/or alerts (e.g., credential reset, security update failures)?</td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td></td>
+      <td><span class="checkbox-checked">&#10004;</span></td> 
+      <td></td>
       <td></td>
     </tr>
     <tr>
       <td>CK-AP-03</td>
       <td>Do you enforce access control to prevent unauthorised access to system interfaces, system files and removable media?</td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td> 
       <td></td>
+      <td></td>
+      <td>End-user access is strong (codes, RFID, biometrics)</td>
     </tr>
     <tr style="background:#f5f5f5;">
       <td>CK-AP-04</td>
       <td>Do you employ anti-tamper mechanisms for resistance, evidence, detection and/or response?</td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td> 
       <td></td>
+      <td></td>
+      <td>Physical tamper protection (alarm unlock, tamper detection)</td>
     </tr>
     <tr>
       <td>CK-AP-05</td>
       <td>Do you support multi-factor authentication for impactful operations (e.g., credential reset)?</td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td><span class="checkbox-checked">&#10004;</span></td> 
       <td></td>
+      <td></td>
+      <td>uses multi-factor authentication (email tied to registered staff identity, verify with biometrics).</td>
     </tr>
   </tbody>
 </table>
@@ -713,33 +737,33 @@ data? in transit, in use, at rest </td>
       <td>CK-MT-01</td>
       <td>Do you employ proper user and password management? Examples include: Enforce strong password policy, enforce no default passwords, ensure password recovery and reset mechanism are secure.</td>
       <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td></td>
+      <td>Usage of email and password for app login as well as password recovery if user were to forget.</td>
     </tr>
     <tr style="background:#f5f5f5;">
       <td>CK-MT-02</td>
       <td>Do you enforce proper access control to management functions? Examples include: Enforce least privilege, implement dual control for key management protection, use ABAC or RBAC, separation of duties for administrators.</td>
       <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td></td>
+      <td>Use of firebase rules and authentication to manage users.</td>
     </tr>
     <tr>
       <td>CK-MT-03</td>
       <td>Do you employ malware mitigation mechanisms? Examples include: Ensure file integrity using cryptographic hash, baseline normal behavior, detect unauthorized software, prohibit insecure bootloaders.</td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td></td>
       <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td>No mention of secure boot, firmware signing, or malware detection. Devices could run unauthorized code if compromised</td>
     </tr>
     <tr style="background:#f5f5f5;">
       <td>CK-MT-04</td>
       <td>Do you secure remote management of devices, including sensor gateways? Examples include: Secure OTA updates, cryptographically secure software/firmware updates, platform integrity verification, restrict remote management to secure networks.</td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td></td>
       <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td>No description for OTA update security or remote management protections. TLS/MQTT helps communications, but update signing and remote access restrictions are missing.</td>
     </tr>
   </tbody>
 </table>
@@ -760,35 +784,34 @@ data? in transit, in use, at rest </td>
     <tr>
       <td>CK-RS-01</td>
       <td>Does your device support integrity self-test, error detection and correction for critical functions and return to a safe state?</td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td></td>
       <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td>Description includes tamper protection and emergency override, but no mention of device self-test, ECC (error correction), or automatic recovery to a safe state.</td>
     </tr>
     <tr style="background:#f5f5f5;">
       <td>CK-RS-02</td>
       <td>Do you safeguard against a compromised device from compromising the system? Examples include: Use of Perfect Forward Secrecy (PFS) for secure communication, Use of distinct secret keys for individual devices.</td>
       <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td></td>
+      <td>TLS for MQTT + certificates + unique device authentication cover this. Each device can have its own cert/key pair.</td>
     </tr>
     <tr>
       <td>CK-RS-03</td>
-      <td>Do you employ mechanisms against failures from resource exhaustion and/or malicious attacks such as DDoS? Examples include: Monitor to ensure that cloud resources are sufficient to sustain services, Detect resource exhaustion for early preventive or corrective actions, Control the execution of resource-intensive software, Enforce power thresholds, Limit the number of concurrent sessions, Operate with excess capacity. 
-</td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td>Do you employ mechanisms against failures from resource exhaustion and/or malicious attacks such as DDoS? Examples include: Monitor to ensure that cloud resources are sufficient to sustain services, Detect resource exhaustion for early preventive or corrective actions.</td>
+      <td></td>
       <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td>Nothing described about rate limiting, session caps, cloud resource monitoring, or power thresholds.</td>
     </tr>
     <tr style="background:#f5f5f5;">
       <td>CK-RS-04</td>
       <td>Do you conduct regular backups of system data (including settings)?</td>
       <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td></td>
+      <td>Firebase offers auto-backups for databases while ThingSpeak needs to be regularly backed up.</td>
     </tr>
   </tbody>
 </table>
@@ -808,20 +831,19 @@ data? in transit, in use, at rest </td>
   <tbody>
     <tr>
       <td>CK-AU-01</td>
-      <td>Do your devices and system record enough information (e.g., who does what and when) in audit logs and flag significant events? Example of events include: user logins, logouts, and unsuccessful authentication attempts; connection, disconnection, and unsuccessful connection attempts; unsuccessful authorization attempts; access to sensitive data; import and export of data from removable media; any change in access privileges; creation, modification, or deletion of data by users; impactful and remote operations; security update failures; and physical or emergency access attempts where possible.</td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td>Do your devices and system record enough information (e.g., who does what and when) in audit logs and flag significant events?</td>
       <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td></td>
+      <td>Logged all access attempts (number code, IR, biometrics), and Firebase/ThingSpeak capture events in real time. Logs include both successes and failures, covering “who, what, when.” Emergency override + alarm unlock events can also be logged.</td>
     </tr>
-
     <tr style="background:#f5f5f5;">
       <td>CK-AU-02</td>
       <td>Are your audit logs protected from modification, deletion, physical tampering, and sensitive data disclosure?</td>
       <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td></td>
+      <td>API Keys for controlled access, and Firebase rules + read-only keys to prevent modifications. Firebase and ThingSpeak regular backups to prevent data loss. As well as mentions of tamper protection.</td>
     </tr>
   </tbody>
 </table>
@@ -842,35 +864,35 @@ data? in transit, in use, at rest </td>
     <tr>
       <td>CK-LP-01</td>
       <td>Have you conducted threat modeling to identify, analyze and mitigate threats to the system?</td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td></td>
       <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td>Address risks but no formal threat modelling exercise documented (e.g. STRIDE)</td>
     </tr>
     <tr style="background:#f5f5f5;">
       <td>CK-LP-02</td>
       <td>Did you design and develop the system using a secure systems engineering approach?</td>
       <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td></td>
+      <td>Multi-layered design (crypto, network security, auth, tamper protection, resiliency) shows structured secure engineering.</td>
     </tr>
     <tr>
       <td>CK-LP-03</td>
       <td>Do you implement and maintain the system with components from a secure supply chain, with no known vulnerabilities?</td>
       <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td></td>
+      <td>Source components from verified vendors and scanned libraries, SDKs before integration</td>
       </tr>
 
       <tr>
       <td>CK-LP-05</td>
       <td>Do you ensure that the system is hardened before the "Operational" lifecycle phase? Examples of system hardening include: Remove all backdoors, remove all debug codes from the released version, change default configuration and disable unnecessary services, remove or tamper-covered JTAG, unneeded serial and ports before deployment, harden VM host properly, including disabling memory sharing between VM, remove default and hardcoded passwords.</td>
       <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td></td>
+      <td>No code reuse, secure WiFi, TLS for MQTT, removal of default codes, tamper protection</td>
     </tr>
 
     
@@ -878,49 +900,51 @@ data? in transit, in use, at rest </td>
       <td>CK-LP-06</td>
       <td>Do you maintain an inventory of connected devices, software and firmware versions, applied patches and updates throughout the “Operational” lifecycle stage?</td>
       <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td></td>
+      <td>Log events (Firebase, ThingSpeak) but no mention of patch tracking or device/firmware inventory</td>
     </tr>
 
+    
     <tr>
       <td>CK-LP-07</td>
       <td>Do you conduct penetration testing and/or vulnerability assessment periodically, and before each major release?</td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td></td>
       <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td>Not covered. No testing process mentioned</td>
     </tr>
+
 
     <tr style="background:#f5f5f5;">
       <td>CK-LP-08</td>
       <td>Do you establish proper vulnerability disclosure and management? Examples include: Ensure the supply chain's capability to provide upgrades and patches, provide vulnerability disclosure and processes to track and respond promptly, provide firmware and software patches/updates for vulnerabilities discovered, employ proper change management processes to manage security patches or updates, notify and/or allow user to approve/reject updates, patches and changes to user settings, disclose minimum support period.</td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td></td>
       <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td>No disclosure/patch management process defined</td>
     </tr>
 
+    
     <tr>
       <td>CK-LP-09</td>
       <td>Do you ensure that identities, certificates and secrets are secured throughout the lifecycle (e.g., creation, provisioning, renewal and revocation)?</td>
       <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td></td>
+      <td>TLS certs, Firebase authentication, secure number codes, biometrics</td>
     </tr>
 
     <tr style="background:#f5f5f5;">
       <td>CK-LP-10</td>
       <td>Do you sanitize devices and systems of security data and sensitive user data, before the "Reuse or Dispose" lifecycle stages?</td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
-      <td><span class="checkbox-checked">&#10004;</span></td>
+      <td></td>
       <td><span class="checkbox-checked">&#10004;</span></td>
       <td></td>
+      <td>Sanitization before reuse/disposal not addressed. No wipe or crypto-erase procedure described</td>
     </tr>
-  </tbody>
-  </table>  
   </p>
+</table>
 </section>
 
     <section id="security-threats-solutions" class="section-p1" data-aos="fade-up">
@@ -977,14 +1001,22 @@ data? in transit, in use, at rest </td>
 
 <h2 style="text-align: center;"> 3D printing designs</h2>
 
-    <div id="inital-design" class="section-p1" data-aos="fade-up" style="margin: 0 auto; max-width: 900px; padding: 20px; background-color: #f0f0f0; border-radius: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-      <h2 style="text-align: center; font-size: 2rem; color: #7a1f42; margin-bottom: 20px;">Initial Design</h2>
-      <img src="..\images\3dprint\initial_design.png" alt="Initial Design" style="width: 100%; height: auto; border-radius: 12px; margin-bottom: 20px;">
-      <p style="font-size: 1.2rem; color: #555; text-align: center; margin: 0;">
-        The image above shows the initial design of the 3D printed components for the PharmaGate system. 
-        It includes the housing for the sensors, servomotors, and other components that make up the security system.
-      </p>
-    </div>
+   <div id="inital-design" class="section-p1" data-aos="fade-up" style="margin: 0 auto; max-width: 900px; padding: 20px; background-color: #f0f0f0; border-radius: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+  <h2 style="text-align: center; font-size: 2rem; color: #7a1f42; margin-bottom: 20px;">Initial Design</h2>
+  
+  <!-- Flexbox container for 3 images -->
+  <div style="display: flex; justify-content: space-between; gap: 15px; margin-bottom: 20px;">
+    <img src="..\images\door_initial1.jpg" alt="Initial Design 1" style="width: 32%; height: auto; border-radius: 12px;">
+    <img src="..\images\sliding_door.jpg" alt="Initial Design 2" style="width: 32%; height: auto; border-radius: 12px;">
+    <img src="..\images\door_initial2.jpg" alt="Initial Design 3" style="width: 32%; height: auto; border-radius: 12px;">
+  </div>
+
+  <p style="font-size: 1.2rem; color: #555; text-align: center; margin: 0;">
+    The images above show the initial design of the 3D printed components for the PharmaGate system. 
+    The design is the rough sketch of how the design would look like and where the components would be placed.
+  </p>
+</div>
+
 
     <h2 style="text-align: center;">Final Design Animation in AutoCAD</h2>
 
@@ -1000,19 +1032,10 @@ data? in transit, in use, at rest </td>
         </p>
       </div>
 
-      <div style="margin: 0 auto 40px auto; background-color: #f0f0f0; align-items: center; justify-content: center; color: #888;">
-        <video width="100%" height="auto" controls>
-          <source src="..\video\iots_demovid.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <p style="font-size: 0.8rem; color: #888; text-align: center;">
-        First demo draft
-        </p>
-      </div>
 
       <div style="margin: 0 auto 40px auto; background-color: #f0f0f0; align-items: center; justify-content: center; color: #888;">
         <video width="100%" height="auto" controls>
-          <source src="..\video\" type="video/mp4">
+          <source src="..\video\final_demo.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <h2 style="color: #000; text-align: center;">
@@ -1022,7 +1045,7 @@ data? in transit, in use, at rest </td>
     </section>
 
 
-  <section id="threat" class="section-p1" data-aos="fade" style="padding-bottom: 0;overflow: hidden; margin: 100px;">
+<section id="threat" class="section-p1" data-aos="fade" style="padding-bottom: 0;overflow: hidden; margin: 100px;">
     <h2>Hacking Methodologies</h2>
     <p style="margin-bottom: 50px;">This section will be explaining what are the possible attacks that we will be facing.</p>
 
@@ -1031,7 +1054,8 @@ data? in transit, in use, at rest </td>
       <div class="threats-card-header">
         <h3>1. Network Scanning</h3>  
       </div>
-      <p>Discover devices on the same network as the target. It helps identify the ESP8266 (Door A) and any other devices connected to the network.</p>
+      <p>Discover devices on the same network as the target. It helps identify the ESP8266 (Door A) and any other devices connected to the network. 
+        Hackers can study information of the system structure together with sniffing and find possible weaknesses to help compromise the system.</p>
       <div class="tools"><strong>Tools:</strong> Nmap (Command-line network scanner: <code>nmap -sn XXX.XXX.XXX.XXX/XXX</code>)</div>
       <div class="requirements">
         <strong>Requirements:</strong><br>
@@ -1046,7 +1070,8 @@ data? in transit, in use, at rest </td>
       <div class="threats-card-header">
         <h3>2. Wi-Fi Sniffing</h3>
       </div>
-      <p>Captures Wi-Fi traffic to identify the ESP8266's IP address and other details, provided the network uses weak encryption or no encryption at all.</p>
+      <p>Captures Wi-Fi traffic to identify the ESP8266's IP address and other details, provided the network uses weak encryption or no encryption at all. 
+        Information like database details and communications method can be read and help hackers to plan their hacking strategies.</p>
       <div class="tools"><strong>Tools:</strong> Wireshark (Network protocol analyzer)</div>
       <div class="requirements">
         <strong>Requirements:</strong><br>
@@ -1061,7 +1086,9 @@ data? in transit, in use, at rest </td>
       <div class="threats-card-header">
         <h3>3. Social Engineering</h3>
       </div>
-      <p>This method involves manipulating people within the organization to gain information or physical access to the system.</p>
+      <p>This method involves manipulating people within the organization to gain information or physical access to the system.
+         Hackers may use some ways to identify workers email and send phishing email such as asking target to reset password due to suspicious activity. 
+         This will trick them into leaking useful information to help hackers brute-force the password that are authorized to access of the door.</p>
       <div class="tools"><strong>Tools:</strong> Phishing (Fake login pages or emails)</div>
       <div class="requirements">
         <strong>Requirements:</strong><br>
@@ -1075,7 +1102,8 @@ data? in transit, in use, at rest </td>
       <div class="threats-card-header">
         <h3>4. P2P Communication Exploitation</h3>
       </div>
-      <p>This attack targets unencrypted or weakly encrypted P2P communication between devices, allowing the attacker to intercept or spoof the communication.</p>
+      <p>This attack targets unencrypted or weakly encrypted P2P communication between devices, allowing the attacker to intercept or spoof the communication.
+         Packets that includes commands related to open door can be overwrite or sent by hackers will spoof the system and trigger the door to open.</p>
       <div class="tools"><strong>Tools:</strong> Wireshark (Packet sniffing tool)</div>
       <div class="requirements">
         <strong>Requirements:</strong><br>
@@ -1097,7 +1125,7 @@ data? in transit, in use, at rest </td>
         • Valid RFID or Button Signal
       </div>
     </div>
-  </section>
+  </section>
 
     <section id="future-scope" class="section-p1" data-aos="fade">
       <h2>Future Scope</h2>
@@ -1321,7 +1349,7 @@ class CodeInputActivity : AppCompatActivity() {
     </div>
     <div class="code-content" id="codeContent5">
       <pre>
-       #include &lt;ESP8266WiFi.h&gt;
+#include &lt;ESP8266WiFi.h&gt;
 #include &lt;WiFiClient.h&gt;
 #include &lt;FirebaseESP8266.h&gt;
 #include &lt;Servo.h&gt;
@@ -1625,6 +1653,13 @@ void handleDoorUnlock(String userID) {
         and also use firebase to check if there is a fire alert to unlock the door and incorporate buzzer for tailgating detection and communicates with other ESPs via firebase to unlock the door
       </p></p>
     </div>
+  </div>
+
+   <!-- Flexbox container for 3 images -->
+  <div style="display: flex; justify-content: space-between; gap: 15px; margin-bottom: 20px;">
+    <img src="..\images\motion.jpg" alt="Initial Design 1" style="width: 32%; height: auto; border-radius: 12px; margin-left: auto; margin-right: auto;">
+     <img src="..\images\nomotion.jpg" alt="Initial Design 2" style="width: 32%; height: auto; border-radius: 12px; margin-left: auto; margin-right: auto;">
+    
   </div>
 
 
@@ -2422,6 +2457,332 @@ void handleDoorUnlock(String userID) {
       <p>This code shows how we are able to connect ESP32 CAM to edge impulse for face recognition as well as incorporate ultrasonic sensor to determine optimal distance for face detection and send it over to firebase for RGB led. As well as registering and checking of fingerprint and recording data to ThingSpeak for visualisation</p>
     </div>
   </div>
+
+<div style="display: flex; justify-content: center; gap: 20px;">
+  <img src="../images/face.jpg" 
+       alt="Face Recognition" 
+       style="width: 700px; height: auto; margin: 20px;">
+
+  <img src="../images/face_reco.jpg" 
+       alt="Second Image" 
+       style="width: 700px; height: auto;">
+</div>
+
+
+
+
+
+
+    
+
+
+  <h2 style="text-align: center;">Emergency Exit and ThingSpeak</h2>
+
+
+    <div class="code-card">
+    <div class="card-header">
+      <h4>Exit and Emergency Exit code </h4>
+      <span class="expand-icon" onclick="toggleCode('codeContent6', 'codeDescription6', 'expandIcon6')">&#x21B5; click to expand</span> <!-- Expand Icon -->
+    </div>
+    <div class="code-content" id="codeContent6">
+      <pre>
+#include &lt;Adafruit_Sensor.h&gt;
+#include &lt;DHT.h&gt;
+#include &lt;SPI.h&gt;
+#include &lt;Wire.h&gt;
+#include &lt;ESP8266WiFi.h&gt;
+#include &lt;ThingSpeak.h&gt;
+#include &lt;WiFiClientSecure.h&gt;
+#include &lt;ESP8266HTTPClient.h&gt;
+#include &lt;MFRC522v2.h&gt;
+#include &lt;MFRC522DriverSPI.h&gt;
+#include &lt;MFRC522DriverPinSimple.h&gt;
+#include &lt;MFRC522Debug.h&gt;
+#include &lt;ESP8266WiFi.h&gt;
+#include &lt;espnow.h&gt;
+#include &lt;FirebaseESP8266.h&gt;
+
+#define DHTTYPE DHT22  // DHT22
+#define DHTPIN 5  // D1
+#define BUTTON 4  // D2 
+
+/RFID: SDA - 8  SCK - 5, MOSI - 7, MISO - 6, RST - 3/ 
+
+DHT dht(DHTPIN, DHTTYPE);
+float Temperature;
+float Humidity;
+
+// MAC of ESP32(ERVIN's)
+uint8_t peerMac[] = { 0x5C, 0xCF, 0x7F, 0x05, 0x1B, 0x7C }; //mac peer address
+
+// Firebase credentials
+ #define FIREBASE_HOST "iots-31a7f-default-rtdb.firebaseio.com"
+ #define FIREBASE_AUTH "guymQlP8DYzj92PmopMzF3h93ctKjioOao3svMuv"
+// #define FIREBASE_HOST "iots-bed43-default-rtdb.asia-southeast1.firebasedatabase.app" //ervin
+// #define FIREBASE_AUTH "d9mLYmLy4iJEwrDNO8eDiDgZWtvRtTGq1JNu1V1j" //ervin
+
+
+FirebaseData fbdo;
+FirebaseAuth auth;
+FirebaseConfig config;
+
+// RFID Settings
+MFRC522DriverPinSimple ss_pin(15);  // RFID SS Pin (D8).
+MFRC522DriverSPI driver{ss_pin};
+MFRC522 mfrc522{driver};  // Create MFRC522 instance
+byte presetUID[4] = {0x70, 0x3C, 0x94, 0x21};  // Predefined UID to match (from RFID card)
+
+// ThingSpeak Credentials
+unsigned long channelID1 = 3027202;  // Your ThingSpeak channel ID
+String apiKey1 = "Q851EL4DCN8GUZK1";  // Your WriteapiKey1 for the channel
+const char *server1 = "https://api.thingspeak.com/update";
+const char *fingerprint1 = "39:6f:de:33:2b:2b:31:d6:7b:0f:81:92:df:29:1b:f9:d6:e1:57:ed";
+
+// ThingSpeak Credentials for entry (RFID)
+unsigned long channelID2 = 3027204;  // Your ThingSpeak Channel ID for RFID
+String apiKey2 = "NRYIXKPM7XEKX143";  // Write API Key for RFID
+const char* server2 = "https://api.thingspeak.com/update";
+const char* fingerprint2 = "39:6f:de:33:2b:2b:31:d6:7b:0f:81:92:df:29:1b:f9:d6:e1:57:ed";  // ThingSpeak server fingerprint for secure connection
+
+// WiFi Credentials
+char ssid[] = "Doodles";  // Your SSID
+char pass[] = "115811ah";
+WiFiClientSecure client;
+
+//***** define MAC sending msg style
+typedef struct struct_message {
+  int msg;
+} 
+struct_message;
+struct_message incomingMsg;
+struct_message outgoingMsg;
+
+/*//aft send data
+void OnDataSent(uint8_t *mac_addr, uint8_t sendStatus) {
+  Serial.print("Send Status: ");
+  Serial.println(sendStatus == 0 ? "Success" : "Fail");
+}
+
+
+void OnDataRecv(uint8_t *mac, uint8_t *incomingData, uint8_t len) {
+  memcpy(&incomingMsg, incomingData, sizeof(incomingMsg));
+  Serial.print("Received: ");
+  Serial.println(incomingMsg.msg);
+}
+*/
+
+void FirebaseConnectionNormal(){  
+  config.database_url = FIREBASE_HOST;
+  config.signer.tokens.legacy_token = FIREBASE_AUTH;
+  Firebase.begin(&config, &auth);
+
+  Firebase.setString(fbdo,"/rfid","true");
+  Serial.println("FIREBASE UPDATED for NORMAL");
+  delay(100);
+}
+
+void FirebaseConnectionFire(){  
+  config.database_url = FIREBASE_HOST;
+  config.signer.tokens.legacy_token = FIREBASE_AUTH;
+  Firebase.begin(&config, &auth);
+
+  Firebase.setString(fbdo,"/fire","true");
+  Serial.println("FIREBASE UPDATED for FIRE");
+  delay(100);
+}
+
+void setup() {
+  Serial.begin(115200);
+  delay(100);
+  dht.begin();
+
+  pinMode(BUTTON, INPUT_PULLUP); 
+
+  Serial.print("Trying to Connect with ");
+  Serial.println(ssid);
+  WiFi.begin(ssid, pass);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+
+  Serial.println(" ");
+  Serial.println("WiFi connected");
+  Serial.print("IP Address: ");
+  Serial.println(WiFi.localIP());
+
+  mfrc522.PCD_Init();
+  MFRC522Debug::PCD_DumpVersionToSerial(mfrc522, Serial);
+  Serial.println(F("Scan PICC to see UID, SAK, type, and data blocks..."));
+
+  ThingSpeak.begin(client);  // Initialize ThingSpeak
+  WiFi.channel(1);
+}
+
+void loop() {
+  Temperature = dht.readTemperature();
+  Humidity = dht.readHumidity();
+
+  if (isnan(Temperature) || isnan(Humidity)) {
+    Serial.println("Failed to read from DHT sensor!");
+    return;
+  }
+
+  Serial.print("Temperature = ");
+  Serial.print(Temperature);
+  Serial.print("\xC2\xB0");
+  Serial.println("C");
+  Serial.print("Humidity = ");
+  Serial.print(Humidity);
+  Serial.println("%");
+  Serial.println("");
+
+  if (Temperature > 40 || Humidity > 80) {
+    Serial.println("Abnormal values detected!");
+    Serial.println("Emergency mode activated...");
+
+    if (digitalRead(BUTTON) == LOW) {  // Button pressed
+      Serial.println("button pressed..");
+      FirebaseConnectionFire();
+      delay(5000);  // Simulate door open duration
+    }
+    
+    delay(1000);
+  } else {
+    // Normal operation: Disable the button functionality - insert the normal operation code here
+    RFID();
+    writeData();  // Continue uploading data to ThingSpeak
+    delay(3000);  // Delay to scan again
+  }
+}
+
+// Function to handle RFID scanning and matching
+void RFID() {
+  if (!mfrc522.PICC_IsNewCardPresent()) {
+    return;
+  }
+  
+  if (!mfrc522.PICC_ReadCardSerial()) {
+    return;
+  }
+
+  // Compare the scanned UID with the preset UID
+  bool matched = true; //token is true, button is false
+  for (byte i = 0; i < mfrc522.uid.size; i++) {
+    if (mfrc522.uid.uidByte[i] != presetUID[i]) {
+      matched = false;
+      break;
+    }
+  }
+
+  Serial.print("Scanned UID: ");
+  for (byte i = 0; i < mfrc522.uid.size; i++) {
+    Serial.print(mfrc522.uid.uidByte[i], HEX);
+    Serial.print(" ");
+  }
+  Serial.println();
+
+  if (matched) {
+    Serial.println("UID matched! Access granted.");
+    UploadThingSpeak("AccessGranted");  // Upload access granted to ThingSpeak
+    FirebaseConnectionNormal();
+    delay(1000);  // Delay before next scan
+  } else {
+    Serial.println("UID not recognized. Access denied.");
+  }
+
+  mfrc522.PICC_HaltA();  // Stop communication with the card
+}
+
+// Function to upload RFID entry data to ThingSpeak
+void UploadThingSpeak(String name) {
+  HTTPClient http;  String timestamp = getTime();
+
+  String postData = "api_key=" + apiKey2;
+  postData += "&field1=" + name;
+  postData += "&field2=" + timestamp;
+
+  Serial.println("POST: " + postData);  // Prepare data for ThingSpeak
+  http.begin(client, server2);  // Begin HTTP request to ThingSpeak
+  http.addHeader("Content-Type", "application/x-www-form-urlencoded");
+
+  int httpCode = http.POST(postData);  // Send the data
+
+  Serial.print("HTTP Code: ");
+  Serial.println(httpCode);
+
+  if (httpCode == 200) {
+    Serial.println("Uploaded to thingspeak!");
+  } else {
+    Serial.println("Failed to send data to thingspeak.");
+  }
+
+  http.end();
+  delay(20000);  // ThingSpeak requires a minimum 15s interval
+}
+
+// Function to format the current time (using millis)
+String getTime() {
+  unsigned long seconds = millis() / 1000;
+  unsigned long mins = seconds / 60;
+  unsigned long hours = mins / 60;
+  mins = mins % 60;
+  seconds = seconds % 60;
+
+  char buffer[9];  // Format: HH:MM:SS
+  sprintf(buffer, "%02lu:%02lu:%02lu", hours, mins, seconds);
+  return String(buffer);
+}
+// Write envir data to thingspeak
+void writeData() {
+  if ((WiFi.status() == WL_CONNECTED)) {
+    HTTPClient http;
+    client.setFingerprint(fingerprint1);
+    Serial.print("[HTTPS] begin ... \n");
+    http.begin(client, server1);
+    http.addHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    String httpRequestData = "api_key=" + apiKey1;
+    httpRequestData += "&field1=" + String(Temperature);
+    httpRequestData += "&field2=" + String(Humidity);
+
+    int httpCode = http.POST(httpRequestData);
+    Serial.print("HTTP Response code: ");
+    Serial.println(httpCode);
+
+    if (httpCode == 200) {
+      Serial.println("Channels update successful.");
+    } else {
+      Serial.println("Data upload failed .....");
+      Serial.println("Problem updating channel. HTTP error code " + String(httpCode));
+    }
+  }
+}
+
+void UrgentExit(){
+  outgoingMsg.msg = 5; //fire exit
+  esp_now_send(peerMac, (uint8_t *)&outgoingMsg, sizeof(outgoingMsg));
+  delay(2000);
+}
+
+void NormalExit(){
+  outgoingMsg.msg = 6; // Normal exit
+  esp_now_send(peerMac, (uint8_t *)&outgoingMsg, sizeof(outgoingMsg));
+  delay(2000);
+}
+      </pre>
+    </div>
+    <div class="card-description">
+      <p>This code shows how the esp8266 fetches data as well as sends data to firebase for communication to other ESPs to turn servo for exit and emergency exit as well as sends data to ThingSpeak with proper digital certificate</p>
+    </div>
+  </div>
+
+   <!-- Flexbox container for 3 images -->
+  <div style="display: flex; justify-content: space-between; gap: 15px; margin-bottom: 20px;">
+  <img src="..\images\tempthing.jpg" alt="Initial Design 1" style="width: 32%; height: auto; border-radius: 12px; margin-left: auto; margin-right: auto;">
+     
+    
 </section>
 
 
@@ -2441,6 +2802,8 @@ void handleDoorUnlock(String userID) {
    <p style="text-align: center;">Firebase Database for Mobile Application</p>
     <img src="../images/mobile_app_comms.png" alt="Code Image 1" style="max-width: 70%; height: auto; border-radius: 20px; margin-bottom: 30px; display: block; margin-left: auto; margin-right: auto;">
    <p style="text-align: center;">Firebase Database logging entries</p>
+
+
 
 <!-- Styles -->
 <style>
