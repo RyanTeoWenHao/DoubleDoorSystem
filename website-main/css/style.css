@@ -455,10 +455,9 @@ footer a:hover {
 
 .threats-card {
   position: relative;
-  top: 0;
   left: -160px;
+  top: 0;
   width: 100vw;
-  height: auto;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   padding: 150px;
   transition: transform 0.3s ease-in-out;
@@ -467,36 +466,27 @@ footer a:hover {
 
 
 .threats-card h3 {
-  color: #FFFFFF; 
+  color: #000000; 
   margin-bottom: 10px;
 }
 
 .threats-card p {
-  color: #FFFFFF;
+  color: #000000; 
+  text-wrap: wrap;
   margin-bottom: 10px;
 }
 
 .tools, .requirements {
   font-size: 14px;
-  color: #FFFFFF;
+  color: #000000; 
   margin-bottom: 10px;
 }
 
 .threats-card-header {
-  color: white;
+  color: #000000; 
   padding: 10px;
+  text-wrap: wrap;
   border-radius: 10px;
-}
-
-.threats-card-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw; 
-    height: 100vh;
-    background-color: #000000;
-    z-index: -1;
-    transition: left 1s ease ;
 }
 
 .checkbox-checked {

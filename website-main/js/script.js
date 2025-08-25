@@ -52,7 +52,7 @@ sidebar.addEventListener('mouseleave', () => {
 
 
 function generateRandomNumber(){
-  const randomNum = Math.floor ( Math.random()*1000000)
+  const randomNum = Math.floor ( Math.random()*10000)
   document.getElementById("random-number").innerHTML=randomNum;
 }
 
